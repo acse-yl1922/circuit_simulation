@@ -68,7 +68,10 @@ $ cmake ..
 $ make
 $ OMP_NUM_THREADS=4 ./bin/Circuit_Optimizer
 ```
-
+*Troubleshoot: if cmake fail on MacOS, run*
+```
+cmake  -DCMAKE_CXX_COMPILER=g++-13 ..
+```
 ## Documentation
 Documentation can be accessed by `docs/html/index.html`
 
