@@ -1,0 +1,246 @@
+\doxysection{Unit\+Test\+Crossover Class Reference}
+\hypertarget{class_unit_test_crossover}{}\label{class_unit_test_crossover}\index{UnitTestCrossover@{UnitTestCrossover}}
+
+
+{\ttfamily \#include $<$Unittests.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_unit_test_crossover_a9425b1d9e4979e2fcd3ecc91a901c19a}{Unit\+Test\+Crossover}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_unit_test_crossover_a3f7f7a48cf308045884e6a0f7f9ae3b7}{\texorpdfstring{$\sim$}{\string~}\+Unit\+Test\+Crossover}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_unit_test_crossover_ad1a4065f65fb66699f70e734a219beda}{test\+\_\+one\+\_\+pt\+\_\+crossover}} ()
+\item 
+void \mbox{\hyperlink{class_unit_test_crossover_ad2951829f894e25920ad4c76e773bb3a}{test\+\_\+two\+\_\+pts\+\_\+crossover}} ()
+\item 
+void \mbox{\hyperlink{class_unit_test_crossover_a5cfac96fcac1281c8df0f996a2d73aa2}{test\+\_\+mult\+\_\+pts\+\_\+crossover}} ()
+\item 
+void \mbox{\hyperlink{class_unit_test_crossover_a41199d760c1ba8f6618272287483dda5}{test\+\_\+uniform\+\_\+crossover}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_unit_test_crossover_a9425b1d9e4979e2fcd3ecc91a901c19a}\label{class_unit_test_crossover_a9425b1d9e4979e2fcd3ecc91a901c19a} 
+\index{UnitTestCrossover@{UnitTestCrossover}!UnitTestCrossover@{UnitTestCrossover}}
+\index{UnitTestCrossover@{UnitTestCrossover}!UnitTestCrossover@{UnitTestCrossover}}
+\doxysubsubsection{\texorpdfstring{UnitTestCrossover()}{UnitTestCrossover()}}
+{\footnotesize\ttfamily Unit\+Test\+Crossover\+::\+Unit\+Test\+Crossover (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Test\ Crossover\ Start\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}};}
+\DoxyCodeLine{00024\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_unit_test_crossover_a3f7f7a48cf308045884e6a0f7f9ae3b7}\label{class_unit_test_crossover_a3f7f7a48cf308045884e6a0f7f9ae3b7} 
+\index{UnitTestCrossover@{UnitTestCrossover}!````~UnitTestCrossover@{\texorpdfstring{$\sim$}{\string~}UnitTestCrossover}}
+\index{````~UnitTestCrossover@{\texorpdfstring{$\sim$}{\string~}UnitTestCrossover}!UnitTestCrossover@{UnitTestCrossover}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}UnitTestCrossover()}{\string~UnitTestCrossover()}}
+{\footnotesize\ttfamily Unit\+Test\+Crossover\+::\texorpdfstring{$\sim$}{\string~}\+Unit\+Test\+Crossover (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_unit_test_crossover_a5cfac96fcac1281c8df0f996a2d73aa2}\label{class_unit_test_crossover_a5cfac96fcac1281c8df0f996a2d73aa2} 
+\index{UnitTestCrossover@{UnitTestCrossover}!test\_mult\_pts\_crossover@{test\_mult\_pts\_crossover}}
+\index{test\_mult\_pts\_crossover@{test\_mult\_pts\_crossover}!UnitTestCrossover@{UnitTestCrossover}}
+\doxysubsubsection{\texorpdfstring{test\_mult\_pts\_crossover()}{test\_mult\_pts\_crossover()}}
+{\footnotesize\ttfamily void Unit\+Test\+Crossover\+::test\+\_\+mult\+\_\+pts\+\_\+crossover (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00100\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}===========================Test\ Multi-\/Points\ Crossover\ method===========================\(\backslash\)n"{}};}
+\DoxyCodeLine{00102\ \ \ \ \ }
+\DoxyCodeLine{00103\ \ \ \ \ std::vector<int>\ chromosome1\ =\ \{0,\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9\};}
+\DoxyCodeLine{00104\ \ \ \ \ std::vector<int>\ chromosome2\ =\ \{10,\ 11,\ 12,\ 13,\ 14,\ 15,\ 16,\ 17,\ 18,\ 19\};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{class_individual}{Individual<int>}}\ parent1,\ parent2,\ child1,\ child2;}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ =\ chromosome1;}
+\DoxyCodeLine{00109\ \ \ \ \ parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ =\ chromosome2;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.resize(chromosome1.size());}
+\DoxyCodeLine{00112\ \ \ \ \ child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.resize(chromosome2.size());}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{test___crossover_8cpp_ae45aae5eb445035260c74370b79c719d}{crossover}}.mult\_pts\_crossover(parent1,\ parent2,\ child1,\ child2);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Parent\ 1:\ "{}};}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{test___crossover_8cpp_aa79805de515ecd55fee388bc6522c375}{printChromosome}}(parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Parent\ 2:\ "{}};}
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{test___crossover_8cpp_aa79805de515ecd55fee388bc6522c375}{printChromosome}}(parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Child\ 1:\ "{}};}
+\DoxyCodeLine{00123\ \ \ \ \ \mbox{\hyperlink{test___crossover_8cpp_aa79805de515ecd55fee388bc6522c375}{printChromosome}}(child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Child\ 2:\ "{}};}
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{test___crossover_8cpp_aa79805de515ecd55fee388bc6522c375}{printChromosome}}(child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{//\ Check\ that\ the\ chromosomes\ have\ been\ altered}}
+\DoxyCodeLine{00129\ \ \ \ \ assert(child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ !=\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00130\ \ \ \ \ assert(child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ !=\ parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00131\ \ \ \ \ assert(child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ !=\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00132\ \ \ \ \ assert(child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ !=\ parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00133\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_unit_test_crossover_ad1a4065f65fb66699f70e734a219beda}\label{class_unit_test_crossover_ad1a4065f65fb66699f70e734a219beda} 
+\index{UnitTestCrossover@{UnitTestCrossover}!test\_one\_pt\_crossover@{test\_one\_pt\_crossover}}
+\index{test\_one\_pt\_crossover@{test\_one\_pt\_crossover}!UnitTestCrossover@{UnitTestCrossover}}
+\doxysubsubsection{\texorpdfstring{test\_one\_pt\_crossover()}{test\_one\_pt\_crossover()}}
+{\footnotesize\ttfamily void Unit\+Test\+Crossover\+::test\+\_\+one\+\_\+pt\+\_\+crossover (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}============================Test\ One-\/Point\ Crossover\ method============================\(\backslash\)n"{}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ std::vector<int>\ chromosome1\ =\ \{1,\ 2,\ 3,\ 4,\ 5\};}
+\DoxyCodeLine{00032\ \ \ \ \ std::vector<int>\ chromosome2\ =\ \{6,\ 7,\ 8,\ 9,\ 10\};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_individual}{Individual<int>}}\ parent1,\ parent2,\ child1,\ child2;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ =\ chromosome1;}
+\DoxyCodeLine{00037\ \ \ \ \ parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ =\ chromosome2;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.resize(chromosome1.size());}
+\DoxyCodeLine{00040\ \ \ \ \ child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.resize(chromosome2.size());}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{test___crossover_8cpp_ae45aae5eb445035260c74370b79c719d}{crossover}}.one\_pt\_crossover(parent1,\ parent2,\ child1,\ child2);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Parent\ 1:\ "{}};}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{test___crossover_8cpp_aa79805de515ecd55fee388bc6522c375}{printChromosome}}(parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Parent\ 2:\ "{}};}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{test___crossover_8cpp_aa79805de515ecd55fee388bc6522c375}{printChromosome}}(parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Child\ 1:\ "{}};}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{test___crossover_8cpp_aa79805de515ecd55fee388bc6522c375}{printChromosome}}(child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Child\ 2:\ "{}};}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{test___crossover_8cpp_aa79805de515ecd55fee388bc6522c375}{printChromosome}}(child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ Check\ that\ the\ chromosomes\ have\ been\ altered}}
+\DoxyCodeLine{00057\ \ \ \ \ assert(child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ !=\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00058\ \ \ \ \ assert(child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ !=\ parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00059\ \ \ \ \ assert(child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ !=\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00060\ \ \ \ \ assert(child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ !=\ parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00061\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_unit_test_crossover_ad2951829f894e25920ad4c76e773bb3a}\label{class_unit_test_crossover_ad2951829f894e25920ad4c76e773bb3a} 
+\index{UnitTestCrossover@{UnitTestCrossover}!test\_two\_pts\_crossover@{test\_two\_pts\_crossover}}
+\index{test\_two\_pts\_crossover@{test\_two\_pts\_crossover}!UnitTestCrossover@{UnitTestCrossover}}
+\doxysubsubsection{\texorpdfstring{test\_two\_pts\_crossover()}{test\_two\_pts\_crossover()}}
+{\footnotesize\ttfamily void Unit\+Test\+Crossover\+::test\+\_\+two\+\_\+pts\+\_\+crossover (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}============================Test\ Two-\/Points\ Crossover\ method============================\(\backslash\)n"{}};}
+\DoxyCodeLine{00066\ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ std::vector<int>\ chromosome1\ =\ \{0,\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9\};}
+\DoxyCodeLine{00068\ \ \ \ \ std::vector<int>\ chromosome2\ =\ \{10,\ 11,\ 12,\ 13,\ 14,\ 15,\ 16,\ 17,\ 18,\ 19\};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{class_individual}{Individual<int>}}\ parent1,\ parent2,\ child1,\ child2;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ =\ chromosome1;}
+\DoxyCodeLine{00073\ \ \ \ \ parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ =\ chromosome2;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.resize(chromosome1.size());}
+\DoxyCodeLine{00076\ \ \ \ \ child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.resize(chromosome2.size());}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{test___crossover_8cpp_ae45aae5eb445035260c74370b79c719d}{crossover}}.two\_pts\_crossover(parent1,\ parent2,\ child1,\ child2);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Parent\ 1:\ "{}};}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{test___crossover_8cpp_aa79805de515ecd55fee388bc6522c375}{printChromosome}}(parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Parent\ 2:\ "{}};}
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{test___crossover_8cpp_aa79805de515ecd55fee388bc6522c375}{printChromosome}}(parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Child\ 1:\ "{}};}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{test___crossover_8cpp_aa79805de515ecd55fee388bc6522c375}{printChromosome}}(child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Child\ 2:\ "{}};}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{test___crossover_8cpp_aa79805de515ecd55fee388bc6522c375}{printChromosome}}(child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ Check\ that\ the\ chromosomes\ have\ been\ altered}}
+\DoxyCodeLine{00093\ \ \ \ \ assert(child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ !=\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00094\ \ \ \ \ assert(child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ !=\ parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00095\ \ \ \ \ assert(child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ !=\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00096\ \ \ \ \ assert(child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ !=\ parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00097\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_unit_test_crossover_a41199d760c1ba8f6618272287483dda5}\label{class_unit_test_crossover_a41199d760c1ba8f6618272287483dda5} 
+\index{UnitTestCrossover@{UnitTestCrossover}!test\_uniform\_crossover@{test\_uniform\_crossover}}
+\index{test\_uniform\_crossover@{test\_uniform\_crossover}!UnitTestCrossover@{UnitTestCrossover}}
+\doxysubsubsection{\texorpdfstring{test\_uniform\_crossover()}{test\_uniform\_crossover()}}
+{\footnotesize\ttfamily void Unit\+Test\+Crossover\+::test\+\_\+uniform\+\_\+crossover (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00136\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}=============================Test\ Uniform\ Crossover\ method==============================\(\backslash\)n"{}};}
+\DoxyCodeLine{00138\ \ \ \ \ }
+\DoxyCodeLine{00139\ \ \ \ \ std::vector<int>\ chromosome1\ =\ \{0,\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9\};}
+\DoxyCodeLine{00140\ \ \ \ \ std::vector<int>\ chromosome2\ =\ \{9,\ 8,\ 7,\ 6,\ 5,\ 4,\ 3,\ 2,\ 1,\ 0\};}
+\DoxyCodeLine{00141\ \ \ \ \ std::vector<int>\ expected\_chromosome1\ =\ \{0,\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9\};}
+\DoxyCodeLine{00142\ \ \ \ \ std::vector<int>\ expected\_chromosome2\ =\ \{9,\ 8,\ 7,\ 6,\ 5,\ 4,\ 3,\ 2,\ 1,\ 0\};}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{class_individual}{Individual<int>}}\ parent1,\ parent2,\ child1,\ child2;}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ =\ chromosome1;}
+\DoxyCodeLine{00147\ \ \ \ \ parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ =\ chromosome2;}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.resize(chromosome1.size());}
+\DoxyCodeLine{00150\ \ \ \ \ child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.resize(chromosome2.size());}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \mbox{\hyperlink{test___crossover_8cpp_ae45aae5eb445035260c74370b79c719d}{crossover}}.uniform\_crossover(parent1,\ parent2,\ child1,\ child2);}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{comment}{//\ Check\ that\ the\ chromosomes\ have\ been\ altered}}
+\DoxyCodeLine{00155\ \ \ \ \ assert(child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ !=\ expected\_chromosome1);}
+\DoxyCodeLine{00156\ \ \ \ \ assert(child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ !=\ expected\_chromosome2);}
+\DoxyCodeLine{00157\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Results\ match\ expected\ outputs.\(\backslash\)n"{}};}
+\DoxyCodeLine{00158\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_unittests_8h}{Unittests.\+h}}\item 
+\mbox{\hyperlink{test___crossover_8cpp}{test\+\_\+\+Crossover.\+cpp}}\end{DoxyCompactItemize}

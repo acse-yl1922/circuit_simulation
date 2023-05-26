@@ -1,0 +1,253 @@
+\doxysection{CUnit Class Reference}
+\hypertarget{class_c_unit}{}\label{class_c_unit}\index{CUnit@{CUnit}}
+
+
+A Unit class to store the unit information and processing.  
+
+
+
+
+{\ttfamily \#include $<$CUnit.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_unit_af94af33f7e89ad04a27e77479f78eb4a}{CUnit}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_c_unit}{CUnit} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_c_unit_a7449408eff8a79d98a0b1a7fc4e4ab47}{CUnit}} (int \mbox{\hyperlink{class_c_unit_a1e15056a054eef5905aa954b4038ed9c}{id}}, int \mbox{\hyperlink{class_c_unit_acdc8636ac295d38228496f681b1b87ce}{conc\+\_\+num}}, int \mbox{\hyperlink{class_c_unit_a18f9b08b44f3f38d4483406fdf73c356}{tails\+\_\+num}})
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_c_unit}{CUnit} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_unit_a994169ee035311e22dfae1435ae36dc3}{calculate\+Output\+Flow\+Rates}} (const \mbox{\hyperlink{class_stream}{Stream}} \&INP)
+\begin{DoxyCompactList}\small\item\em Calculate the output flow rates. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_c_unit_a2b326b3671dc94ff4f85da768a937b8d}{\texorpdfstring{$\sim$}{\string~}\+CUnit}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_c_unit_acdc8636ac295d38228496f681b1b87ce}{conc\+\_\+num}}
+\item 
+int \mbox{\hyperlink{class_c_unit_a18f9b08b44f3f38d4483406fdf73c356}{tails\+\_\+num}}
+\item 
+\mbox{\hyperlink{class_stream}{Stream}} \mbox{\hyperlink{class_c_unit_ac2807661ea9bd019395a05854a098e61}{input}}
+\item 
+\mbox{\hyperlink{class_stream}{Stream}} \mbox{\hyperlink{class_c_unit_af58a1e87d56474b4b0d42c1edbf23d36}{conc}}
+\item 
+\mbox{\hyperlink{class_stream}{Stream}} \mbox{\hyperlink{class_c_unit_ad2045fb8b0fae9d3265e4ce57ba630c4}{tail}}
+\item 
+double \mbox{\hyperlink{class_c_unit_a2bbed84eb1c4697d7314062655d2cec4}{F}}
+\item 
+double \mbox{\hyperlink{class_c_unit_ade12396b03c193f02971b4cd094f34ca}{F\+\_\+old}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_c_unit_a1e15056a054eef5905aa954b4038ed9c}{id}}
+\item 
+double \mbox{\hyperlink{class_c_unit_a1275a005cf4b5a5d5f733754b63ee491}{k\+\_\+ger}} = 0.\+005
+\item 
+double \mbox{\hyperlink{class_c_unit_a6451cf5c15b47dc7eb754efc2128ea1e}{k\+\_\+waste}} = 0.\+0005
+\item 
+int \mbox{\hyperlink{class_c_unit_af9e0b8d52f4ebdff4d9e524fdd54dc8f}{rho}} = 3000
+\item 
+double \mbox{\hyperlink{class_c_unit_ada5cfd7f38a7cf5919b3877cbc36f856}{phi}} = 0.\+1
+\item 
+int \mbox{\hyperlink{class_c_unit_a51b68662385e5d30745f289134445505}{V}} = 10
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A Unit class to store the unit information and processing. 
+
+\begin{DoxyAuthor}{Author}
+acse-\/yl1922, acse-\/sm222 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_c_unit_af94af33f7e89ad04a27e77479f78eb4a}\label{class_c_unit_af94af33f7e89ad04a27e77479f78eb4a} 
+\index{CUnit@{CUnit}!CUnit@{CUnit}}
+\index{CUnit@{CUnit}!CUnit@{CUnit}}
+\doxysubsubsection{\texorpdfstring{CUnit()}{CUnit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily CUnit\+::\+CUnit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_c_unit}{CUnit} object. 
+
+Default constructor
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ this-\/>\textcolor{keywordtype}{id}\ =\ 0;}
+\DoxyCodeLine{00021\ \ \ \ \ this-\/>\mbox{\hyperlink{class_c_unit_acdc8636ac295d38228496f681b1b87ce}{conc\_num}}\ =\ -\/1;}
+\DoxyCodeLine{00022\ \ \ \ \ this-\/>\mbox{\hyperlink{class_c_unit_a18f9b08b44f3f38d4483406fdf73c356}{tails\_num}}\ =\ -\/1;}
+\DoxyCodeLine{00023\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_c_unit_a7449408eff8a79d98a0b1a7fc4e4ab47}\label{class_c_unit_a7449408eff8a79d98a0b1a7fc4e4ab47} 
+\index{CUnit@{CUnit}!CUnit@{CUnit}}
+\index{CUnit@{CUnit}!CUnit@{CUnit}}
+\doxysubsubsection{\texorpdfstring{CUnit()}{CUnit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily CUnit\+::\+CUnit (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{int}]{conc\+\_\+num,  }\item[{int}]{tails\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_c_unit}{CUnit} object. 
+
+Constructor taking the id, conc\+\_\+num and tails\+\_\+num
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Unit ID \\
+\hline
+{\em conc\+\_\+num} & Concentrate stream number \\
+\hline
+{\em tails\+\_\+num} & Tails stream number \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ this-\/>\textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{class_c_unit_a1e15056a054eef5905aa954b4038ed9c}{id}};}
+\DoxyCodeLine{00035\ \ \ \ \ this-\/>\mbox{\hyperlink{class_c_unit_acdc8636ac295d38228496f681b1b87ce}{conc\_num}}\ =\ \mbox{\hyperlink{class_c_unit_acdc8636ac295d38228496f681b1b87ce}{conc\_num}};}
+\DoxyCodeLine{00036\ \ \ \ \ this-\/>\mbox{\hyperlink{class_c_unit_a18f9b08b44f3f38d4483406fdf73c356}{tails\_num}}\ =\ \mbox{\hyperlink{class_c_unit_a18f9b08b44f3f38d4483406fdf73c356}{tails\_num}};}
+\DoxyCodeLine{00037\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_c_unit_a2b326b3671dc94ff4f85da768a937b8d}\label{class_c_unit_a2b326b3671dc94ff4f85da768a937b8d} 
+\index{CUnit@{CUnit}!````~CUnit@{\texorpdfstring{$\sim$}{\string~}CUnit}}
+\index{````~CUnit@{\texorpdfstring{$\sim$}{\string~}CUnit}!CUnit@{CUnit}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}CUnit()}{\string~CUnit()}}
+{\footnotesize\ttfamily CUnit\+::\texorpdfstring{$\sim$}{\string~}\+CUnit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_c_unit_a994169ee035311e22dfae1435ae36dc3}\label{class_c_unit_a994169ee035311e22dfae1435ae36dc3} 
+\index{CUnit@{CUnit}!calculateOutputFlowRates@{calculateOutputFlowRates}}
+\index{calculateOutputFlowRates@{calculateOutputFlowRates}!CUnit@{CUnit}}
+\doxysubsubsection{\texorpdfstring{calculateOutputFlowRates()}{calculateOutputFlowRates()}}
+{\footnotesize\ttfamily void CUnit\+::calculate\+Output\+Flow\+Rates (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stream}{Stream}} \&}]{INP }\end{DoxyParamCaption})}
+
+
+
+Calculate the output flow rates. 
+
+Function to calculate the output flow rates
+
+
+\begin{DoxyParams}{Parameters}
+{\em INP} & Input stream \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \{}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ Calculate\ Tau}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{double}\ sumFlowRate\ =\ INP.\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ +\ INP.\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}};}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{if}\ (std::abs(sumFlowRate)\ <\ 1e-\/10)}
+\DoxyCodeLine{00051\ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ sumFlowRate\ =\ 1e-\/10;\ \textcolor{comment}{//\ Set\ sumFlowRate\ to\ the\ minimum\ flow\ rate}}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{double}\ Tau\ =\ \mbox{\hyperlink{class_c_unit_ada5cfd7f38a7cf5919b3877cbc36f856}{phi}}\ *\ \mbox{\hyperlink{class_c_unit_a51b68662385e5d30745f289134445505}{V}}\ *\ \mbox{\hyperlink{class_c_unit_af9e0b8d52f4ebdff4d9e524fdd54dc8f}{rho}}\ /\ sumFlowRate;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ Calculate\ R}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{double}\ R\_ger\ =\ (\mbox{\hyperlink{class_c_unit_a1275a005cf4b5a5d5f733754b63ee491}{k\_ger}}\ *\ Tau)\ /\ (1\ +\ (\mbox{\hyperlink{class_c_unit_a1275a005cf4b5a5d5f733754b63ee491}{k\_ger}}\ *\ Tau));}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{double}\ R\_waste\ =\ (\mbox{\hyperlink{class_c_unit_a6451cf5c15b47dc7eb754efc2128ea1e}{k\_waste}}\ *\ Tau)\ /\ (1\ +\ (\mbox{\hyperlink{class_c_unit_a6451cf5c15b47dc7eb754efc2128ea1e}{k\_waste}}\ *\ Tau));}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ Calculate\ C}}
+\DoxyCodeLine{00061\ \ \ \ \ this-\/>\mbox{\hyperlink{class_c_unit_af58a1e87d56474b4b0d42c1edbf23d36}{conc}}.\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ =\ INP.\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ *\ R\_ger;}
+\DoxyCodeLine{00062\ \ \ \ \ this-\/>\mbox{\hyperlink{class_c_unit_af58a1e87d56474b4b0d42c1edbf23d36}{conc}}.\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}\ =\ INP.\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}\ *\ R\_waste;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ Calculate\ T}}
+\DoxyCodeLine{00065\ \ \ \ \ this-\/>\mbox{\hyperlink{class_c_unit_ad2045fb8b0fae9d3265e4ce57ba630c4}{tail}}.\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ =\ INP.\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ *\ (1\ -\/\ R\_ger);}
+\DoxyCodeLine{00066\ \ \ \ \ this-\/>\mbox{\hyperlink{class_c_unit_ad2045fb8b0fae9d3265e4ce57ba630c4}{tail}}.\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}\ =\ INP.\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}\ *\ (1\ -\/\ R\_waste);}
+\DoxyCodeLine{00067\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_c_unit_af58a1e87d56474b4b0d42c1edbf23d36}\label{class_c_unit_af58a1e87d56474b4b0d42c1edbf23d36} 
+\index{CUnit@{CUnit}!conc@{conc}}
+\index{conc@{conc}!CUnit@{CUnit}}
+\doxysubsubsection{\texorpdfstring{conc}{conc}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stream}{Stream}} CUnit\+::conc}
+
+Concentrate stream \Hypertarget{class_c_unit_acdc8636ac295d38228496f681b1b87ce}\label{class_c_unit_acdc8636ac295d38228496f681b1b87ce} 
+\index{CUnit@{CUnit}!conc\_num@{conc\_num}}
+\index{conc\_num@{conc\_num}!CUnit@{CUnit}}
+\doxysubsubsection{\texorpdfstring{conc\_num}{conc\_num}}
+{\footnotesize\ttfamily int CUnit\+::conc\+\_\+num}
+
+index of the unit to which this unit’s concentrate stream is connected \Hypertarget{class_c_unit_a2bbed84eb1c4697d7314062655d2cec4}\label{class_c_unit_a2bbed84eb1c4697d7314062655d2cec4} 
+\index{CUnit@{CUnit}!F@{F}}
+\index{F@{F}!CUnit@{CUnit}}
+\doxysubsubsection{\texorpdfstring{F}{F}}
+{\footnotesize\ttfamily double CUnit\+::F}
+
+\Hypertarget{class_c_unit_ade12396b03c193f02971b4cd094f34ca}\label{class_c_unit_ade12396b03c193f02971b4cd094f34ca} 
+\index{CUnit@{CUnit}!F\_old@{F\_old}}
+\index{F\_old@{F\_old}!CUnit@{CUnit}}
+\doxysubsubsection{\texorpdfstring{F\_old}{F\_old}}
+{\footnotesize\ttfamily double CUnit\+::\+F\+\_\+old}
+
+Feed values \Hypertarget{class_c_unit_a1e15056a054eef5905aa954b4038ed9c}\label{class_c_unit_a1e15056a054eef5905aa954b4038ed9c} 
+\index{CUnit@{CUnit}!id@{id}}
+\index{id@{id}!CUnit@{CUnit}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily int CUnit\+::id\hspace{0.3cm}{\ttfamily [private]}}
+
+Unit id \Hypertarget{class_c_unit_ac2807661ea9bd019395a05854a098e61}\label{class_c_unit_ac2807661ea9bd019395a05854a098e61} 
+\index{CUnit@{CUnit}!input@{input}}
+\index{input@{input}!CUnit@{CUnit}}
+\doxysubsubsection{\texorpdfstring{input}{input}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stream}{Stream}} CUnit\+::input}
+
+Input stream \Hypertarget{class_c_unit_a1275a005cf4b5a5d5f733754b63ee491}\label{class_c_unit_a1275a005cf4b5a5d5f733754b63ee491} 
+\index{CUnit@{CUnit}!k\_ger@{k\_ger}}
+\index{k\_ger@{k\_ger}!CUnit@{CUnit}}
+\doxysubsubsection{\texorpdfstring{k\_ger}{k\_ger}}
+{\footnotesize\ttfamily double CUnit\+::k\+\_\+ger = 0.\+005\hspace{0.3cm}{\ttfamily [private]}}
+
+Germanium recovery rate \Hypertarget{class_c_unit_a6451cf5c15b47dc7eb754efc2128ea1e}\label{class_c_unit_a6451cf5c15b47dc7eb754efc2128ea1e} 
+\index{CUnit@{CUnit}!k\_waste@{k\_waste}}
+\index{k\_waste@{k\_waste}!CUnit@{CUnit}}
+\doxysubsubsection{\texorpdfstring{k\_waste}{k\_waste}}
+{\footnotesize\ttfamily double CUnit\+::k\+\_\+waste = 0.\+0005\hspace{0.3cm}{\ttfamily [private]}}
+
+Waste recovery rate \Hypertarget{class_c_unit_ada5cfd7f38a7cf5919b3877cbc36f856}\label{class_c_unit_ada5cfd7f38a7cf5919b3877cbc36f856} 
+\index{CUnit@{CUnit}!phi@{phi}}
+\index{phi@{phi}!CUnit@{CUnit}}
+\doxysubsubsection{\texorpdfstring{phi}{phi}}
+{\footnotesize\ttfamily double CUnit\+::phi = 0.\+1\hspace{0.3cm}{\ttfamily [private]}}
+
+Percentage of solid content in the stream \Hypertarget{class_c_unit_af9e0b8d52f4ebdff4d9e524fdd54dc8f}\label{class_c_unit_af9e0b8d52f4ebdff4d9e524fdd54dc8f} 
+\index{CUnit@{CUnit}!rho@{rho}}
+\index{rho@{rho}!CUnit@{CUnit}}
+\doxysubsubsection{\texorpdfstring{rho}{rho}}
+{\footnotesize\ttfamily int CUnit\+::rho = 3000\hspace{0.3cm}{\ttfamily [private]}}
+
+Density of the mineral \Hypertarget{class_c_unit_ad2045fb8b0fae9d3265e4ce57ba630c4}\label{class_c_unit_ad2045fb8b0fae9d3265e4ce57ba630c4} 
+\index{CUnit@{CUnit}!tail@{tail}}
+\index{tail@{tail}!CUnit@{CUnit}}
+\doxysubsubsection{\texorpdfstring{tail}{tail}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stream}{Stream}} CUnit\+::tail}
+
+Tails stream \Hypertarget{class_c_unit_a18f9b08b44f3f38d4483406fdf73c356}\label{class_c_unit_a18f9b08b44f3f38d4483406fdf73c356} 
+\index{CUnit@{CUnit}!tails\_num@{tails\_num}}
+\index{tails\_num@{tails\_num}!CUnit@{CUnit}}
+\doxysubsubsection{\texorpdfstring{tails\_num}{tails\_num}}
+{\footnotesize\ttfamily int CUnit\+::tails\+\_\+num}
+
+index of the unit to which this unit’s tails stream is connected \Hypertarget{class_c_unit_a51b68662385e5d30745f289134445505}\label{class_c_unit_a51b68662385e5d30745f289134445505} 
+\index{CUnit@{CUnit}!V@{V}}
+\index{V@{V}!CUnit@{CUnit}}
+\doxysubsubsection{\texorpdfstring{V}{V}}
+{\footnotesize\ttfamily int CUnit\+::V = 10\hspace{0.3cm}{\ttfamily [private]}}
+
+Volume of the unit 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_unit_8h}{CUnit.\+h}}\item 
+\mbox{\hyperlink{_c_unit_8cpp}{CUnit.\+cpp}}\end{DoxyCompactItemize}

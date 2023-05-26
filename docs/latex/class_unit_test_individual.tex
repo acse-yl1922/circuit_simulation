@@ -1,0 +1,156 @@
+\doxysection{Unit\+Test\+Individual Class Reference}
+\hypertarget{class_unit_test_individual}{}\label{class_unit_test_individual}\index{UnitTestIndividual@{UnitTestIndividual}}
+
+
+{\ttfamily \#include $<$Unittests.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_unit_test_individual_a61450e81f2dec9ee28414d89fb405ead}{Unit\+Test\+Individual}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_unit_test_individual_a6948e8b3ebc5d723806f79922227da3b}{\texorpdfstring{$\sim$}{\string~}\+Unit\+Test\+Individual}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_unit_test_individual_adc58939c877e724c35bbf23545fd866e}{test\+\_\+constructor}} ()
+\begin{DoxyCompactList}\small\item\em Test the constructor and getter functions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_unit_test_individual_ac6e9580367d4dfa9e73481650af57d52}{test\+\_\+\+Get\+\_\+\+Set\+\_\+fitness}} ()
+\begin{DoxyCompactList}\small\item\em Test the calculate fitness value function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_unit_test_individual_a32eb03fd1c25d52511b1718ef6f00dc7}{test\+\_\+\+Get\+\_\+num\+Units}} ()
+\begin{DoxyCompactList}\small\item\em Test the getter function for num\+\_\+units. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_unit_test_individual_a209a500ea34e9f15a0ae580ff3f889fe}{test\+\_\+\+Get\+\_\+vector\+Length}} ()
+\begin{DoxyCompactList}\small\item\em Test the getter function for vector\+\_\+length. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_individual}{Individual}}$<$ int $>$ \mbox{\hyperlink{class_unit_test_individual_a52d6bd0ee11a385c0e619b2c2a3cbe87}{individual}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_unit_test_individual_a61450e81f2dec9ee28414d89fb405ead}\label{class_unit_test_individual_a61450e81f2dec9ee28414d89fb405ead} 
+\index{UnitTestIndividual@{UnitTestIndividual}!UnitTestIndividual@{UnitTestIndividual}}
+\index{UnitTestIndividual@{UnitTestIndividual}!UnitTestIndividual@{UnitTestIndividual}}
+\doxysubsubsection{\texorpdfstring{UnitTestIndividual()}{UnitTestIndividual()}}
+{\footnotesize\ttfamily Unit\+Test\+Individual\+::\+Unit\+Test\+Individual (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00008\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ Individual\ begins"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00009\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_unit_test_individual_a6948e8b3ebc5d723806f79922227da3b}\label{class_unit_test_individual_a6948e8b3ebc5d723806f79922227da3b} 
+\index{UnitTestIndividual@{UnitTestIndividual}!````~UnitTestIndividual@{\texorpdfstring{$\sim$}{\string~}UnitTestIndividual}}
+\index{````~UnitTestIndividual@{\texorpdfstring{$\sim$}{\string~}UnitTestIndividual}!UnitTestIndividual@{UnitTestIndividual}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}UnitTestIndividual()}{\string~UnitTestIndividual()}}
+{\footnotesize\ttfamily Unit\+Test\+Individual\+::\texorpdfstring{$\sim$}{\string~}\+Unit\+Test\+Individual (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00011\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ Individual\ completed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00012\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_unit_test_individual_adc58939c877e724c35bbf23545fd866e}\label{class_unit_test_individual_adc58939c877e724c35bbf23545fd866e} 
+\index{UnitTestIndividual@{UnitTestIndividual}!test\_constructor@{test\_constructor}}
+\index{test\_constructor@{test\_constructor}!UnitTestIndividual@{UnitTestIndividual}}
+\doxysubsubsection{\texorpdfstring{test\_constructor()}{test\_constructor()}}
+{\footnotesize\ttfamily void Unit\+Test\+Individual\+::test\+\_\+constructor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Test the constructor and getter functions. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ chromosomeLength\ =\ 10;}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_unit_test_individual_a52d6bd0ee11a385c0e619b2c2a3cbe87}{individual}}\ =\ \mbox{\hyperlink{class_individual}{Individual}}(chromosomeLength,\ 0,\ 10);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ assert(\mbox{\hyperlink{class_unit_test_individual_a52d6bd0ee11a385c0e619b2c2a3cbe87}{individual}}.Get\_vectorLength()\ ==\ 10);}
+\DoxyCodeLine{00019\ \ \ \ \ assert(\mbox{\hyperlink{class_unit_test_individual_a52d6bd0ee11a385c0e619b2c2a3cbe87}{individual}}.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.size()\ ==\ 10);}
+\DoxyCodeLine{00020\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_unit_test_individual_a32eb03fd1c25d52511b1718ef6f00dc7}\label{class_unit_test_individual_a32eb03fd1c25d52511b1718ef6f00dc7} 
+\index{UnitTestIndividual@{UnitTestIndividual}!test\_Get\_numUnits@{test\_Get\_numUnits}}
+\index{test\_Get\_numUnits@{test\_Get\_numUnits}!UnitTestIndividual@{UnitTestIndividual}}
+\doxysubsubsection{\texorpdfstring{test\_Get\_numUnits()}{test\_Get\_numUnits()}}
+{\footnotesize\ttfamily void Unit\+Test\+Individual\+::test\+\_\+\+Get\+\_\+num\+Units (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Test the getter function for num\+\_\+units. 
+
+\Hypertarget{class_unit_test_individual_ac6e9580367d4dfa9e73481650af57d52}\label{class_unit_test_individual_ac6e9580367d4dfa9e73481650af57d52} 
+\index{UnitTestIndividual@{UnitTestIndividual}!test\_Get\_Set\_fitness@{test\_Get\_Set\_fitness}}
+\index{test\_Get\_Set\_fitness@{test\_Get\_Set\_fitness}!UnitTestIndividual@{UnitTestIndividual}}
+\doxysubsubsection{\texorpdfstring{test\_Get\_Set\_fitness()}{test\_Get\_Set\_fitness()}}
+{\footnotesize\ttfamily void Unit\+Test\+Individual\+::test\+\_\+\+Get\+\_\+\+Set\+\_\+fitness (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Test the calculate fitness value function. 
+
+Test the getter and setter function for fitness. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ std::vector<int>\ fitness\_list\ =\ \{10,\ 20,\ 30,\ 40,\ 50\};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ fitness\_list.size();\ i++)\{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_individual_a52d6bd0ee11a385c0e619b2c2a3cbe87}{individual}}.Set\_fitness(fitness\_list[i]);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_unit_test_individual_a52d6bd0ee11a385c0e619b2c2a3cbe87}{individual}}.Get\_fitness()\ ==\ fitness\_list[i]);}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_unit_test_individual_a209a500ea34e9f15a0ae580ff3f889fe}\label{class_unit_test_individual_a209a500ea34e9f15a0ae580ff3f889fe} 
+\index{UnitTestIndividual@{UnitTestIndividual}!test\_Get\_vectorLength@{test\_Get\_vectorLength}}
+\index{test\_Get\_vectorLength@{test\_Get\_vectorLength}!UnitTestIndividual@{UnitTestIndividual}}
+\doxysubsubsection{\texorpdfstring{test\_Get\_vectorLength()}{test\_Get\_vectorLength()}}
+{\footnotesize\ttfamily void Unit\+Test\+Individual\+::test\+\_\+\+Get\+\_\+vector\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Test the getter function for vector\+\_\+length. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ std::vector<int>\ vectorLength\_list\ =\ \{10,\ 100,\ 1000\};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ item\ :\ vectorLength\_list)\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_individual_a52d6bd0ee11a385c0e619b2c2a3cbe87}{individual}}\ =\ \mbox{\hyperlink{class_individual}{Individual}}(item,\ 0,\ 10);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_unit_test_individual_a52d6bd0ee11a385c0e619b2c2a3cbe87}{individual}}.Get\_vectorLength()\ ==\ item);}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_unit_test_individual_a52d6bd0ee11a385c0e619b2c2a3cbe87}\label{class_unit_test_individual_a52d6bd0ee11a385c0e619b2c2a3cbe87} 
+\index{UnitTestIndividual@{UnitTestIndividual}!individual@{individual}}
+\index{individual@{individual}!UnitTestIndividual@{UnitTestIndividual}}
+\doxysubsubsection{\texorpdfstring{individual}{individual}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_individual}{Individual}}$<$int$>$ Unit\+Test\+Individual\+::individual\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_unittests_8h}{Unittests.\+h}}\item 
+\mbox{\hyperlink{test___individual_8cpp}{test\+\_\+\+Individual.\+cpp}}\end{DoxyCompactItemize}

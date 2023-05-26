@@ -1,0 +1,66 @@
+\doxysection{test\+\_\+\+GA.\+cpp}
+\hypertarget{test___g_a_8cpp_source}{}\label{test___g_a_8cpp_source}\index{/Users/jr722/lecture/acs-\/gerardium-\/rush-\/pentlandite/tests/test\_GA.cpp@{/Users/jr722/lecture/acs-\/gerardium-\/rush-\/pentlandite/tests/test\_GA.cpp}}
+\mbox{\hyperlink{test___g_a_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_genetic_algorithm_8hpp}{GeneticAlgorithm.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00004}\mbox{\hyperlink{test___g_a_8cpp_abcd84e24519ee4486f51f35b862d6174}{00004}}\ std::vector<int>\ \mbox{\hyperlink{test___g_a_8cpp_abcd84e24519ee4486f51f35b862d6174}{test}}\ =\ \{1,\ 2,\ 3,\ 4,\ 5\};}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00006}\mbox{\hyperlink{test___g_a_8cpp_a11760cea6151c2d1222c5c56be27e690}{00006}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{test___g_a_8cpp_a11760cea6151c2d1222c5c56be27e690}{validity}}(\textcolor{keyword}{const}\ std::vector<int>\ \&chromosome)}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00009}00009\ \}}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00011}\mbox{\hyperlink{test___g_a_8cpp_a0fc4a6871b1585fc50de74298afcfa29}{00011}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{test___g_a_8cpp_a0fc4a6871b1585fc50de74298afcfa29}{Rosenbrock}}(\textcolor{keyword}{const}\ std::vector<int>\ \&x)}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00013}00013\ \ \ \ \ \textcolor{keywordtype}{double}\ fx\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00014}00014\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ x.size()\ -\/\ 1;\ ++i)}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00015}00015\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ term1\ =\ std::pow(x[i\ +\ 1]\ -\/\ std::pow(x[i],\ 2),\ 2);}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ term2\ =\ std::pow(1\ -\/\ x[i],\ 2);}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ fx\ +=\ 100.0\ *\ term1\ +\ term2;}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00019}00019\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ /\ (1.0\ +\ fx);\ \textcolor{comment}{//\ turn\ a\ minimization\ problem\ into\ a\ maximization\ problem}}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00021}00021\ \}}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00023}\mbox{\hyperlink{test___g_a_8cpp_a5519ef4d8d2e19f448294ff6dc347284}{00023}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{test___g_a_8cpp_a5519ef4d8d2e19f448294ff6dc347284}{fitness}}(\textcolor{keyword}{const}\ std::vector<int>\ \&chromosome)}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00024}00024\ \{}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{double}\ sum\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ chromosome.size();\ i++)}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00027}00027\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ sum\ -\/=\ (double)((\mbox{\hyperlink{test___g_a_8cpp_abcd84e24519ee4486f51f35b862d6174}{test}}[i]\ -\/\ chromosome[i])\ *\ (\mbox{\hyperlink{test___g_a_8cpp_abcd84e24519ee4486f51f35b862d6174}{test}}[i]\ -\/\ chromosome[i]));}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00029}00029\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{return}\ sum;}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00034}\mbox{\hyperlink{test___g_a_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00034}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{test___g_a_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00035}00035\ \{}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordtype}{int}\ POP\_SIZE\ =\ 200;}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordtype}{int}\ CHROMOSOME\_SIZE\ =\ 10;}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{int}\ CHROMOMIN\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{int}\ CHROMOMAX\ =\ 10;}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00040}00040\ \ \ \ \ \textcolor{keywordtype}{int}\ MAX\_GENERATION\ =\ 1500;}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{double}\ CROSSOVER\_RATE\ =\ 0.98;}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{double}\ MUTATION\_RATE\ =\ 0.01;}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8af}{CrossoverType}}\ type\ =\ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afac9fab5dc5978bcb2b00f04828856b445}{CrossoverType::ONE\_PT}};}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00045}00045\ \ \ \ \ \mbox{\hyperlink{class_g_a}{GA<int>}}\ ga(POP\_SIZE,\ CHROMOSOME\_SIZE,\ CHROMOMIN,\ CHROMOMAX,\ MAX\_GENERATION,\ CROSSOVER\_RATE,\ MUTATION\_RATE);}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00046}00046\ \ \ \ \ ga.\mbox{\hyperlink{class_g_a_a05091b3dba2263bfc564ab5caef95751}{setValidity}}(\mbox{\hyperlink{test___g_a_8cpp_a11760cea6151c2d1222c5c56be27e690}{validity}});}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00047}00047\ \ \ \ \ ga.\mbox{\hyperlink{class_g_a_a4361eec0fa9ac7456e85c8ee0975ebdd}{setFitness}}(\mbox{\hyperlink{test___g_a_8cpp_a0fc4a6871b1585fc50de74298afcfa29}{Rosenbrock}});}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00048}00048\ \ \ \ \ ga.\mbox{\hyperlink{class_g_a_a02324bd6c1c057970b5edba5d556e34b}{CONV\_GEN}}\ =\ 1500;}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{keyword}{auto}\ start\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keyword}{auto}\ best\ =\ ga.\mbox{\hyperlink{class_g_a_a26734e009defb92717076a3fe7815a02}{optimize}}(type);}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{keyword}{auto}\ end\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00054}00054\ \ \ \ \ std::chrono::duration<double>\ elapsed\ =\ end\ -\/\ start;}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00056}00056\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Time\ taken:\ "{}}\ <<\ elapsed.count()\ <<\ \textcolor{stringliteral}{"{}s\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00057}00057\ \ \ \ \ ga.\mbox{\hyperlink{class_g_a_acb82721baa3c231b09aadea4ea9c55b3}{toFile}}(\textcolor{stringliteral}{"{}../out/"{}});}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{test___g_a_8cpp_source_l00060}00060\ \}}
+
+\end{DoxyCode}

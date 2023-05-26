@@ -1,0 +1,202 @@
+\doxysection{CCircuit.\+h File Reference}
+\hypertarget{_c_circuit_8h}{}\label{_c_circuit_8h}\index{CCircuit.h@{CCircuit.h}}
+
+
+\doxylink{class_circuit}{Circuit} class.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \"{}CUnit.\+h\"{}}\newline
+{\ttfamily \#include \"{}Directed\+Graph.\+hpp\"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_circuit___parameters}{Circuit\+\_\+\+Parameters}}
+\begin{DoxyCompactList}\small\item\em A Structure to store the parameters for the circuit simulator. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_circuit}{Circuit}}
+\begin{DoxyCompactList}\small\item\em \doxylink{class_circuit}{Circuit} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_c_circuit_8h_a3fcb9a103ca8d812d262c68f199e91c7}{Calculate\+\_\+\+Circuit}} (\mbox{\hyperlink{class_circuit}{Circuit}} \&circuit, struct \mbox{\hyperlink{struct_circuit___parameters}{Circuit\+\_\+\+Parameters}} parameters)
+\begin{DoxyCompactList}\small\item\em Calculate the ger and waste rates in all streams of the circuit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_c_circuit_8h_aa5faa5de4e8e227cdedacf98b31b95d4}{Calculate\+\_\+\+Circuit}} (\mbox{\hyperlink{class_circuit}{Circuit}} \&circuit)
+\begin{DoxyCompactList}\small\item\em Overloaded function to calculate the ger and waste rates in all streams of the circuit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_circuit}{Circuit} class. 
+
+\begin{DoxyAuthor}{Author}
+acse-\/sm222 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_c_circuit_8h_aa5faa5de4e8e227cdedacf98b31b95d4}\label{_c_circuit_8h_aa5faa5de4e8e227cdedacf98b31b95d4} 
+\index{CCircuit.h@{CCircuit.h}!Calculate\_Circuit@{Calculate\_Circuit}}
+\index{Calculate\_Circuit@{Calculate\_Circuit}!CCircuit.h@{CCircuit.h}}
+\doxysubsubsection{\texorpdfstring{Calculate\_Circuit()}{Calculate\_Circuit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Calculate\+\_\+\+Circuit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_circuit}{Circuit}} \&}]{circuit }\end{DoxyParamCaption})}
+
+
+
+Overloaded function to calculate the ger and waste rates in all streams of the circuit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em circuit\+\_\+vector} & \\
+\hline
+\end{DoxyParams}
+Overloaded function to calculate the ger and waste rates in all streams of the circuit.
+
+
+\begin{DoxyParams}{Parameters}
+{\em circuit\+\_\+vector} & \doxylink{class_circuit}{Circuit} vector \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00154\ \{}
+\DoxyCodeLine{00155\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_circuit___parameters}{Circuit\_Parameters}}\ default\_circuit\_parameters;}
+\DoxyCodeLine{00156\ \ \ \mbox{\hyperlink{_c_simulator_8cpp_a3fcb9a103ca8d812d262c68f199e91c7}{Calculate\_Circuit}}(circuit,\ default\_circuit\_parameters);}
+\DoxyCodeLine{00157\ \}}
+
+\end{DoxyCode}
+\Hypertarget{_c_circuit_8h_a3fcb9a103ca8d812d262c68f199e91c7}\label{_c_circuit_8h_a3fcb9a103ca8d812d262c68f199e91c7} 
+\index{CCircuit.h@{CCircuit.h}!Calculate\_Circuit@{Calculate\_Circuit}}
+\index{Calculate\_Circuit@{Calculate\_Circuit}!CCircuit.h@{CCircuit.h}}
+\doxysubsubsection{\texorpdfstring{Calculate\_Circuit()}{Calculate\_Circuit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Calculate\+\_\+\+Circuit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_circuit}{Circuit}} \&}]{circuit,  }\item[{struct \mbox{\hyperlink{struct_circuit___parameters}{Circuit\+\_\+\+Parameters}}}]{parameters }\end{DoxyParamCaption})}
+
+
+
+Calculate the ger and waste rates in all streams of the circuit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em circuit\+\_\+vector} & \\
+\hline
+{\em parameters} & \\
+\hline
+\end{DoxyParams}
+Calculate the ger and waste rates in all streams of the circuit.
+
+
+\begin{DoxyParams}{Parameters}
+{\em circuit\+\_\+vector} & \doxylink{class_circuit}{Circuit} vector \\
+\hline
+{\em parameters} & \doxylink{class_circuit}{Circuit} parameters \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \ \ \textcolor{comment}{//\ 1.\ Asssign\ initial\ values\ for\ F\_ger\ and\ F\_waste\ in\ each\ unit\ of\ the\ circuit}}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{00026\ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.ger\ =\ parameters.\mbox{\hyperlink{struct_circuit___parameters_a50889dd79f1c47fd714519733007b6dd}{input\_Fger}};}
+\DoxyCodeLine{00028\ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.waste\ =\ parameters.\mbox{\hyperlink{struct_circuit___parameters_ab951816f15da9a6dade1226c4be09930}{input\_Fwaste}};}
+\DoxyCodeLine{00029\ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].F\ =\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.ger\ +\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.waste;}
+\DoxyCodeLine{00030\ \ \ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{comment}{//\ 2.\ Calculate\ the\ flow\ rates\ for\ each\ unit\ of\ the\ circuit}}
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{00034\ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].calculateOutputFlowRates(circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input);}
+\DoxyCodeLine{00036\ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{comment}{//\ 3.\ Set\ F\_old\ =\ F}}
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{00040\ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].F\_old\ =\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].F;}
+\DoxyCodeLine{00042\ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{comment}{//\ Total\ old\ feed\ rates}}
+\DoxyCodeLine{00045\ \ \ std::vector<double>\ F\_old(circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}},\ 0.0);}
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{00047\ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ F\_old[i]\ =\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].F\_old;}
+\DoxyCodeLine{00049\ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{comment}{//\ New\ Feed\ rates}}
+\DoxyCodeLine{00052\ \ \ std::vector<double>\ F(circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}},\ 0.0);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{comment}{//\ Boolean\ to\ check\ if\ the\ circuit\ has\ reached\ steady\ state}}
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{bool}\ terminate\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ circuit.\mbox{\hyperlink{class_circuit_a697613fa9d9cbf7c4d77f8a5b4793732}{it}}\ =\ 0;}
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordflow}{while}\ (!terminate)}
+\DoxyCodeLine{00059\ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ 4.\ Calculate\ the\ input\ flow\ rates\ for\ each\ unit\ of\ the\ circuit}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{00062\ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].F\_old\ =\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].F;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.ger\ =\ 0;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.waste\ =\ 0;}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{00069\ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \textcolor{comment}{//\ First\ the\ concentration\ stream}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].conc\_num\ >=\ 0)}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].conc\_num].input\ +=\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].conc;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \textcolor{comment}{//\ Then\ the\ tails\ stream}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].tails\_num\ >=\ 0)}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].tails\_num].input\ +=\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].tail;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ circuit.\mbox{\hyperlink{class_circuit_ae96aef59ca7a14aa0f0c01190000be58}{feeder}})}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.ger\ +=\ parameters.\mbox{\hyperlink{struct_circuit___parameters_a50889dd79f1c47fd714519733007b6dd}{input\_Fger}};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.waste\ +=\ parameters.\mbox{\hyperlink{struct_circuit___parameters_ab951816f15da9a6dade1226c4be09930}{input\_Fwaste}};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ 5.\ Calculate\ the\ output\ flow\ rates\ for\ each\ unit\ of\ the\ circuit}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{00091\ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].calculateOutputFlowRates(circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input);}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ F[i]\ =\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.ger\ +\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.waste;}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ 6.\ Check\ for\ convergence\ between\ old\ and\ new\ feed\ rates\ of\ the\ circuit}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{bool}\ converged\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{00099\ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fabs(F\_old[i]\ -\/\ F[i])\ >\ parameters.\mbox{\hyperlink{struct_circuit___parameters_acc1e5ddd0d611bfd3af8f89c0ff2777c}{tolerance}})}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Circuit\ not\ converged\ yet.\ Can\ break\ and\ continue}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ converged\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{if}\ (converged)}
+\DoxyCodeLine{00109\ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ terminate\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00113\ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ terminate\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ ++circuit.\mbox{\hyperlink{class_circuit_a697613fa9d9cbf7c4d77f8a5b4793732}{it}};}
+\DoxyCodeLine{00118\ \ \ \ \ F\_old\ =\ F;}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ F.resize(circuit.num\_units,\ 0.0);}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{if}\ (circuit.\mbox{\hyperlink{class_circuit_a697613fa9d9cbf7c4d77f8a5b4793732}{it}}\ >\ parameters.\mbox{\hyperlink{struct_circuit___parameters_a0ba1f435baf7921d786798c40ba65b59}{max\_iterations}})}
+\DoxyCodeLine{00122\ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \}}
+\DoxyCodeLine{00126\ \}}
+
+\end{DoxyCode}

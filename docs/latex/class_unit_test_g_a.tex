@@ -1,0 +1,249 @@
+\doxysection{Unit\+Test\+GA Class Reference}
+\hypertarget{class_unit_test_g_a}{}\label{class_unit_test_g_a}\index{UnitTestGA@{UnitTestGA}}
+
+
+{\ttfamily \#include $<$Unittests.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_unit_test_g_a_aee68e45a3b84ad53cdc90066b379a21d}{Unit\+Test\+GA}} (int population\+Size, int chromosome\+Size, int chromomin, int chromomax, int max\+Generation, double crossover\+Rate, double mutation\+Rate)
+\begin{DoxyCompactList}\small\item\em Constructor for the Unit\+Test\+Genetic\+Algorithm class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_unit_test_g_a_a19ef24d06b7a50c4b47109c1ad6b8a01}{\texorpdfstring{$\sim$}{\string~}\+Unit\+Test\+GA}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the Unit\+Test\+Genetic\+Algorithm class.. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_unit_test_g_a_abdc7b629fad5d80ef883f442843dbe66}{test\+\_\+mutation}} ()
+\item 
+void \mbox{\hyperlink{class_unit_test_g_a_a46a21c20af471281394bb067ff7b979d}{test\+\_\+select\+\_\+parent}} ()
+\item 
+void \mbox{\hyperlink{class_unit_test_g_a_a2bb58cb79ea282fc3e6b82429cd98e25}{test\+\_\+global\+\_\+optimum}} ()
+\begin{DoxyCompactList}\small\item\em Test with Rosenbrock function to check if the algorithm is capable in finding the global optimum successfully. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_unit_test_g_a_ab1a8ba67c06571dc2f95430a72708328}{run}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_unit_test_g_a_ae3a9eb4d12eae6df58b9032361f776a5}{POPULATION\+\_\+\+SIZE}} = 100
+\item 
+int \mbox{\hyperlink{class_unit_test_g_a_a8aef16dacfe777f33e3e85dfa77c2e45}{CHROMOSOME\+\_\+\+SIZE}} = 10
+\item 
+int \mbox{\hyperlink{class_unit_test_g_a_a660581fa1f8a3919dd2537da0c7c7d7d}{CHROMOMIN}} = 0
+\item 
+int \mbox{\hyperlink{class_unit_test_g_a_a7ab25f1862c3338c831e505404ec3487}{CHROMOMAX}} = 10
+\item 
+int \mbox{\hyperlink{class_unit_test_g_a_a73f2a677f798632c21ab1aef3b522b09}{MAX\+\_\+\+GENERATION}} = 2000
+\item 
+int \mbox{\hyperlink{class_unit_test_g_a_ac4269a3a1eef3d38c75023cf49df12d0}{CONV\+\_\+\+GEN}} = 2000
+\item 
+double \mbox{\hyperlink{class_unit_test_g_a_adb9e31fa9010e35ed21b272997134787}{CROSSOVER\+\_\+\+RATE}} = 0.\+8
+\item 
+double \mbox{\hyperlink{class_unit_test_g_a_a0f2b5fd5e79c77554bca0b6b7ef4426e}{MUTATION\+\_\+\+RATE}} = 0.\+15
+\item 
+\mbox{\hyperlink{class_g_a}{GA}}$<$ int $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_unit_test_g_a_adfe7433611392fd361ed71d3d2ec6b86}{ga}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_unit_test_g_a_aee68e45a3b84ad53cdc90066b379a21d}\label{class_unit_test_g_a_aee68e45a3b84ad53cdc90066b379a21d} 
+\index{UnitTestGA@{UnitTestGA}!UnitTestGA@{UnitTestGA}}
+\index{UnitTestGA@{UnitTestGA}!UnitTestGA@{UnitTestGA}}
+\doxysubsubsection{\texorpdfstring{UnitTestGA()}{UnitTestGA()}}
+{\footnotesize\ttfamily Unit\+Test\+GA\+::\+Unit\+Test\+GA (\begin{DoxyParamCaption}\item[{int}]{population\+Size,  }\item[{int}]{chromosome\+Size,  }\item[{int}]{chromomin,  }\item[{int}]{chromomax,  }\item[{int}]{max\+Generation,  }\item[{double}]{crossover\+Rate,  }\item[{double}]{mutation\+Rate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for the Unit\+Test\+Genetic\+Algorithm class. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_unit_test_g_a_ae3a9eb4d12eae6df58b9032361f776a5}{POPULATION\_SIZE}}(populationSize),\ \mbox{\hyperlink{class_unit_test_g_a_a8aef16dacfe777f33e3e85dfa77c2e45}{CHROMOSOME\_SIZE}}(chromosomeSize),\ \mbox{\hyperlink{class_unit_test_g_a_a660581fa1f8a3919dd2537da0c7c7d7d}{CHROMOMIN}}(chromomin),}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_a7ab25f1862c3338c831e505404ec3487}{CHROMOMAX}}(chromomax),\ \mbox{\hyperlink{class_unit_test_g_a_a73f2a677f798632c21ab1aef3b522b09}{MAX\_GENERATION}}(maxGeneration),\ \mbox{\hyperlink{class_unit_test_g_a_adb9e31fa9010e35ed21b272997134787}{CROSSOVER\_RATE}}(crossoverRate),\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_a0f2b5fd5e79c77554bca0b6b7ef4426e}{MUTATION\_RATE}}(mutationRate)\ \{\};}
+
+\end{DoxyCode}
+\Hypertarget{class_unit_test_g_a_a19ef24d06b7a50c4b47109c1ad6b8a01}\label{class_unit_test_g_a_a19ef24d06b7a50c4b47109c1ad6b8a01} 
+\index{UnitTestGA@{UnitTestGA}!````~UnitTestGA@{\texorpdfstring{$\sim$}{\string~}UnitTestGA}}
+\index{````~UnitTestGA@{\texorpdfstring{$\sim$}{\string~}UnitTestGA}!UnitTestGA@{UnitTestGA}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}UnitTestGA()}{\string~UnitTestGA()}}
+{\footnotesize\ttfamily Unit\+Test\+GA\+::\texorpdfstring{$\sim$}{\string~}\+Unit\+Test\+GA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for the Unit\+Test\+Genetic\+Algorithm class.. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \{\};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_unit_test_g_a_ab1a8ba67c06571dc2f95430a72708328}\label{class_unit_test_g_a_ab1a8ba67c06571dc2f95430a72708328} 
+\index{UnitTestGA@{UnitTestGA}!run@{run}}
+\index{run@{run}!UnitTestGA@{UnitTestGA}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Unit\+Test\+GA\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_abdc7b629fad5d80ef883f442843dbe66}{test\_mutation}}();}
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_a46a21c20af471281394bb067ff7b979d}{test\_select\_parent}}();}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_a2bb58cb79ea282fc3e6b82429cd98e25}{test\_global\_optimum}}();}
+\DoxyCodeLine{00077\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_unit_test_g_a_a2bb58cb79ea282fc3e6b82429cd98e25}\label{class_unit_test_g_a_a2bb58cb79ea282fc3e6b82429cd98e25} 
+\index{UnitTestGA@{UnitTestGA}!test\_global\_optimum@{test\_global\_optimum}}
+\index{test\_global\_optimum@{test\_global\_optimum}!UnitTestGA@{UnitTestGA}}
+\doxysubsubsection{\texorpdfstring{test\_global\_optimum()}{test\_global\_optimum()}}
+{\footnotesize\ttfamily void Unit\+Test\+GA\+::test\+\_\+global\+\_\+optimum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Test with Rosenbrock function to check if the algorithm is capable in finding the global optimum successfully. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}============================Test\ Global\ Optimum============================\(\backslash\)n"{}};}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ configure\ GA}}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_adfe7433611392fd361ed71d3d2ec6b86}{ga}}-\/>\mbox{\hyperlink{class_g_a_a05091b3dba2263bfc564ab5caef95751}{setValidity}}(\mbox{\hyperlink{main_8cpp_a00e1c393a651c9c6ffc71bc0a6c16910}{validity}});}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_adfe7433611392fd361ed71d3d2ec6b86}{ga}}-\/>\mbox{\hyperlink{class_g_a_a4361eec0fa9ac7456e85c8ee0975ebdd}{setFitness}}(\mbox{\hyperlink{test___genetic_algorithm_8cpp_a0fc4a6871b1585fc50de74298afcfa29}{Rosenbrock}});}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_adfe7433611392fd361ed71d3d2ec6b86}{ga}}-\/>\mbox{\hyperlink{class_g_a_a82835cfb612e749d75a298efd6659f57}{verbose}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8af}{CrossoverType}}\ type\ =\ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afa8f44784d154005a214e0fe94119d28ef}{CrossoverType::UNIFORM}};}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ Known\ global\ optimum\ for\ Rosenbrock\ function}}
+\DoxyCodeLine{00055\ \ \ \ \ std::vector<int>\ expected\_chromosome\ =\ \{1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1\};}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ success\_count\ =\ 0;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_runs\ =\ 10;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ Run\ for\ 10\ times\ to\ see\ if\ the\ algorithm\ can\ find\ the\ global\ optimum}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ if\ 50\%\ of\ the\ time\ can\ find\ the\ global\ optimum,\ then\ the\ test\ is\ passed}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_runs;\ i++)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ best\ =\ \mbox{\hyperlink{class_unit_test_g_a_adfe7433611392fd361ed71d3d2ec6b86}{ga}}-\/>\mbox{\hyperlink{class_g_a_a26734e009defb92717076a3fe7815a02}{optimize}}(type);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (best.chromosome\ ==\ expected\_chromosome)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ success\_count++;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ assert(success\_count\ >=\ num\_runs\ /\ 2);}
+\DoxyCodeLine{00068\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}successfully\ found\ global\ optimum\ for\ Rosenbrock:\ "{}}\ <<\ success\_count;}
+\DoxyCodeLine{00069\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ num\_runs\ <<\ \textcolor{stringliteral}{"{}\ times!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00070\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}completed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00071\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_unit_test_g_a_abdc7b629fad5d80ef883f442843dbe66}\label{class_unit_test_g_a_abdc7b629fad5d80ef883f442843dbe66} 
+\index{UnitTestGA@{UnitTestGA}!test\_mutation@{test\_mutation}}
+\index{test\_mutation@{test\_mutation}!UnitTestGA@{UnitTestGA}}
+\doxysubsubsection{\texorpdfstring{test\_mutation()}{test\_mutation()}}
+{\footnotesize\ttfamily void Unit\+Test\+GA\+::test\+\_\+mutation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}============================Test\ Mutation============================\(\backslash\)n"{}};}
+\DoxyCodeLine{00027\ \ \ \ \ std::vector<int>\ init\_chromosome\ =\ \{0,\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9\};}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_individual}{Individual<int>}}\ init\_individual(init\_chromosome);}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_individual}{Individual<int>}}\ result\_individual(init\_chromosome);}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_adfe7433611392fd361ed71d3d2ec6b86}{ga}}-\/>\mbox{\hyperlink{class_g_a_acfd18b90ec282edf1f8dd1ae99cd3d2c}{MUTATION\_RATE}}\ =\ 0.5;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_adfe7433611392fd361ed71d3d2ec6b86}{ga}}-\/>\mbox{\hyperlink{class_g_a_a983b953be1edfa07bd02e4a11700d230}{mutate}}(result\_individual);}
+\DoxyCodeLine{00033\ \ \ \ \ assert(init\_individual.chromosome\ !=\ result\_individual.chromosome);}
+\DoxyCodeLine{00034\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}completed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00035\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_unit_test_g_a_a46a21c20af471281394bb067ff7b979d}\label{class_unit_test_g_a_a46a21c20af471281394bb067ff7b979d} 
+\index{UnitTestGA@{UnitTestGA}!test\_select\_parent@{test\_select\_parent}}
+\index{test\_select\_parent@{test\_select\_parent}!UnitTestGA@{UnitTestGA}}
+\doxysubsubsection{\texorpdfstring{test\_select\_parent()}{test\_select\_parent()}}
+{\footnotesize\ttfamily void Unit\+Test\+GA\+::test\+\_\+select\+\_\+parent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}============================Test\ Select\ Parent============================\(\backslash\)n"{}};}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ result;}
+\DoxyCodeLine{00040\ \ \ \ \ std::vector<double>\ comulative\_fitness\ =\ \{-\/1.0,\ 1.0,\ 1.0\};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ result\ =\ \mbox{\hyperlink{class_unit_test_g_a_adfe7433611392fd361ed71d3d2ec6b86}{ga}}-\/>\mbox{\hyperlink{class_g_a_ac30c3731ec444e157602f4a0d41c09b4}{selectParent}}(comulative\_fitness);}
+\DoxyCodeLine{00043\ \ \ \ \ assert(result\ ==\ 1);}
+\DoxyCodeLine{00044\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}completed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_unit_test_g_a_a7ab25f1862c3338c831e505404ec3487}\label{class_unit_test_g_a_a7ab25f1862c3338c831e505404ec3487} 
+\index{UnitTestGA@{UnitTestGA}!CHROMOMAX@{CHROMOMAX}}
+\index{CHROMOMAX@{CHROMOMAX}!UnitTestGA@{UnitTestGA}}
+\doxysubsubsection{\texorpdfstring{CHROMOMAX}{CHROMOMAX}}
+{\footnotesize\ttfamily int Unit\+Test\+GA\+::\+CHROMOMAX = 10}
+
+\Hypertarget{class_unit_test_g_a_a660581fa1f8a3919dd2537da0c7c7d7d}\label{class_unit_test_g_a_a660581fa1f8a3919dd2537da0c7c7d7d} 
+\index{UnitTestGA@{UnitTestGA}!CHROMOMIN@{CHROMOMIN}}
+\index{CHROMOMIN@{CHROMOMIN}!UnitTestGA@{UnitTestGA}}
+\doxysubsubsection{\texorpdfstring{CHROMOMIN}{CHROMOMIN}}
+{\footnotesize\ttfamily int Unit\+Test\+GA\+::\+CHROMOMIN = 0}
+
+\Hypertarget{class_unit_test_g_a_a8aef16dacfe777f33e3e85dfa77c2e45}\label{class_unit_test_g_a_a8aef16dacfe777f33e3e85dfa77c2e45} 
+\index{UnitTestGA@{UnitTestGA}!CHROMOSOME\_SIZE@{CHROMOSOME\_SIZE}}
+\index{CHROMOSOME\_SIZE@{CHROMOSOME\_SIZE}!UnitTestGA@{UnitTestGA}}
+\doxysubsubsection{\texorpdfstring{CHROMOSOME\_SIZE}{CHROMOSOME\_SIZE}}
+{\footnotesize\ttfamily int Unit\+Test\+GA\+::\+CHROMOSOME\+\_\+\+SIZE = 10}
+
+\Hypertarget{class_unit_test_g_a_ac4269a3a1eef3d38c75023cf49df12d0}\label{class_unit_test_g_a_ac4269a3a1eef3d38c75023cf49df12d0} 
+\index{UnitTestGA@{UnitTestGA}!CONV\_GEN@{CONV\_GEN}}
+\index{CONV\_GEN@{CONV\_GEN}!UnitTestGA@{UnitTestGA}}
+\doxysubsubsection{\texorpdfstring{CONV\_GEN}{CONV\_GEN}}
+{\footnotesize\ttfamily int Unit\+Test\+GA\+::\+CONV\+\_\+\+GEN = 2000}
+
+\Hypertarget{class_unit_test_g_a_adb9e31fa9010e35ed21b272997134787}\label{class_unit_test_g_a_adb9e31fa9010e35ed21b272997134787} 
+\index{UnitTestGA@{UnitTestGA}!CROSSOVER\_RATE@{CROSSOVER\_RATE}}
+\index{CROSSOVER\_RATE@{CROSSOVER\_RATE}!UnitTestGA@{UnitTestGA}}
+\doxysubsubsection{\texorpdfstring{CROSSOVER\_RATE}{CROSSOVER\_RATE}}
+{\footnotesize\ttfamily double Unit\+Test\+GA\+::\+CROSSOVER\+\_\+\+RATE = 0.\+8}
+
+\Hypertarget{class_unit_test_g_a_adfe7433611392fd361ed71d3d2ec6b86}\label{class_unit_test_g_a_adfe7433611392fd361ed71d3d2ec6b86} 
+\index{UnitTestGA@{UnitTestGA}!ga@{ga}}
+\index{ga@{ga}!UnitTestGA@{UnitTestGA}}
+\doxysubsubsection{\texorpdfstring{ga}{ga}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_a}{GA}}$<$int$>$\texorpdfstring{$\ast$}{*} Unit\+Test\+GA\+::ga}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_g_a}{GA<int>}}(\mbox{\hyperlink{class_unit_test_g_a_ae3a9eb4d12eae6df58b9032361f776a5}{POPULATION\_SIZE}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_a8aef16dacfe777f33e3e85dfa77c2e45}{CHROMOSOME\_SIZE}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_a660581fa1f8a3919dd2537da0c7c7d7d}{CHROMOMIN}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_a7ab25f1862c3338c831e505404ec3487}{CHROMOMAX}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_a73f2a677f798632c21ab1aef3b522b09}{MAX\_GENERATION}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_adb9e31fa9010e35ed21b272997134787}{CROSSOVER\_RATE}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_a0f2b5fd5e79c77554bca0b6b7ef4426e}{MUTATION\_RATE}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}
+
+\end{DoxyCode}
+\Hypertarget{class_unit_test_g_a_a73f2a677f798632c21ab1aef3b522b09}\label{class_unit_test_g_a_a73f2a677f798632c21ab1aef3b522b09} 
+\index{UnitTestGA@{UnitTestGA}!MAX\_GENERATION@{MAX\_GENERATION}}
+\index{MAX\_GENERATION@{MAX\_GENERATION}!UnitTestGA@{UnitTestGA}}
+\doxysubsubsection{\texorpdfstring{MAX\_GENERATION}{MAX\_GENERATION}}
+{\footnotesize\ttfamily int Unit\+Test\+GA\+::\+MAX\+\_\+\+GENERATION = 2000}
+
+\Hypertarget{class_unit_test_g_a_a0f2b5fd5e79c77554bca0b6b7ef4426e}\label{class_unit_test_g_a_a0f2b5fd5e79c77554bca0b6b7ef4426e} 
+\index{UnitTestGA@{UnitTestGA}!MUTATION\_RATE@{MUTATION\_RATE}}
+\index{MUTATION\_RATE@{MUTATION\_RATE}!UnitTestGA@{UnitTestGA}}
+\doxysubsubsection{\texorpdfstring{MUTATION\_RATE}{MUTATION\_RATE}}
+{\footnotesize\ttfamily double Unit\+Test\+GA\+::\+MUTATION\+\_\+\+RATE = 0.\+15}
+
+\Hypertarget{class_unit_test_g_a_ae3a9eb4d12eae6df58b9032361f776a5}\label{class_unit_test_g_a_ae3a9eb4d12eae6df58b9032361f776a5} 
+\index{UnitTestGA@{UnitTestGA}!POPULATION\_SIZE@{POPULATION\_SIZE}}
+\index{POPULATION\_SIZE@{POPULATION\_SIZE}!UnitTestGA@{UnitTestGA}}
+\doxysubsubsection{\texorpdfstring{POPULATION\_SIZE}{POPULATION\_SIZE}}
+{\footnotesize\ttfamily int Unit\+Test\+GA\+::\+POPULATION\+\_\+\+SIZE = 100}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_unittests_8h}{Unittests.\+h}}\item 
+\mbox{\hyperlink{test___genetic_algorithm_8cpp}{test\+\_\+\+Genetic\+Algorithm.\+cpp}}\end{DoxyCompactItemize}

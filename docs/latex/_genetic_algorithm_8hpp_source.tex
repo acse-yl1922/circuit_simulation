@@ -1,0 +1,151 @@
+\doxysection{Genetic\+Algorithm.\+hpp}
+\hypertarget{_genetic_algorithm_8hpp_source}{}\label{_genetic_algorithm_8hpp_source}\index{GeneticAlgorithm.hpp@{GeneticAlgorithm.hpp}}
+\mbox{\hyperlink{_genetic_algorithm_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <omp.h>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ PARALLEL}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ \#define\ SERIAL}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ \#define\ ADAPTIVE}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ Random\ number\ generator}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{static}\ std::random\_device\ rd;}
+\DoxyCodeLine{00030\ \textcolor{keyword}{static}\ std::mt19937\ gen(rd());\ \textcolor{comment}{//\ Initialize\ random\ number\ generator\ only\ once}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{_genetic_algorithm_8hpp_ab600d2f21b3141592c214a7fa46f5503}{RandomDouble}}(\textcolor{keywordtype}{double}\ min,\ \textcolor{keywordtype}{double}\ max);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_genetic_algorithm_8hpp_ad505756a2fc0bc51583cc2420dd696f9}{RandomInt}}(\textcolor{keywordtype}{int}\ min,\ \textcolor{keywordtype}{int}\ max);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00062\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_individual}{Individual}}}
+\DoxyCodeLine{00063\ \{}
+\DoxyCodeLine{00064\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00065\ \ \ \ \ std::vector<T>\ \mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}};\ \textcolor{comment}{//\ Chromosome\ representing\ the\ genetic\ information}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_individual_a361d8e78eaeb0cc49411d0005561ba47}{fitness}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fitness\ value\ indicating\ the\ quality\ of\ the\ individual's\ solution}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ overload\ comparison\ operator}}
+\DoxyCodeLine{00072\ \textcolor{comment}{}\ \ \ \ \mbox{\hyperlink{class_individual_a876134ceaadbd662f41aedc43c34b04f}{Individual}}()\ \{\}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{class_individual_a4877f26c4beabd00634c483416aec25c}{Individual}}(\textcolor{keyword}{const}\ std::vector<T>\ \&\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}})\ :\ \mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}(\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}})\ \{\}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ overload\ comparison\ operator}}
+\DoxyCodeLine{00088\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_individual_ab58c88591ee9dfdfec58d0456bc0bcab}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_individual}{Individual}}\ \&ind)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00089\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_individual_a361d8e78eaeb0cc49411d0005561ba47}{fitness}}\ <\ ind.\mbox{\hyperlink{class_individual_a361d8e78eaeb0cc49411d0005561ba47}{fitness}};}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_individual_a07250fdd80a69128e63bf21dfa637ec6}{operator>}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_individual}{Individual}}\ \&ind)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00100\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_individual_a361d8e78eaeb0cc49411d0005561ba47}{fitness}}\ >\ ind.\mbox{\hyperlink{class_individual_a361d8e78eaeb0cc49411d0005561ba47}{fitness}};}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_individual_ac7d399e9156aafa013d8fe7cb9ebb26f}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_individual}{Individual}}\ \&ind)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00111\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ ==\ ind.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}};}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{class_individual}{Individual}}\ \&\mbox{\hyperlink{class_individual_a8127e6a7eb93ccabe03944292936463f}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_individual}{Individual}}\ \&ind)}
+\DoxyCodeLine{00122\ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.resize(ind.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.size());}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ =\ ind.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}};}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_individual_a361d8e78eaeb0cc49411d0005561ba47}{fitness}}\ =\ ind.\mbox{\hyperlink{class_individual_a361d8e78eaeb0cc49411d0005561ba47}{fitness}};}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8af}{CrossoverType}}}
+\DoxyCodeLine{00131\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afac9fab5dc5978bcb2b00f04828856b445}{ONE\_PT}}\ =\ 0,}
+\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afae6805a2553df341fd1c07aa3a9d3ecdc}{TWO\_PTS}}\ =\ 1,}
+\DoxyCodeLine{00134\ \ \ \ \ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afa8f44784d154005a214e0fe94119d28ef}{UNIFORM}}\ =\ 2,}
+\DoxyCodeLine{00135\ \ \ \ \ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afa79147267f0e0924c2a945e11712846ce}{MULT\_PTS}}\ =\ 3}
+\DoxyCodeLine{00136\ \};}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00150\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00151\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_crossover}{Crossover}}}
+\DoxyCodeLine{00152\ \{}
+\DoxyCodeLine{00153\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_crossover_ae0bc80f6dba879dd5fa125ebe85e8595}{one\_pt\_crossover}}(\mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent2,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child2);}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_crossover_aaa6ecb7ed85f7b213b09a4346be718e4}{two\_pts\_crossover}}(\mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent2,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child2);}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_crossover_a4936edf18330c0f0ebf7dadfe67cf266}{uniform\_crossover}}(\mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent2,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child2);}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_crossover_aed92733babf942c9a33cb4d39020cb75}{mult\_pts\_crossover}}(\mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent2,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child2);}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{test___crossover_8cpp_ae45aae5eb445035260c74370b79c719d}{crossover}}(\mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent2,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child2,\ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8af}{CrossoverType}}\ type);}
+\DoxyCodeLine{00159\ \};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00170\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00171\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_g_a}{GA}}}
+\DoxyCodeLine{00172\ \{}
+\DoxyCodeLine{00173\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{comment}{//\ Default\ constructor}}
+\DoxyCodeLine{00175\ \ \ \ \ \mbox{\hyperlink{class_g_a_ab42b202e06db9c33a654916312a1739d}{GA}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00187\ \ \ \ \ \mbox{\hyperlink{class_g_a_ab42b202e06db9c33a654916312a1739d}{GA}}(\textcolor{keywordtype}{int}\ populationSize,\ \textcolor{keywordtype}{int}\ chromosomeSize,\ T\ chromomin,\ T\ chromomax,\ \textcolor{keywordtype}{int}\ maxGeneration,\ \textcolor{keywordtype}{double}\ crossoverRate,\ \textcolor{keywordtype}{double}\ mutationRate);}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_a_a05091b3dba2263bfc564ab5caef95751}{setValidity}}(\textcolor{keyword}{const}\ std::function<\textcolor{keywordtype}{bool}(\textcolor{keyword}{const}\ std::vector<T>\ \&)>\ \&\mbox{\hyperlink{main_8cpp_a00e1c393a651c9c6ffc71bc0a6c16910}{validity}});}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_a_a4361eec0fa9ac7456e85c8ee0975ebdd}{setFitness}}(\textcolor{keyword}{const}\ std::function<\textcolor{keywordtype}{double}(\textcolor{keyword}{const}\ std::vector<T>\ \&)>\ \&\mbox{\hyperlink{class_g_a_ab304ca756480e1e4c62ff774da35daa1}{fitness}});}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00217\ \ \ \ \ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \mbox{\hyperlink{class_g_a_a26734e009defb92717076a3fe7815a02}{optimize}}(\mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8af}{CrossoverType}}\ type);}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00222\ \ \ \ \ \mbox{\hyperlink{class_g_a_a722b866e843c1bd9cee6eae7519a6e9d}{\string~GA}}()\{\};}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ T\ \mbox{\hyperlink{class_g_a_a261c266d478a70a7f32f32a269270526}{CHROMOMIN}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Minimum\ value\ of\ discrete\ allele\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ chromosome\ min}}
+\DoxyCodeLine{00225\ \ \ \ \ T\ \mbox{\hyperlink{class_g_a_aa2a50fd32c396ad2078eaec5ddfaaa9c}{CHROMOMAX}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Maximum\ value\ of\ discrete\ allele\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ chromosome\ max}}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_g_a_ac42aea4175f5a42e911b8be25fd6cd30}{POP\_SIZE}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Population\ size}}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_g_a_a144f030186c03a4484cf611e790b8d69}{CHROMOSOME\_SIZE}};\ \ \ \textcolor{comment}{//\ Chromosome\ size}}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_g_a_a4ee1248ce128f6af7bea492ae796e56f}{MAX\_GENERATION}};\ \ \ \ \textcolor{comment}{//\ Maximum\ generation}}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_g_a_ae11ef35be5294ab9a99d6ce7e996b38f}{CROSSOVER\_RATE}};\ \textcolor{comment}{//\ Crossover\ rate}}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_g_a_acfd18b90ec282edf1f8dd1ae99cd3d2c}{MUTATION\_RATE}};\ \ \textcolor{comment}{//\ Mutation\ rate}}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_g_a_abe7b07d9df5c728ab831677e0d148472}{ELITISM}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Number\ of\ elite\ individuals}}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_g_a_a02324bd6c1c057970b5edba5d556e34b}{CONV\_GEN}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Number\ of\ generations\ for\ convergence}}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_g_a_a82835cfb612e749d75a298efd6659f57}{verbose}}\ =\ \textcolor{keyword}{false};\ \ \textcolor{comment}{//\ Print\ progress\ to\ console}}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ std::vector<Individual<T>>\ \mbox{\hyperlink{class_g_a_ab1c47274570ba3e5d0327364c601aa21}{population}};\ \textcolor{comment}{//\ Population\ of\ individuals}}
+\DoxyCodeLine{00242\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_a_acb82721baa3c231b09aadea4ea9c55b3}{toFile}}(std::string\ fileDir);}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_a_a983b953be1edfa07bd02e4a11700d230}{mutate}}(\mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child);}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_g_a_ac30c3731ec444e157602f4a0d41c09b4}{selectParent}}(\textcolor{keyword}{const}\ std::vector<double>\ \&cf);}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{comment}{//\ GA\ variables}}
+\DoxyCodeLine{00270\ \ \ \ \ std::vector<Individual<T>>\ \mbox{\hyperlink{class_g_a_add1847e0907b91d2e4d4bdcd00a57333}{offspring}};\ \ \textcolor{comment}{//\ Offspring\ population}}
+\DoxyCodeLine{00271\ \ \ \ \ std::vector<double>\ \mbox{\hyperlink{class_g_a_ab304ca756480e1e4c62ff774da35daa1}{fitness}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fitness\ values\ of\ individuals}}
+\DoxyCodeLine{00272\ \ \ \ \ std::vector<double>\ \mbox{\hyperlink{class_g_a_a42080a105ab59c605bc30a01fcffa3f5}{scaledFitness}};\ \ \ \ \ \textcolor{comment}{//\ Scaled\ fitness\ values\ of\ individuals}}
+\DoxyCodeLine{00273\ \ \ \ \ std::vector<double>\ \mbox{\hyperlink{class_g_a_a8ac7a6a85a1c77ab05945f0a88b2a4c8}{cumulativeFitness}};\ \textcolor{comment}{//\ Cumulative\ fitness\ values\ of\ individuals}}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_g_a_a1a77bf41adb0c857775b6b6ff299bc3a}{cross\_cnt}},\ \mbox{\hyperlink{class_g_a_ac26b035b5fdb2ace215fd4d9abe5d141}{mut\_cnt}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Crossover\ and\ mutation\ counters}}
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_g_a_a5a622d918b038d0da39ed3d42c6dd636}{cross\_contrib}},\ \mbox{\hyperlink{class_g_a_a03b302760bdd18f9659e2159b050f136}{mut\_contrib}};\ \ \ \ \ \textcolor{comment}{//\ Crossover\ and\ mutation\ contribution\ to\ the\ next\ generation}}
+\DoxyCodeLine{00276\ \ \ \ \ std::vector<double>\ \mbox{\hyperlink{class_g_a_a33a6b4d3f1646fd2ac42a373f21ea3bc}{bestFitnessHistory}};\textcolor{comment}{//\ Best\ fitness\ values\ of\ each\ generation}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{comment}{//\ GA\ functions}}
+\DoxyCodeLine{00286\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_a_a92050b390e92ffa4414996a803185fff}{initPopulation}}();}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_a_a5de2c9a1ef93b9287efdaf76d3af18c8}{updatePopulation}}(\mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8af}{CrossoverType}}\ type);}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_g_a_a8563f0bbf0109387c7cb896449623f10}{tournamentSelection}}(\textcolor{keywordtype}{int}\ k);}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00320\ \ \ \ \ std::function<bool(\textcolor{keyword}{const}\ std::vector<T>\ \&)>\ \mbox{\hyperlink{class_g_a_acb28c31ebff5ec2c2f3bb8b189707e46}{validity\_}};}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00333\ \ \ \ \ std::function<double(\textcolor{keyword}{const}\ std::vector<T>\ \&)>\ \mbox{\hyperlink{class_g_a_a8623c9df67841d9f3ce678c27be46f0e}{fitness\_}};}
+\DoxyCodeLine{00334\ \};}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \textcolor{comment}{//\ Declare\ the\ template\ class}}
+\DoxyCodeLine{00337\ \textcolor{keyword}{template}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_g_a}{GA<double>}};}
+\DoxyCodeLine{00338\ \textcolor{keyword}{template}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_g_a}{GA<int>}};}
+\DoxyCodeLine{00339\ \textcolor{keyword}{template}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_crossover}{Crossover<double>}};}
+\DoxyCodeLine{00340\ \textcolor{keyword}{template}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_crossover}{Crossover<int>}};}
+
+\end{DoxyCode}

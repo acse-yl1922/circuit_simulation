@@ -1,0 +1,219 @@
+\doxysection{Individual\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_individual}{}\label{class_individual}\index{Individual$<$ T $>$@{Individual$<$ T $>$}}
+
+
+Template class representing an individual in the \doxylink{class_g_a}{GA} population.  
+
+
+
+
+{\ttfamily \#include $<$Genetic\+Algorithm.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_individual_a876134ceaadbd662f41aedc43c34b04f}{Individual}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{class_individual}{Individual} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_individual_a4877f26c4beabd00634c483416aec25c}{Individual}} (const std\+::vector$<$ T $>$ \&\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}})
+\begin{DoxyCompactList}\small\item\em Constructs an \doxylink{class_individual}{Individual} with the given chromosome. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_individual_ab58c88591ee9dfdfec58d0456bc0bcab}{operator$<$}} (const \mbox{\hyperlink{class_individual}{Individual}} \&ind) const
+\begin{DoxyCompactList}\small\item\em Overloads the less-\/than operator for comparing individuals based on fitness. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_individual_a07250fdd80a69128e63bf21dfa637ec6}{operator$>$}} (const \mbox{\hyperlink{class_individual}{Individual}} \&ind) const
+\begin{DoxyCompactList}\small\item\em Overloads the greater-\/than operator for comparing individuals based on fitness. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_individual_ac7d399e9156aafa013d8fe7cb9ebb26f}{operator==}} (const \mbox{\hyperlink{class_individual}{Individual}} \&ind) const
+\begin{DoxyCompactList}\small\item\em Overloads the equality operator for comparing individuals based on their chromosomes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_individual}{Individual}} \& \mbox{\hyperlink{class_individual_a8127e6a7eb93ccabe03944292936463f}{operator=}} (const \mbox{\hyperlink{class_individual}{Individual}} \&ind)
+\begin{DoxyCompactList}\small\item\em Overloads the assignment operator for assigning the values of another \doxylink{class_individual}{Individual} to this \doxylink{class_individual}{Individual}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}
+\item 
+double \mbox{\hyperlink{class_individual_a361d8e78eaeb0cc49411d0005561ba47}{fitness}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Individual$<$ T $>$}
+Template class representing an individual in the \doxylink{class_g_a}{GA} population. 
+
+An \doxylink{class_individual}{Individual} consists of a chromosome (a vector of a specific type), representing its genetic information, and a fitness value indicating the quality of the individual\textquotesingle{}s solution.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of values in the chromosome. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_individual_a876134ceaadbd662f41aedc43c34b04f}\label{class_individual_a876134ceaadbd662f41aedc43c34b04f} 
+\index{Individual$<$ T $>$@{Individual$<$ T $>$}!Individual@{Individual}}
+\index{Individual@{Individual}!Individual$<$ T $>$@{Individual$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Individual()}{Individual()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_individual}{Individual}}$<$ T $>$\mbox{\hyperlink{class_individual}{\+::\+Individual}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor for the \doxylink{class_individual}{Individual} class. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{class_individual_a4877f26c4beabd00634c483416aec25c}\label{class_individual_a4877f26c4beabd00634c483416aec25c} 
+\index{Individual$<$ T $>$@{Individual$<$ T $>$}!Individual@{Individual}}
+\index{Individual@{Individual}!Individual$<$ T $>$@{Individual$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Individual()}{Individual()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_individual}{Individual}}$<$ T $>$\mbox{\hyperlink{class_individual}{\+::\+Individual}} (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{chromosome }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs an \doxylink{class_individual}{Individual} with the given chromosome. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chromosome} & The chromosome representing the genetic information. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079\ :\ \mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}(\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}})\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_individual_ab58c88591ee9dfdfec58d0456bc0bcab}\label{class_individual_ab58c88591ee9dfdfec58d0456bc0bcab} 
+\index{Individual$<$ T $>$@{Individual$<$ T $>$}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Individual$<$ T $>$@{Individual$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{class_individual}{Individual}}$<$ T $>$\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_individual}{Individual}}$<$ T $>$ \&}]{ind }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Overloads the less-\/than operator for comparing individuals based on fitness. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ind} & The \doxylink{class_individual}{Individual} to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this \doxylink{class_individual}{Individual} has a lower fitness value than the other \doxylink{class_individual}{Individual}, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089\ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_individual_a361d8e78eaeb0cc49411d0005561ba47}{fitness}}\ <\ ind.\mbox{\hyperlink{class_individual_a361d8e78eaeb0cc49411d0005561ba47}{fitness}};}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_individual_a8127e6a7eb93ccabe03944292936463f}\label{class_individual_a8127e6a7eb93ccabe03944292936463f} 
+\index{Individual$<$ T $>$@{Individual$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Individual$<$ T $>$@{Individual$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_individual}{Individual}} \& \mbox{\hyperlink{class_individual}{Individual}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_individual}{Individual}}$<$ T $>$ \&}]{ind }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Overloads the assignment operator for assigning the values of another \doxylink{class_individual}{Individual} to this \doxylink{class_individual}{Individual}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ind} & The \doxylink{class_individual}{Individual} to assign. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the assigned \doxylink{class_individual}{Individual}. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00122\ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.resize(ind.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.size());}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ =\ ind.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}};}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_individual_a361d8e78eaeb0cc49411d0005561ba47}{fitness}}\ =\ ind.\mbox{\hyperlink{class_individual_a361d8e78eaeb0cc49411d0005561ba47}{fitness}};}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_individual_ac7d399e9156aafa013d8fe7cb9ebb26f}\label{class_individual_ac7d399e9156aafa013d8fe7cb9ebb26f} 
+\index{Individual$<$ T $>$@{Individual$<$ T $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!Individual$<$ T $>$@{Individual$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{class_individual}{Individual}}$<$ T $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_individual}{Individual}}$<$ T $>$ \&}]{ind }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Overloads the equality operator for comparing individuals based on their chromosomes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ind} & The \doxylink{class_individual}{Individual} to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the chromosomes of the two Individuals are equal, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111\ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ ==\ ind.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}};}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_individual_a07250fdd80a69128e63bf21dfa637ec6}\label{class_individual_a07250fdd80a69128e63bf21dfa637ec6} 
+\index{Individual$<$ T $>$@{Individual$<$ T $>$}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Individual$<$ T $>$@{Individual$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{class_individual}{Individual}}$<$ T $>$\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_individual}{Individual}}$<$ T $>$ \&}]{ind }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Overloads the greater-\/than operator for comparing individuals based on fitness. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ind} & The \doxylink{class_individual}{Individual} to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this \doxylink{class_individual}{Individual} has a higher fitness value than the other \doxylink{class_individual}{Individual}, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00100\ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_individual_a361d8e78eaeb0cc49411d0005561ba47}{fitness}}\ >\ ind.\mbox{\hyperlink{class_individual_a361d8e78eaeb0cc49411d0005561ba47}{fitness}};}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_individual_af66835a71205bde35e314cf30703d590}\label{class_individual_af66835a71205bde35e314cf30703d590} 
+\index{Individual$<$ T $>$@{Individual$<$ T $>$}!chromosome@{chromosome}}
+\index{chromosome@{chromosome}!Individual$<$ T $>$@{Individual$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{chromosome}{chromosome}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$T$>$ \mbox{\hyperlink{class_individual}{Individual}}$<$ T $>$\+::chromosome}
+
+\Hypertarget{class_individual_a361d8e78eaeb0cc49411d0005561ba47}\label{class_individual_a361d8e78eaeb0cc49411d0005561ba47} 
+\index{Individual$<$ T $>$@{Individual$<$ T $>$}!fitness@{fitness}}
+\index{fitness@{fitness}!Individual$<$ T $>$@{Individual$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{fitness}{fitness}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double \mbox{\hyperlink{class_individual}{Individual}}$<$ T $>$\+::fitness}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_genetic_algorithm_8hpp}{Genetic\+Algorithm.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,173 @@
+\doxysection{CSimulator.\+cpp}
+\hypertarget{_c_simulator_8cpp_source}{}\label{_c_simulator_8cpp_source}\index{/Users/jr722/lecture/acs-\/gerardium-\/rush-\/pentlandite/src/CSimulator.cpp@{/Users/jr722/lecture/acs-\/gerardium-\/rush-\/pentlandite/src/CSimulator.cpp}}
+\mbox{\hyperlink{_c_simulator_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_c_unit_8h}{CUnit.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_c_circuit_8h}{CCircuit.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_c_simulator_8h}{CSimulator.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00015}00015\ \textcolor{comment}{//\ \#define\ LOGCIRCUITS}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00024}\mbox{\hyperlink{_c_simulator_8cpp_a7e4678796fe4df1ca29d64c987d90ed6}{00024}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{_c_simulator_8cpp_a7e4678796fe4df1ca29d64c987d90ed6}{Evaluate\_Circuit}}(std::vector<int>\ circuit\_vector,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_circuit___parameters}{Circuit\_Parameters}}\ parameters)}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00025}00025\ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00026}00026\ \ \ \mbox{\hyperlink{class_circuit}{Circuit}}\ circuit(circuit\_vector);}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00028}00028\ \ \ \textcolor{comment}{//\ 1.\ Asssign\ initial\ values\ for\ F\_ger\ and\ F\_waste\ in\ each\ unit\ of\ the\ circuit}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00029}00029\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00030}00030\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00031}00031\ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.ger\ =\ parameters.\mbox{\hyperlink{struct_circuit___parameters_a50889dd79f1c47fd714519733007b6dd}{input\_Fger}};}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00032}00032\ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.waste\ =\ parameters.\mbox{\hyperlink{struct_circuit___parameters_ab951816f15da9a6dade1226c4be09930}{input\_Fwaste}};}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00033}00033\ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].F\ =\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.ger\ +\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.waste;}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00034}00034\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00036}00036\ \ \ \textcolor{comment}{//\ 2.\ Calculate\ the\ flow\ rates\ for\ each\ unit\ of\ the\ circuit}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00037}00037\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00038}00038\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00039}00039\ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].calculateOutputFlowRates(circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input);}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00040}00040\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00042}00042\ \ \ \textcolor{comment}{//\ 3.\ Set\ F\_old\ =\ F}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00043}00043\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00044}00044\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00045}00045\ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].F\_old\ =\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].F;}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00046}00046\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00048}00048\ \ \ \textcolor{comment}{//\ Total\ old\ feed\ rates}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00049}00049\ \ \ std::vector<double>\ F\_old(circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}},\ 0.0);}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00050}00050\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00051}00051\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00052}00052\ \ \ \ \ F\_old[i]\ =\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].F\_old;}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00053}00053\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00055}00055\ \ \ \textcolor{comment}{//\ New\ Feed\ rates}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00056}00056\ \ \ std::vector<double>\ F(circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}},\ 0.0);}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00058}00058\ \ \ \textcolor{comment}{//\ Boolean\ to\ check\ if\ the\ circuit\ has\ reached\ steady\ state}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00059}00059\ \ \ \textcolor{keywordtype}{bool}\ terminate\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00061}00061\ \ \ \textcolor{keywordtype}{int}\ it\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00062}00062\ \ \ \textcolor{keywordflow}{while}\ (!terminate)}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00063}00063\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{comment}{//\ 4.\ Calculate\ the\ input\ flow\ rates\ for\ each\ unit\ of\ the\ circuit}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00066}00066\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00067}00067\ \ \ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].F\_old\ =\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].F;}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00068}00068\ \ \ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.ger\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00069}00069\ \ \ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.waste\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00073}00073\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00074}00074\ \ \ \ \ \ \ \textcolor{comment}{//\ First\ the\ concentration\ stream}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00075}00075\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].conc\_num\ >=\ 0)}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00076}00076\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].conc\_num].input\ +=\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].conc;}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00078}00078\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00080}00080\ \ \ \ \ \ \ \textcolor{comment}{//\ Then\ the\ tails\ stream}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00081}00081\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].tails\_num\ >=\ 0)}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00082}00082\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].tails\_num].input\ +=\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].tail;}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00084}00084\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00086}00086\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ circuit.\mbox{\hyperlink{class_circuit_ae96aef59ca7a14aa0f0c01190000be58}{feeder}})}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00087}00087\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.ger\ +=\ parameters.\mbox{\hyperlink{struct_circuit___parameters_a50889dd79f1c47fd714519733007b6dd}{input\_Fger}};}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.waste\ +=\ parameters.\mbox{\hyperlink{struct_circuit___parameters_ab951816f15da9a6dade1226c4be09930}{input\_Fwaste}};}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00090}00090\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00091}00091\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00093}00093\ \ \ \ \ \textcolor{comment}{//\ 5.\ Calculate\ the\ output\ flow\ rates\ for\ each\ unit\ of\ the\ circuit}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00094}00094\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00095}00095\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00096}00096\ \ \ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].calculateOutputFlowRates(circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input);}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00097}00097\ \ \ \ \ \ \ F[i]\ =\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.ger\ +\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].input.waste;}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00098}00098\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{comment}{//\ 6.\ Check\ for\ convergence\ between\ old\ and\ new\ feed\ rates\ of\ the\ circuit}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00101}00101\ \ \ \ \ \textcolor{keywordtype}{bool}\ converged\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ +\ 2;\ ++i)}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00103}00103\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00104}00104\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fabs(F\_old[i]\ -\/\ F[i])\ >\ parameters.\mbox{\hyperlink{struct_circuit___parameters_acc1e5ddd0d611bfd3af8f89c0ff2777c}{tolerance}})}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00105}00105\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Circuit\ not\ converged\ yet.\ Can\ break\ and\ continue}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ converged\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00109}00109\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00110}00110\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{if}\ (converged)}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00113}00113\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00114}00114\ \ \ \ \ \ \ terminate\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00115}00115\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00116}00116\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00117}00117\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00118}00118\ \ \ \ \ \ \ terminate\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00119}00119\ \ \ \ \ \ \ F\_old\ =\ std::move(F);}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00120}00120\ \ \ \ \ \ \ F.resize(circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}},\ 0.0);}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00121}00121\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00123}00123\ \ \ \ \ ++it;}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00125}00125\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ >\ parameters.\mbox{\hyperlink{struct_circuit___parameters_a0ba1f435baf7921d786798c40ba65b59}{max\_iterations}})}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00126}00126\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00128}00128\ \textcolor{preprocessor}{\#ifdef\ LOGCIRCUITS}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00129}00129\ \ \ \ \ \ \ \textcolor{comment}{//\ Append\ the\ circuit\ vector\ to\ a\ log\ file}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00130}00130\ \ \ \ \ \ \ std::ofstream\ logFile(\textcolor{stringliteral}{"{}InvalidCircuits.log"{}},\ std::ios::app);\ \textcolor{comment}{//\ Open\ the\ file\ in\ append\ mode}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00132}00132\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!logFile.is\_open())}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00133}00133\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ open\ the\ log\ file:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00135}00135\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00137}00137\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&value\ :\ circuit\_vector)}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00138}00138\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ logFile\ <<\ value\ <<\ \textcolor{stringliteral}{"{}\ "{}};\ \textcolor{comment}{//\ Append\ each\ value\ to\ the\ log\ file}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00140}00140\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00142}00142\ \ \ \ \ \ \ logFile\ <<\ std::endl;\ \textcolor{comment}{//\ Append\ a\ newline\ character\ after\ writing\ all\ the\ values}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00144}00144\ \ \ \ \ \ \ logFile\ <<\ std::endl;\ \textcolor{comment}{//\ Append\ a\ newline\ character\ after\ writing\ all\ the\ values}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00146}00146\ \ \ \ \ \ \ logFile.close();\ \textcolor{comment}{//\ Close\ the\ log\ file}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00147}00147\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00149}00149\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1e10;\ \textcolor{comment}{//\ Return\ a\ very\ low\ value}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00150}00150\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00151}00151\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00153}00153\ \textcolor{preprocessor}{\#ifdef\ LOGCIRCUITS}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00154}00154\ \ \ \textcolor{comment}{//\ Append\ the\ circuit\ vector\ to\ a\ log\ file}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00155}00155\ \ \ std::ofstream\ logFile(\textcolor{stringliteral}{"{}ValidCircuits.log"{}},\ std::ios::app);\ \textcolor{comment}{//\ Open\ the\ file\ in\ append\ mode}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00157}00157\ \ \ \textcolor{keywordflow}{if}\ (!logFile.is\_open())}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00158}00158\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00159}00159\ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ open\ the\ log\ file:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00160}00160\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00162}00162\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&value\ :\ circuit\_vector)}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00163}00163\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00164}00164\ \ \ \ \ logFile\ <<\ value\ <<\ \textcolor{stringliteral}{"{}\ "{}};\ \textcolor{comment}{//\ Append\ each\ value\ to\ the\ log\ file}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00165}00165\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00167}00167\ \ \ logFile\ <<\ std::endl;\ \textcolor{comment}{//\ Append\ a\ newline\ character\ after\ writing\ all\ the\ values}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00169}00169\ \ \ logFile\ <<\ std::endl;\ \textcolor{comment}{//\ Append\ a\ newline\ character\ after\ writing\ all\ the\ values}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00171}00171\ \ \ logFile.close();\ \textcolor{comment}{//\ Close\ the\ log\ file}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00172}00172\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00174}00174\ \ \ \textcolor{keywordtype}{double}\ objective\ =\ parameters.\mbox{\hyperlink{struct_circuit___parameters_af8b2c0f89171956dec9004b99187593c}{get\_money}}\ *\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ -\/\ 2].input.ger\ -\/\ parameters.\mbox{\hyperlink{struct_circuit___parameters_a4ee4e733fa29743db2800af4418b4507}{lose\_money}}\ *\ circuit.\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[circuit.\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ -\/\ 2].input.waste;}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00175}00175\ \ \ \textcolor{keywordflow}{return}\ objective;}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00176}00176\ \}}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00184}\mbox{\hyperlink{_c_simulator_8cpp_afe735dfca5cdff161b477c1d6816322b}{00184}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{_c_simulator_8cpp_a7e4678796fe4df1ca29d64c987d90ed6}{Evaluate\_Circuit}}(std::vector<int>\ circuit\_vector)}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00185}00185\ \{}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00186}00186\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_circuit___parameters}{Circuit\_Parameters}}\ default\_circuit\_parameters;}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00187}00187\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_c_simulator_8cpp_a7e4678796fe4df1ca29d64c987d90ed6}{Evaluate\_Circuit}}(circuit\_vector,\ default\_circuit\_parameters);}
+\DoxyCodeLine{\Hypertarget{_c_simulator_8cpp_source_l00188}00188\ \};}
+
+\end{DoxyCode}

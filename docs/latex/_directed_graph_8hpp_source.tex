@@ -1,0 +1,37 @@
+\doxysection{Directed\+Graph.\+hpp}
+\hypertarget{_directed_graph_8hpp_source}{}\label{_directed_graph_8hpp_source}\index{DirectedGraph.hpp@{DirectedGraph.hpp}}
+\mbox{\hyperlink{_directed_graph_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_directed_graph}{DirectedGraph}}}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_directed_graph_a7d37e393a3106ec8bc0a553bd3b3781d}{DirectedGraph}}()\{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_directed_graph_a7d37e393a3106ec8bc0a553bd3b3781d}{DirectedGraph}}(\textcolor{keywordtype}{int}\ n);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_directed_graph_ae8e202f3bfb395c52bc27b136fe46e53}{addEdge}}(\textcolor{keywordtype}{int}\ u,\ \textcolor{keywordtype}{int}\ v);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_directed_graph_ac6e7ad39d45724858ab4c8b0b9aec2f3}{getNumVertices}}()\ \textcolor{keyword}{const};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_directed_graph_aa88e89157ed509bb83f71511bbf816a4}{getNumEdges}}()\ \textcolor{keyword}{const};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{class_directed_graph_ad83e99e169e7c3173e474d288f668be5}{getNeighbors}}(\textcolor{keywordtype}{int}\ u)\ \textcolor{keyword}{const};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\ \&\mbox{\hyperlink{class_directed_graph_a4cf4a0e211934acb68e1d5a033b74db0}{operator<<}}(std::ostream\ \&os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_directed_graph}{DirectedGraph}}\ \&G);\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_directed_graph_a2ad2377db4c99ed23f02b3a4a75d9fb8}{writeToFile}}(std::string\ filename)\ \textcolor{keyword}{const};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ \ \ \ \ std::vector<std::vector<int>>\ \mbox{\hyperlink{class_directed_graph_a56a71dc5009cd2ca86bf132eeca1b833}{adjList}};\ }
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_depth_first_search}{DepthFirstSearch}}}
+\DoxyCodeLine{00044\ \{}
+\DoxyCodeLine{00045\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_depth_first_search_a43f48434305b8832b54efdd61207ae97}{DepthFirstSearch}}()\{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_depth_first_search_a43f48434305b8832b54efdd61207ae97}{DepthFirstSearch}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_directed_graph}{DirectedGraph}}\ \&G,\ \textcolor{keywordtype}{int}\ s);\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_depth_first_search_a2a85176a28dcea94c06e33b34a1c3401}{dfs}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_directed_graph}{DirectedGraph}}\ \&G,\ \textcolor{keywordtype}{int}\ u);\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_depth_first_search_aae58a0cbc5f0dc04784433bb0ad9274e}{visited}}(\textcolor{keywordtype}{int}\ v)\ \textcolor{keyword}{const};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00052\ \ \ \ \ std::vector<bool>\ \mbox{\hyperlink{class_depth_first_search_ac927093c5698b208d4c0d0a634a06c82}{marked}};\ }
+\DoxyCodeLine{00053\ \};}
+
+\end{DoxyCode}

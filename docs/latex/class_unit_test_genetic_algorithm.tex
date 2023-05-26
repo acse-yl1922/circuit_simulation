@@ -1,0 +1,203 @@
+\doxysection{Unit\+Test\+Genetic\+Algorithm Class Reference}
+\hypertarget{class_unit_test_genetic_algorithm}{}\label{class_unit_test_genetic_algorithm}\index{UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}}
+
+
+{\ttfamily \#include $<$test\+\_\+\+Genetic\+Algorithm.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_unit_test_genetic_algorithm_a1aa7bbae046f383dbb622cea434657a3}{Unit\+Test\+Genetic\+Algorithm}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the Unit\+Test2D class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_unit_test_genetic_algorithm_a2b4b4f5e5c2e83861a6c8c4d155a6c0b}{\texorpdfstring{$\sim$}{\string~}\+Unit\+Test\+Genetic\+Algorithm}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the Unit\+Test2D class.. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_unit_test_genetic_algorithm_a5646e3f16295b1f10feb44e048e1567c}{test\+\_\+mutation}} ()
+\begin{DoxyCompactList}\small\item\em Test the Gray\+Scale filter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_unit_test_genetic_algorithm_a7c8d2eb32774cfb31eebd9ea142b41a8}{test\+\_\+crossover}} ()
+\item 
+void \mbox{\hyperlink{class_unit_test_genetic_algorithm_ac4c9408206f2e7d44b72f98c3982a1a9}{run}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_unit_test_genetic_algorithm_a069f549511f1b2bc0005c81a8420ceb4}{POPULATION\+\_\+\+SIZE}} = 10
+\item 
+int \mbox{\hyperlink{class_unit_test_genetic_algorithm_a3eb30ab02488f83801e833fb909efd89}{MAX\+\_\+\+GENERATIONS}} = 1
+\item 
+int \mbox{\hyperlink{class_unit_test_genetic_algorithm_a5f97ca9daf571598572a0bfb4f37dc62}{MAX\+\_\+\+GENERATIONS\+\_\+\+UNCHANGE}} = 100
+\item 
+double \mbox{\hyperlink{class_unit_test_genetic_algorithm_add936b41851b2f880fa992d05ce5b0b4}{MUTATION\+\_\+\+RATE}} = 0.\+5
+\item 
+double \mbox{\hyperlink{class_unit_test_genetic_algorithm_abdaa8d9b22cdfe59a88740fe8c96d3c9}{CROSSOVER\+\_\+\+RATE}} = 0.\+8
+\item 
+int \mbox{\hyperlink{class_unit_test_genetic_algorithm_a9a1e7096622ef2d4ecc899b8a689dc2b}{MUTATE\+\_\+\+MIN}} = 0
+\item 
+int \mbox{\hyperlink{class_unit_test_genetic_algorithm_a1aeffbf1013616ab31facd13c20c9639}{MUTATE\+\_\+\+MAX}} = 10
+\item 
+Genetic\+Algorithm \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_unit_test_genetic_algorithm_ad97d78e56e81c5c12a24a1528f3bea6d}{GA}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_individual}{Individual}} $>$ \mbox{\hyperlink{class_unit_test_genetic_algorithm_a0bd70e2844ab8455d35a8dc2f4facd42}{dummy\+\_\+population}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_unit_test_genetic_algorithm_a1aa7bbae046f383dbb622cea434657a3}\label{class_unit_test_genetic_algorithm_a1aa7bbae046f383dbb622cea434657a3} 
+\index{UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}!UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}}
+\index{UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}!UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}}
+\doxysubsubsection{\texorpdfstring{UnitTestGeneticAlgorithm()}{UnitTestGeneticAlgorithm()}}
+{\footnotesize\ttfamily Unit\+Test\+Genetic\+Algorithm\+::\+Unit\+Test\+Genetic\+Algorithm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for the Unit\+Test2D class. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{class_unit_test_genetic_algorithm_a2b4b4f5e5c2e83861a6c8c4d155a6c0b}\label{class_unit_test_genetic_algorithm_a2b4b4f5e5c2e83861a6c8c4d155a6c0b} 
+\index{UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}!````~UnitTestGeneticAlgorithm@{\texorpdfstring{$\sim$}{\string~}UnitTestGeneticAlgorithm}}
+\index{````~UnitTestGeneticAlgorithm@{\texorpdfstring{$\sim$}{\string~}UnitTestGeneticAlgorithm}!UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}UnitTestGeneticAlgorithm()}{\string~UnitTestGeneticAlgorithm()}}
+{\footnotesize\ttfamily Unit\+Test\+Genetic\+Algorithm\+::\texorpdfstring{$\sim$}{\string~}\+Unit\+Test\+Genetic\+Algorithm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for the Unit\+Test2D class.. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{class_unit_test_genetic_algorithm_ad97d78e56e81c5c12a24a1528f3bea6d}{GA}};}
+\DoxyCodeLine{00011\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_unit_test_genetic_algorithm_ac4c9408206f2e7d44b72f98c3982a1a9}\label{class_unit_test_genetic_algorithm_ac4c9408206f2e7d44b72f98c3982a1a9} 
+\index{UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}!run@{run}}
+\index{run@{run}!UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Unit\+Test\+Genetic\+Algorithm\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}run():"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_unit_test_genetic_algorithm_a5646e3f16295b1f10feb44e048e1567c}{test\_mutation}}();}
+\DoxyCodeLine{00033\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}run()\ end"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00034\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_unit_test_genetic_algorithm_a7c8d2eb32774cfb31eebd9ea142b41a8}\label{class_unit_test_genetic_algorithm_a7c8d2eb32774cfb31eebd9ea142b41a8} 
+\index{UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}!test\_crossover@{test\_crossover}}
+\index{test\_crossover@{test\_crossover}!UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}}
+\doxysubsubsection{\texorpdfstring{test\_crossover()}{test\_crossover()}}
+{\footnotesize\ttfamily void Unit\+Test\+Genetic\+Algorithm\+::test\+\_\+crossover (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_unit_test_genetic_algorithm_a5646e3f16295b1f10feb44e048e1567c}\label{class_unit_test_genetic_algorithm_a5646e3f16295b1f10feb44e048e1567c} 
+\index{UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}!test\_mutation@{test\_mutation}}
+\index{test\_mutation@{test\_mutation}!UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}}
+\doxysubsubsection{\texorpdfstring{test\_mutation()}{test\_mutation()}}
+{\footnotesize\ttfamily void Unit\+Test\+Genetic\+Algorithm\+::test\+\_\+mutation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Test the Gray\+Scale filter. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}test\_mutation():"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_individual}{Individual}}\ mock\_individual(10,\ 0,\ 10);}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_individual}{Individual}}\ expected\_result(10,\ 0,\ 10);}
+\DoxyCodeLine{00018\ \ \ \ \ mock\_individual.chromosome\ =\ \{0,\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9\};}
+\DoxyCodeLine{00019\ \ \ \ \ expected\_result.chromosome\ =\ \{7,\ 4,\ 2,\ 0,\ 1,\ 5,\ 6,\ 7,\ 8,\ 0\};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_g_a}{GA}}-\/>\mbox{\hyperlink{class_g_a_a983b953be1edfa07bd02e4a11700d230}{mutate}}(mock\_individual);}
+\DoxyCodeLine{00022\ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ for\ (auto\&\ i\ :\ mock\_individual.chromosome)\ \{}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ std::cout\ <<\ i\ <<\ "{}\ "{};}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{00026\ \ \ \ \ assert(mock\_individual.chromosome\ ==\ expected\_result.chromosome);}
+\DoxyCodeLine{00027\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ test\_mutation()\ completed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00028\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_unit_test_genetic_algorithm_abdaa8d9b22cdfe59a88740fe8c96d3c9}\label{class_unit_test_genetic_algorithm_abdaa8d9b22cdfe59a88740fe8c96d3c9} 
+\index{UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}!CROSSOVER\_RATE@{CROSSOVER\_RATE}}
+\index{CROSSOVER\_RATE@{CROSSOVER\_RATE}!UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}}
+\doxysubsubsection{\texorpdfstring{CROSSOVER\_RATE}{CROSSOVER\_RATE}}
+{\footnotesize\ttfamily double Unit\+Test\+Genetic\+Algorithm\+::\+CROSSOVER\+\_\+\+RATE = 0.\+8}
+
+\Hypertarget{class_unit_test_genetic_algorithm_a0bd70e2844ab8455d35a8dc2f4facd42}\label{class_unit_test_genetic_algorithm_a0bd70e2844ab8455d35a8dc2f4facd42} 
+\index{UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}!dummy\_population@{dummy\_population}}
+\index{dummy\_population@{dummy\_population}!UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}}
+\doxysubsubsection{\texorpdfstring{dummy\_population}{dummy\_population}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_individual}{Individual}}$>$ Unit\+Test\+Genetic\+Algorithm\+::dummy\+\_\+population}
+
+\Hypertarget{class_unit_test_genetic_algorithm_ad97d78e56e81c5c12a24a1528f3bea6d}\label{class_unit_test_genetic_algorithm_ad97d78e56e81c5c12a24a1528f3bea6d} 
+\index{UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}!GA@{GA}}
+\index{GA@{GA}!UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}}
+\doxysubsubsection{\texorpdfstring{GA}{GA}}
+{\footnotesize\ttfamily Genetic\+Algorithm\texorpdfstring{$\ast$}{*} Unit\+Test\+Genetic\+Algorithm\+::\+GA}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \textcolor{keyword}{new}\ GeneticAlgorithm(\mbox{\hyperlink{class_unit_test_genetic_algorithm_a069f549511f1b2bc0005c81a8420ceb4}{POPULATION\_SIZE}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_genetic_algorithm_a3eb30ab02488f83801e833fb909efd89}{MAX\_GENERATIONS}},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_genetic_algorithm_a5f97ca9daf571598572a0bfb4f37dc62}{MAX\_GENERATIONS\_UNCHANGE}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_genetic_algorithm_add936b41851b2f880fa992d05ce5b0b4}{MUTATION\_RATE}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_genetic_algorithm_abdaa8d9b22cdfe59a88740fe8c96d3c9}{CROSSOVER\_RATE}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_genetic_algorithm_a9a1e7096622ef2d4ecc899b8a689dc2b}{MUTATE\_MIN}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_genetic_algorithm_a1aeffbf1013616ab31facd13c20c9639}{MUTATE\_MAX}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}
+
+\end{DoxyCode}
+\Hypertarget{class_unit_test_genetic_algorithm_a3eb30ab02488f83801e833fb909efd89}\label{class_unit_test_genetic_algorithm_a3eb30ab02488f83801e833fb909efd89} 
+\index{UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}!MAX\_GENERATIONS@{MAX\_GENERATIONS}}
+\index{MAX\_GENERATIONS@{MAX\_GENERATIONS}!UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}}
+\doxysubsubsection{\texorpdfstring{MAX\_GENERATIONS}{MAX\_GENERATIONS}}
+{\footnotesize\ttfamily int Unit\+Test\+Genetic\+Algorithm\+::\+MAX\+\_\+\+GENERATIONS = 1}
+
+\Hypertarget{class_unit_test_genetic_algorithm_a5f97ca9daf571598572a0bfb4f37dc62}\label{class_unit_test_genetic_algorithm_a5f97ca9daf571598572a0bfb4f37dc62} 
+\index{UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}!MAX\_GENERATIONS\_UNCHANGE@{MAX\_GENERATIONS\_UNCHANGE}}
+\index{MAX\_GENERATIONS\_UNCHANGE@{MAX\_GENERATIONS\_UNCHANGE}!UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}}
+\doxysubsubsection{\texorpdfstring{MAX\_GENERATIONS\_UNCHANGE}{MAX\_GENERATIONS\_UNCHANGE}}
+{\footnotesize\ttfamily int Unit\+Test\+Genetic\+Algorithm\+::\+MAX\+\_\+\+GENERATIONS\+\_\+\+UNCHANGE = 100}
+
+\Hypertarget{class_unit_test_genetic_algorithm_a1aeffbf1013616ab31facd13c20c9639}\label{class_unit_test_genetic_algorithm_a1aeffbf1013616ab31facd13c20c9639} 
+\index{UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}!MUTATE\_MAX@{MUTATE\_MAX}}
+\index{MUTATE\_MAX@{MUTATE\_MAX}!UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}}
+\doxysubsubsection{\texorpdfstring{MUTATE\_MAX}{MUTATE\_MAX}}
+{\footnotesize\ttfamily int Unit\+Test\+Genetic\+Algorithm\+::\+MUTATE\+\_\+\+MAX = 10}
+
+\Hypertarget{class_unit_test_genetic_algorithm_a9a1e7096622ef2d4ecc899b8a689dc2b}\label{class_unit_test_genetic_algorithm_a9a1e7096622ef2d4ecc899b8a689dc2b} 
+\index{UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}!MUTATE\_MIN@{MUTATE\_MIN}}
+\index{MUTATE\_MIN@{MUTATE\_MIN}!UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}}
+\doxysubsubsection{\texorpdfstring{MUTATE\_MIN}{MUTATE\_MIN}}
+{\footnotesize\ttfamily int Unit\+Test\+Genetic\+Algorithm\+::\+MUTATE\+\_\+\+MIN = 0}
+
+\Hypertarget{class_unit_test_genetic_algorithm_add936b41851b2f880fa992d05ce5b0b4}\label{class_unit_test_genetic_algorithm_add936b41851b2f880fa992d05ce5b0b4} 
+\index{UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}!MUTATION\_RATE@{MUTATION\_RATE}}
+\index{MUTATION\_RATE@{MUTATION\_RATE}!UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}}
+\doxysubsubsection{\texorpdfstring{MUTATION\_RATE}{MUTATION\_RATE}}
+{\footnotesize\ttfamily double Unit\+Test\+Genetic\+Algorithm\+::\+MUTATION\+\_\+\+RATE = 0.\+5}
+
+\Hypertarget{class_unit_test_genetic_algorithm_a069f549511f1b2bc0005c81a8420ceb4}\label{class_unit_test_genetic_algorithm_a069f549511f1b2bc0005c81a8420ceb4} 
+\index{UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}!POPULATION\_SIZE@{POPULATION\_SIZE}}
+\index{POPULATION\_SIZE@{POPULATION\_SIZE}!UnitTestGeneticAlgorithm@{UnitTestGeneticAlgorithm}}
+\doxysubsubsection{\texorpdfstring{POPULATION\_SIZE}{POPULATION\_SIZE}}
+{\footnotesize\ttfamily int Unit\+Test\+Genetic\+Algorithm\+::\+POPULATION\+\_\+\+SIZE = 10}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{test___genetic_algorithm_8h}{test\+\_\+\+Genetic\+Algorithm.\+h}}\item 
+\mbox{\hyperlink{test___genetic_algorithm_8cpp}{test\+\_\+\+Genetic\+Algorithm.\+cpp}}\end{DoxyCompactItemize}

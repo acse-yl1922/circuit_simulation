@@ -1,0 +1,39 @@
+\doxysection{CCircuit.\+h}
+\hypertarget{_c_circuit_8h_source}{}\label{_c_circuit_8h_source}\index{CCircuit.h@{CCircuit.h}}
+\mbox{\hyperlink{_c_circuit_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_c_unit_8h}{CUnit.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_directed_graph_8hpp}{DirectedGraph.hpp}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_circuit___parameters}{Circuit\_Parameters}}}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_circuit___parameters_acc1e5ddd0d611bfd3af8f89c0ff2777c}{tolerance}}\ =\ 1e-\/6;\ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_circuit___parameters_a0ba1f435baf7921d786798c40ba65b59}{max\_iterations}}\ =\ 1000;\ \ \ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_circuit___parameters_a50889dd79f1c47fd714519733007b6dd}{input\_Fger}}\ =\ 10.0;\ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_circuit___parameters_ab951816f15da9a6dade1226c4be09930}{input\_Fwaste}}\ =\ 100.0;\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_circuit___parameters_af8b2c0f89171956dec9004b99187593c}{get\_money}}\ =\ 100.0;\ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_circuit___parameters_a4ee4e733fa29743db2800af4418b4507}{lose\_money}}\ =\ 500.0;\ \ \ }
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_circuit}{Circuit}}}
+\DoxyCodeLine{00036\ \{}
+\DoxyCodeLine{00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{class_circuit}{Circuit}}(std::vector<int>\ \mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{class_circuit_a1134e16f26a878377f4d502bff111b9e}{\string~Circuit}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_circuit_a108c8fbee9bd02bb7af2648b877d5f09}{toFile}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_circuit_ae96aef59ca7a14aa0f0c01190000be58}{feeder}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ std::vector<int>\ \mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ std::vector<CUnit>\ \mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_circuit_ad3a0bded22f5818ec068a742b0c7d69f}{Check\_Validity}}(\textcolor{keyword}{const}\ std::vector<int>\ \&\mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}});\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_circuit_a697613fa9d9cbf7c4d77f8a5b4793732}{it}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00047\ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_c_circuit_8h_a3fcb9a103ca8d812d262c68f199e91c7}{Calculate\_Circuit}}(\mbox{\hyperlink{class_circuit}{Circuit}}\ \&circuit,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_circuit___parameters}{Circuit\_Parameters}}\ parameters);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_c_circuit_8h_a3fcb9a103ca8d812d262c68f199e91c7}{Calculate\_Circuit}}(\mbox{\hyperlink{class_circuit}{Circuit}}\ \&circuit);}
+
+\end{DoxyCode}

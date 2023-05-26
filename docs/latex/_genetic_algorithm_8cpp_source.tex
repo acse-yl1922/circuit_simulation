@@ -1,0 +1,411 @@
+\doxysection{Genetic\+Algorithm.\+cpp}
+\hypertarget{_genetic_algorithm_8cpp_source}{}\label{_genetic_algorithm_8cpp_source}\index{/Users/jr722/lecture/acs-\/gerardium-\/rush-\/pentlandite/src/GeneticAlgorithm.cpp@{/Users/jr722/lecture/acs-\/gerardium-\/rush-\/pentlandite/src/GeneticAlgorithm.cpp}}
+\mbox{\hyperlink{_genetic_algorithm_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_genetic_algorithm_8hpp}{GeneticAlgorithm.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00005}00005\ \textcolor{comment}{//\ Generate\ a\ random\ double\ between\ min\ and\ max,\ exclusive\ of\ max}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00006}\mbox{\hyperlink{_genetic_algorithm_8cpp_ab600d2f21b3141592c214a7fa46f5503}{00006}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{_genetic_algorithm_8cpp_ab600d2f21b3141592c214a7fa46f5503}{RandomDouble}}(\textcolor{keywordtype}{double}\ min,\ \textcolor{keywordtype}{double}\ max)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00008}00008\ \ \ \ \ std::uniform\_real\_distribution<double>\ dist(min,\ max);\ \textcolor{comment}{//\ Define\ the\ range\ of\ random\ numbers}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{keywordflow}{return}\ dist(gen);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Generate\ and\ return\ a\ random\ number}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00010}00010\ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00012}00012\ \textcolor{comment}{//\ Generate\ a\ random\ integer\ between\ min\ and\ max,\ inclusive\ of\ max}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00013}\mbox{\hyperlink{_genetic_algorithm_8cpp_ad505756a2fc0bc51583cc2420dd696f9}{00013}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_genetic_algorithm_8cpp_ad505756a2fc0bc51583cc2420dd696f9}{RandomInt}}(\textcolor{keywordtype}{int}\ min,\ \textcolor{keywordtype}{int}\ max)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00015}00015\ \ \ \ \ std::uniform\_int\_distribution<int>\ dist(min,\ max);\ \textcolor{comment}{//\ Define\ the\ range\ of\ random\ numbers}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordflow}{return}\ dist(gen);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Generate\ and\ return\ a\ random\ number}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00017}00017\ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00019}00019\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00020}\mbox{\hyperlink{class_g_a_a0bcc83f66a2a76c2fca1a29c8fd8aba7}{00020}}\ \mbox{\hyperlink{class_g_a_a0bcc83f66a2a76c2fca1a29c8fd8aba7}{GA<T>::GA}}(\textcolor{keywordtype}{int}\ populationSize,\ \textcolor{keywordtype}{int}\ chromosomeSize,\ T\ chromomin,\ T\ chromomax,\ \textcolor{keywordtype}{int}\ maxGeneration,\ \textcolor{keywordtype}{double}\ crossoverRate,\ \textcolor{keywordtype}{double}\ mutationRate)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00021}00021\ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{comment}{//\ GA\ parameters}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00023}00023\ \ \ \ \ CHROMOMIN\ =\ chromomin;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Minimum\ value\ of\ discrete\ allele}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00024}00024\ \ \ \ \ CHROMOMAX\ =\ chromomax;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Maximum\ value\ of\ discrete\ allele}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00025}00025\ \ \ \ \ POP\_SIZE\ =\ populationSize;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Population\ size}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00026}00026\ \ \ \ \ CHROMOSOME\_SIZE\ =\ chromosomeSize;\ \textcolor{comment}{//\ Chromosome\ size}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00027}00027\ \ \ \ \ MAX\_GENERATION\ =\ maxGeneration;\ \ \ \textcolor{comment}{//\ Maximum\ generation}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00028}00028\ \ \ \ \ CROSSOVER\_RATE\ =\ crossoverRate;\ \ \ \textcolor{comment}{//\ Crossover\ rate}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00029}00029\ \ \ \ \ MUTATION\_RATE\ =\ mutationRate;\ \ \ \ \ \textcolor{comment}{//\ Mutation\ rate}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00030}00030\ \ \ \ \ ELITISM\ =\ 1;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Elitism\ fraction}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00031}00031\ \ \ \ \ CONV\_GEN\ =\ MAX\_GENERATION;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Convergence\ generation}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{comment}{//\ GA\ variables}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00034}00034\ \ \ \ \ population.resize(POP\_SIZE);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00036}00036\ \ \ \ \ validity\_\ =\ [](\textcolor{keyword}{const}\ std::vector<T>\ \&chromosome)\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00037}00037\ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00038}00038\ \ \ \ \ fitness\_\ =\ [](\textcolor{keyword}{const}\ std::vector<T>\ \&chromosome)\ -\/>\ \textcolor{keywordtype}{double}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00039}00039\ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ 0;\ \};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00040}00040\ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00042}00042\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00043}\mbox{\hyperlink{class_g_a_a05091b3dba2263bfc564ab5caef95751}{00043}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_a_a05091b3dba2263bfc564ab5caef95751}{GA<T>::setValidity}}(\textcolor{keyword}{const}\ std::function<\textcolor{keywordtype}{bool}(\textcolor{keyword}{const}\ std::vector<T>\ \&)>\ \&\mbox{\hyperlink{main_8cpp_a00e1c393a651c9c6ffc71bc0a6c16910}{validity}})}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00044}00044\ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00045}00045\ \ \ \ \ this-\/>validity\_\ =\ \mbox{\hyperlink{main_8cpp_a00e1c393a651c9c6ffc71bc0a6c16910}{validity}};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00048}00048\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00049}\mbox{\hyperlink{class_g_a_a4361eec0fa9ac7456e85c8ee0975ebdd}{00049}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_a_a4361eec0fa9ac7456e85c8ee0975ebdd}{GA<T>::setFitness}}(\textcolor{keyword}{const}\ std::function<\textcolor{keywordtype}{double}(\textcolor{keyword}{const}\ std::vector<T>\ \&)>\ \&\mbox{\hyperlink{main_8cpp_ac17c5ad57f975775fc2eeb5b1586abeb}{fitness}})}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00050}00050\ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00051}00051\ \ \ \ \ this-\/>fitness\_\ =\ \mbox{\hyperlink{main_8cpp_ac17c5ad57f975775fc2eeb5b1586abeb}{fitness}};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00054}00054\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00055}\mbox{\hyperlink{class_g_a_a92050b390e92ffa4414996a803185fff}{00055}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_a_a92050b390e92ffa4414996a803185fff}{GA<T>::initPopulation}}()}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00056}00056\ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00057}00057\ \ \ \ \ \mbox{\hyperlink{main_8cpp_ac17c5ad57f975775fc2eeb5b1586abeb}{fitness}}.resize(POP\_SIZE);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ POP\_SIZE;\ i++)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00060}00060\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ population[i].chromosome.resize(CHROMOSOME\_SIZE);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ valid\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!valid)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ CHROMOSOME\_SIZE;\ j++)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ population[i].chromosome[j]\ =\ CHROMOMIN\ +\ (CHROMOMAX\ -\/\ CHROMOMIN)\ *\ \mbox{\hyperlink{_genetic_algorithm_8cpp_ab600d2f21b3141592c214a7fa46f5503}{RandomDouble}}(0.0,\ 1.0);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ valid\ =\ validity\_(population[i].chromosome);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)rGenerated:\ "{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ of\ "{}}\ <<\ POP\_SIZE\ <<\ std::flush;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ population[i].fitness\ =\ fitness\_(population[i].chromosome);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00073}00073\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00074}00074\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00076}00076\ \ \ \ \ std::sort(population.begin(),\ population.end(),\ std::greater<\mbox{\hyperlink{class_individual}{Individual<T>}}>());}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ POP\_SIZE;\ i++)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00078}00078\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_ac17c5ad57f975775fc2eeb5b1586abeb}{fitness}}[i]\ =\ population[i].fitness;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00080}00080\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00081}00081\ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00083}00083\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00084}\mbox{\hyperlink{class_g_a_a5de2c9a1ef93b9287efdaf76d3af18c8}{00084}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_a_a5de2c9a1ef93b9287efdaf76d3af18c8}{GA<T>::updatePopulation}}(\mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8af}{CrossoverType}}\ type)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00085}00085\ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00086}00086\ \ \ \ \ \textcolor{keywordtype}{double}\ minFitness\ =\ \mbox{\hyperlink{main_8cpp_ac17c5ad57f975775fc2eeb5b1586abeb}{fitness}}[POP\_SIZE\ -\/\ 1];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00087}00087\ \ \ \ \ \textcolor{keywordtype}{double}\ maxFitness\ =\ \mbox{\hyperlink{main_8cpp_ac17c5ad57f975775fc2eeb5b1586abeb}{fitness}}[0];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00088}00088\ \ \ \ \ \textcolor{keywordtype}{double}\ offset\ =\ (minFitness\ <\ 0.0)\ ?\ -\/minFitness\ :\ 0.0;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{keywordtype}{double}\ totalFitness\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00090}00090\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ POP\_SIZE;\ i++)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00091}00091\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_ac17c5ad57f975775fc2eeb5b1586abeb}{fitness}}[i]\ +=\ offset;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ totalFitness\ +=\ \mbox{\hyperlink{main_8cpp_ac17c5ad57f975775fc2eeb5b1586abeb}{fitness}}[i];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00094}00094\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00095}00095\ \ \ \ \ scaledFitness.resize(POP\_SIZE,\ 0.0);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00096}00096\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ POP\_SIZE;\ i++)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00097}00097\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ scaledFitness[i]\ =\ \mbox{\hyperlink{main_8cpp_ac17c5ad57f975775fc2eeb5b1586abeb}{fitness}}[i]\ /\ totalFitness;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00099}00099\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00100}00100\ \ \ \ \ cumulativeFitness.resize(POP\_SIZE,\ 0.0);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00101}00101\ \ \ \ \ cumulativeFitness[0]\ =\ scaledFitness[0];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ POP\_SIZE;\ i++)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00103}00103\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ cumulativeFitness[i]\ =\ cumulativeFitness[i\ -\/\ 1]\ +\ scaledFitness[i];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00105}00105\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00107}00107\ \ \ \ \ \textcolor{keywordtype}{int}\ remaining\ =\ POP\_SIZE;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00108}00108\ \ \ \ \ offspring.resize(POP\_SIZE);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00109}00109\ \ \ \ \ \mbox{\hyperlink{main_8cpp_ac17c5ad57f975775fc2eeb5b1586abeb}{fitness}}.resize(POP\_SIZE);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00111}00111\ \ \ \ \ \textcolor{comment}{//\ Elitism}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ ELITISM;\ ++i)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00113}00113\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ offspring[i]\ =\ population[i];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_ac17c5ad57f975775fc2eeb5b1586abeb}{fitness}}[i]\ =\ offspring[i].fitness;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ -\/-\/remaining;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00117}00117\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00119}00119\ \ \ \ \ \textcolor{comment}{//\ Crossover\ and\ mutation}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00120}00120\ \ \ \ \ \textcolor{keywordflow}{while}\ (remaining\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00121}00121\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ validChild1\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_individual}{Individual<T>}}\ child1;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.resize(CHROMOSOME\_SIZE);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ validChild2\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_individual}{Individual<T>}}\ child2;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.resize(CHROMOSOME\_SIZE);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ parent1\ =\ selectParent(cumulativeFitness);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ parent2\ =\ selectParent(cumulativeFitness);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_crossover_a7293b7248949bda64e64c3c27928ffc1}{Crossover<T>::crossover}}(population[parent1],\ population[parent2],\ child1,\ child2,\ type);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ mutate(child1);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ mutate(child2);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ validChild1\ =\ validity\_(child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ validChild2\ =\ validity\_(child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (validChild1\ \&\&\ remaining\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ child1.\mbox{\hyperlink{class_individual_a361d8e78eaeb0cc49411d0005561ba47}{fitness}}\ =\ fitness\_(child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ offspring[POP\_SIZE\ -\/\ remaining]\ =\ child1;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_ac17c5ad57f975775fc2eeb5b1586abeb}{fitness}}[POP\_SIZE\ -\/\ remaining]\ =\ offspring[POP\_SIZE\ -\/\ remaining].fitness;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/remaining;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (validChild2\ \&\&\ remaining\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ child2.\mbox{\hyperlink{class_individual_a361d8e78eaeb0cc49411d0005561ba47}{fitness}}\ =\ fitness\_(child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ offspring[POP\_SIZE\ -\/\ remaining]\ =\ child2;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_ac17c5ad57f975775fc2eeb5b1586abeb}{fitness}}[POP\_SIZE\ -\/\ remaining]\ =\ offspring[POP\_SIZE\ -\/\ remaining].fitness;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/remaining;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00152}00152\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00154}00154\ \ \ \ \ \textcolor{comment}{//\ Update\ population}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00155}00155\ \ \ \ \ population\ =\ offspring;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00157}00157\ \ \ \ \ std::sort(population.begin(),\ population.end(),\ std::greater<\mbox{\hyperlink{class_individual}{Individual<T>}}>());}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00158}00158\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ POP\_SIZE;\ i++)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00159}00159\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_ac17c5ad57f975775fc2eeb5b1586abeb}{fitness}}[i]\ =\ population[i].fitness;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00161}00161\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00162}00162\ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00164}00164\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00165}\mbox{\hyperlink{class_g_a_ac30c3731ec444e157602f4a0d41c09b4}{00165}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_g_a_ac30c3731ec444e157602f4a0d41c09b4}{GA<T>::selectParent}}(\textcolor{keyword}{const}\ std::vector<double>\ \&cf)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00166}00166\ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00167}00167\ \ \ \ \ \textcolor{keywordtype}{double}\ p\ =\ \mbox{\hyperlink{_genetic_algorithm_8cpp_ab600d2f21b3141592c214a7fa46f5503}{RandomDouble}}(0.0,\ 1.0);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00168}00168\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ POP\_SIZE;\ i++)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00169}00169\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p\ <=\ cf[i])}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00174}00174\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00175}00175\ \ \ \ \ \textcolor{keywordflow}{return}\ POP\_SIZE\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00176}00176\ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00178}00178\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00179}\mbox{\hyperlink{class_g_a_a983b953be1edfa07bd02e4a11700d230}{00179}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_a_a983b953be1edfa07bd02e4a11700d230}{GA<T>::mutate}}(\mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00180}00180\ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00181}00181\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ CHROMOSOME\_SIZE;\ i++)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00182}00182\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ p\ =\ \mbox{\hyperlink{_genetic_algorithm_8cpp_ab600d2f21b3141592c214a7fa46f5503}{RandomDouble}}(0.0,\ 1.0);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p\ <=\ MUTATION\_RATE)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ T\ randomGene;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((randomGene\ =\ CHROMOMIN\ +\ (CHROMOMAX\ -\/\ CHROMOMIN)\ *\ \mbox{\hyperlink{_genetic_algorithm_8cpp_ab600d2f21b3141592c214a7fa46f5503}{RandomDouble}}(0.0,\ 1.0))\ ==\ child.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i])}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ child.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i]\ =\ randomGene;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00191}00191\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00192}00192\ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00194}00194\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00195}\mbox{\hyperlink{class_g_a_a26734e009defb92717076a3fe7815a02}{00195}}\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \mbox{\hyperlink{class_g_a_a26734e009defb92717076a3fe7815a02}{GA<T>::optimize}}(\mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8af}{CrossoverType}}\ type)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00196}00196\ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00197}00197\ \ \ \ \ \mbox{\hyperlink{class_individual}{Individual<T>}}\ bestIndividual;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00198}00198\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Initialising\ population..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00199}00199\ \ \ \ \ initPopulation();}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00200}00200\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Done!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00201}00201\ \ \ \ \ \textcolor{keywordtype}{int}\ conv\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00202}00202\ \ \ \ \ \textcolor{keywordtype}{double}\ oldBestFitness\ =\ -\/1e10;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00203}00203\ \ \ \ \ \textcolor{keywordtype}{double}\ bestFitness;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00204}00204\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Starting\ evolution..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00205}00205\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ MAX\_GENERATION;\ i++)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00206}00206\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ updatePopulation(type);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ bestIndividual\ =\ population[0];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ bestFitness\ =\ bestIndividual.\mbox{\hyperlink{class_individual_a361d8e78eaeb0cc49411d0005561ba47}{fitness}};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Generation:\ "{}}\ <<\ i\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Best\ chromosome:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ CHROMOSOME\_SIZE;\ ++k)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ bestIndividual.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[k]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ =>\ "{}}\ <<\ bestIndividual.\mbox{\hyperlink{class_individual_a361d8e78eaeb0cc49411d0005561ba47}{fitness}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Worst\ chromosome:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ CHROMOSOME\_SIZE;\ ++k)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ population[POP\_SIZE\ -\/\ 1].chromosome[k]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ =>\ "{}}\ <<\ population[POP\_SIZE\ -\/\ 1].fitness\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fabs(bestFitness\ -\/\ oldBestFitness)\ <\ 1e-\/6)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ ++conv;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ bestFitnessHistory.push\_back(bestFitness);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ oldBestFitness\ =\ bestFitness;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (conv\ >\ CONV\_GEN)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \textcolor{comment}{//\ early\ stopping\ criteria}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00239}00239\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00241}00241\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Finshed.."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00242}00242\ \ \ \ \ \textcolor{keywordflow}{return}\ bestIndividual;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00243}00243\ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00245}00245\ \textcolor{comment}{//\ Generate\ a\ output\ file\ to\ store\ the\ results\ for\ each\ generation}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00246}00246\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00247}\mbox{\hyperlink{class_g_a_acb82721baa3c231b09aadea4ea9c55b3}{00247}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_a_acb82721baa3c231b09aadea4ea9c55b3}{GA<T>::toFile}}(std::string\ fileDir)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00248}00248\ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00249}00249\ \ \ \ \ std::stringstream\ fname;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00250}00250\ \ \ \ \ std::fstream\ f1;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00251}00251\ \ \ \ \ fname\ <<\ fileDir\ <<\ \textcolor{stringliteral}{"{}GA\_p"{}}\ <<\ std::to\_string(POP\_SIZE)\ <<\ \textcolor{stringliteral}{"{}\_n"{}}\ <<\ std::to\_string(CHROMOSOME\_SIZE)\ <<\ \textcolor{stringliteral}{"{}\_g"{}}\ <<\ std::to\_string(MAX\_GENERATION)\ <<\ \textcolor{stringliteral}{"{}\_c"{}}\ <<\ std::to\_string(CROSSOVER\_RATE)\ <<\ \textcolor{stringliteral}{"{}\_m"{}}\ <<\ std::to\_string(MUTATION\_RATE)\ <<\ \textcolor{stringliteral}{"{}.dat"{}};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00252}00252\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Saving\ output\ to\ "{}}\ <<\ fname.str()\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00253}00253\ \ \ \ \ f1.open(fname.str().c\_str(),\ std::ios\_base::out);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00255}00255\ \ \ \ \ \textcolor{comment}{//\ handle\ the\ case\ when\ the\ file\ cannot\ be\ opened}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00256}00256\ \ \ \ \ \textcolor{keywordflow}{if}\ (f1.fail())}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00257}00257\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00258}00258\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Error\ opening\ file!\ with\ name:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00259}00259\ \ \ \ \ \ \ \ \ std::cout.flush();}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00260}00260\ \ \ \ \ \ \ \ \ exit(0);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00261}00261\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00262}00262\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ it\ =\ 0;\ it\ <\ bestFitnessHistory.size();\ ++it)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ f1\ <<\ it\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}}\ <<\ bestFitnessHistory[it]\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00264}00264\ \ \ \ \ f1.close();}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00265}00265\ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00266}00266\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00267}00267\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00268}\mbox{\hyperlink{class_crossover_ae0bc80f6dba879dd5fa125ebe85e8595}{00268}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_crossover_ae0bc80f6dba879dd5fa125ebe85e8595}{Crossover<T>::one\_pt\_crossover}}(\mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent2,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child2)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00269}00269\ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00270}00270\ \ \ \ \ std::uniform\_int\_distribution<>\ distr(1,\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.size()\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00272}00272\ \ \ \ \ \textcolor{keywordtype}{int}\ crossoverPoint\ =\ distr(gen);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00273}00273\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.size();\ ++i)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00274}00274\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ crossoverPoint)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00276}00276\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i]\ =\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i]\ =\ parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00280}00280\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00281}00281\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i]\ =\ parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i]\ =\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00284}00284\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00285}00285\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00286}00286\ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00287}00287\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00288}00288\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00289}\mbox{\hyperlink{class_crossover_aaa6ecb7ed85f7b213b09a4346be718e4}{00289}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_crossover_aaa6ecb7ed85f7b213b09a4346be718e4}{Crossover<T>::two\_pts\_crossover}}(\mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent2,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child2)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00290}00290\ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00291}00291\ \ \ \ \ \textcolor{comment}{//\ Define\ two\ crossover\ points}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00292}00292\ \ \ \ \ std::uniform\_int\_distribution<>\ distr(0,\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.size()\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00293}00293\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00294}00294\ \ \ \ \ \textcolor{keywordtype}{int}\ crossoverPoint1\ =\ distr(gen);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00295}00295\ \ \ \ \ \textcolor{keywordtype}{int}\ crossoverPoint2\ =\ distr(gen);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00296}00296\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00297}00297\ \ \ \ \ \textcolor{keywordflow}{while}\ (crossoverPoint1\ ==\ crossoverPoint2\ ||}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ (crossoverPoint1\ ==\ 0\ \&\&\ crossoverPoint2\ ==\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.size()\ -\/\ 1)\ ||}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ (crossoverPoint2\ ==\ 0\ \&\&\ crossoverPoint1\ ==\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.size()\ -\/\ 1))}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00300}00300\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ crossoverPoint2\ =\ distr(gen);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00302}00302\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00303}00303\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00304}00304\ \ \ \ \ \textcolor{keywordflow}{if}\ (crossoverPoint1\ >\ crossoverPoint2)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ std::swap(crossoverPoint1,\ crossoverPoint2);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00306}00306\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00307}00307\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.size();\ ++i)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00308}00308\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00309}00309\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ crossoverPoint1\ ||\ i\ >\ crossoverPoint2)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i]\ =\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00312}00312\ \ \ \ \ \ \ \ \ \ \ \ \ child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i]\ =\ parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00313}00313\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00314}00314\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00315}00315\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \ \ \ child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i]\ =\ parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00317}00317\ \ \ \ \ \ \ \ \ \ \ \ \ child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i]\ =\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00318}00318\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00319}00319\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00320}00320\ \};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00322}00322\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00323}\mbox{\hyperlink{class_crossover_aed92733babf942c9a33cb4d39020cb75}{00323}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_crossover_aed92733babf942c9a33cb4d39020cb75}{Crossover<T>::mult\_pts\_crossover}}(\mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent2,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child2)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00324}00324\ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00325}00325\ \ \ \ \ \textcolor{keywordtype}{int}\ chromosomeLength\ =\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.size();}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00326}00326\ \ \ \ \ std::uniform\_int\_distribution<>\ distr(0,\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.size()\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00327}00327\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00328}00328\ \ \ \ \ \textcolor{comment}{//\ Generate\ a\ number\ of\ crossover\ points}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00329}00329\ \ \ \ \ \textcolor{keywordtype}{int}\ numCrossoverPoints\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00330}00330\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00331}00331\ \ \ \ \ \textcolor{comment}{//\ Generate\ crossover\ points}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00332}00332\ \ \ \ \ std::set<int>\ crossoverPoints;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00333}00333\ \ \ \ \ \textcolor{keywordflow}{while}\ (crossoverPoints.size()\ <\ numCrossoverPoints)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00334}00334\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00335}00335\ \ \ \ \ \ \ \ \ crossoverPoints.insert(distr(gen));}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00336}00336\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00337}00337\ \ \ \ \ crossoverPoints.insert(chromosomeLength);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00338}00338\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00339}00339\ \ \ \ \ \textcolor{comment}{//\ Perform\ crossover}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00340}00340\ \ \ \ \ \textcolor{keywordtype}{bool}\ sw\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00341}00341\ \ \ \ \ \textcolor{keyword}{auto}\ startIter\ =\ crossoverPoints.begin();}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00342}00342\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ chromosomeLength;\ ++i)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00343}00343\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00344}00344\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ i\ is\ in\ crossoverPoints,\ switch\ genes}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00345}00345\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ *startIter)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00346}00346\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00347}00347\ \ \ \ \ \ \ \ \ \ \ \ \ sw\ =\ !sw;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ ++startIter;}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00349}00349\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00350}00350\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!sw)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00351}00351\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00352}00352\ \ \ \ \ \ \ \ \ \ \ \ \ child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i]\ =\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00353}00353\ \ \ \ \ \ \ \ \ \ \ \ \ child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i]\ =\ parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00354}00354\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00355}00355\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00356}00356\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00357}00357\ \ \ \ \ \ \ \ \ \ \ \ \ child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i]\ =\ parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00358}00358\ \ \ \ \ \ \ \ \ \ \ \ \ child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i]\ =\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00359}00359\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00360}00360\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00361}00361\ \};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00362}00362\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00363}00363\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00364}\mbox{\hyperlink{class_crossover_a4936edf18330c0f0ebf7dadfe67cf266}{00364}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_crossover_a4936edf18330c0f0ebf7dadfe67cf266}{Crossover<T>::uniform\_crossover}}(\mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent2,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child2)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00365}00365\ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00366}00366\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}.size();\ ++i)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00367}00367\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00368}00368\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((i\ /\ 2)\ \%\ 2\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00369}00369\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00370}00370\ \ \ \ \ \ \ \ \ \ \ \ \ child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i]\ =\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00371}00371\ \ \ \ \ \ \ \ \ \ \ \ \ child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i]\ =\ parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00372}00372\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00373}00373\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00374}00374\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00375}00375\ \ \ \ \ \ \ \ \ \ \ \ \ child1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i]\ =\ parent2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00376}00376\ \ \ \ \ \ \ \ \ \ \ \ \ child2.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i]\ =\ parent1.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}[i];}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00377}00377\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00378}00378\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00379}00379\ \};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00380}00380\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00381}00381\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00382}\mbox{\hyperlink{class_crossover_a7293b7248949bda64e64c3c27928ffc1}{00382}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_crossover_a7293b7248949bda64e64c3c27928ffc1}{Crossover<T>::crossover}}(\mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&parent2,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child1,\ \mbox{\hyperlink{class_individual}{Individual<T>}}\ \&child2,\ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8af}{CrossoverType}}\ type)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00383}00383\ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00384}00384\ \ \ \ \ \textcolor{keywordflow}{switch}\ (type)}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00385}00385\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00386}00386\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00387}00387\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afac9fab5dc5978bcb2b00f04828856b445}{CrossoverType::ONE\_PT}}:}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00388}00388\ \ \ \ \ \ \ \ \ one\_pt\_crossover(parent1,\ parent2,\ child1,\ child2);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00389}00389\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00390}00390\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00391}00391\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afae6805a2553df341fd1c07aa3a9d3ecdc}{CrossoverType::TWO\_PTS}}:}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00392}00392\ \ \ \ \ \ \ \ \ two\_pts\_crossover(parent1,\ parent2,\ child1,\ child2);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00393}00393\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00394}00394\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00395}00395\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afa79147267f0e0924c2a945e11712846ce}{CrossoverType::MULT\_PTS}}:}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00396}00396\ \ \ \ \ \ \ \ \ mult\_pts\_crossover(parent1,\ parent2,\ child1,\ child2);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00397}00397\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00398}00398\ }
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00399}00399\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afa8f44784d154005a214e0fe94119d28ef}{CrossoverType::UNIFORM}}:}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00400}00400\ \ \ \ \ \ \ \ \ uniform\_crossover(parent1,\ parent2,\ child1,\ child2);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00401}00401\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00402}00402\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00403}00403\ \ \ \ \ \ \ \ \ one\_pt\_crossover(parent1,\ parent2,\ child1,\ child2);}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00404}00404\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_genetic_algorithm_8cpp_source_l00405}00405\ \}}
+
+\end{DoxyCode}

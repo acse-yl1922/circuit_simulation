@@ -1,0 +1,61 @@
+\doxysection{Directed\+Graph.\+cpp File Reference}
+\hypertarget{_directed_graph_8cpp}{}\label{_directed_graph_8cpp}\index{DirectedGraph.cpp@{DirectedGraph.cpp}}
+
+
+Directed graph implementation.  
+
+
+{\ttfamily \#include \"{}Directed\+Graph.\+hpp\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{_directed_graph_8cpp_a4cf4a0e211934acb68e1d5a033b74db0}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_directed_graph}{Directed\+Graph}} \&G)
+\begin{DoxyCompactList}\small\item\em Overload the \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Directed graph implementation. 
+
+\begin{DoxyAuthor}{Author}
+your name (\href{mailto:you@domain.com}{\texttt{ you@domain.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_directed_graph_8cpp_a4cf4a0e211934acb68e1d5a033b74db0}\label{_directed_graph_8cpp_a4cf4a0e211934acb68e1d5a033b74db0} 
+\index{DirectedGraph.cpp@{DirectedGraph.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!DirectedGraph.cpp@{DirectedGraph.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_directed_graph}{Directed\+Graph}} \&}]{G }\end{DoxyParamCaption})}
+
+
+
+Overload the \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Output stream \\
+\hline
+{\em G} & Directed graph \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::ostream\& Output stream 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ u\ =\ 0;\ u\ <\ G.\mbox{\hyperlink{class_directed_graph_ac6e7ad39d45724858ab4c8b0b9aec2f3}{getNumVertices}}();\ u++)}
+\DoxyCodeLine{00079\ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ v\ :\ G.getNeighbors(u))}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ u\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ v\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00086\ \}}
+
+\end{DoxyCode}

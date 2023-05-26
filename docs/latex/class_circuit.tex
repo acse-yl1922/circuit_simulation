@@ -1,0 +1,295 @@
+\doxysection{Circuit Class Reference}
+\hypertarget{class_circuit}{}\label{class_circuit}\index{Circuit@{Circuit}}
+
+
+\doxylink{class_circuit}{Circuit} class.  
+
+
+
+
+{\ttfamily \#include $<$CCircuit.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_circuit_a7ad35dd8f734540decd3d2c8896c2bf2}{Circuit}} (std\+::vector$<$ int $>$ \mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\+\_\+vector}})
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_circuit}{Circuit}\+:\+: \doxylink{class_circuit}{Circuit} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_circuit_a1134e16f26a878377f4d502bff111b9e}{\texorpdfstring{$\sim$}{\string~}\+Circuit}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \doxylink{class_circuit}{Circuit} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_circuit_a108c8fbee9bd02bb7af2648b877d5f09}{to\+File}} ()
+\begin{DoxyCompactList}\small\item\em To write the circuit information to a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_circuit_ad3a0bded22f5818ec068a742b0c7d69f}{Check\+\_\+\+Validity}} (const std\+::vector$<$ int $>$ \&\mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\+\_\+vector}})
+\begin{DoxyCompactList}\small\item\em Function to check the validity of the circuit vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\+\_\+units}}
+\item 
+int \mbox{\hyperlink{class_circuit_ae96aef59ca7a14aa0f0c01190000be58}{feeder}}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\+\_\+vector}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_c_unit}{CUnit}} $>$ \mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}
+\item 
+int \mbox{\hyperlink{class_circuit_a697613fa9d9cbf7c4d77f8a5b4793732}{it}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_circuit}{Circuit} class. 
+
+This class is used to store the circuit information \begin{DoxyAuthor}{Author}
+acse-\/sm222 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_circuit_a7ad35dd8f734540decd3d2c8896c2bf2}\label{class_circuit_a7ad35dd8f734540decd3d2c8896c2bf2} 
+\index{Circuit@{Circuit}!Circuit@{Circuit}}
+\index{Circuit@{Circuit}!Circuit@{Circuit}}
+\doxysubsubsection{\texorpdfstring{Circuit()}{Circuit()}}
+{\footnotesize\ttfamily Circuit\+::\+Circuit (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{circuit\+\_\+vector }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_circuit}{Circuit}\+:\+: \doxylink{class_circuit}{Circuit} object. 
+
+Constructor taking the circuit vector
+
+This constructor takes the circuit vector and initializes the circuit The circuit vector is of the form\+: Feeder, C0, T0, C1, T1, C2, T2, ... , Cn, Tn Two extra units are added to the circuit, one for the concentrate and one for the tails Each unit is stored in the units vector 
+\begin{DoxyParams}{Parameters}
+{\em circuit\+\_\+vector} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \{}
+\DoxyCodeLine{00065\ \ \ this-\/>\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ =\ (\mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}.size()\ -\/\ 1)\ /\ 2\ +\ 2;}
+\DoxyCodeLine{00066\ \ \ this-\/>\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}.resize(this-\/>\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}});}
+\DoxyCodeLine{00067\ \ \ this-\/>\mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}\ =\ \mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}};}
+\DoxyCodeLine{00068\ \ \ this-\/>\mbox{\hyperlink{class_circuit_ae96aef59ca7a14aa0f0c01190000be58}{feeder}}\ =\ \mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}[0];}
+\DoxyCodeLine{00069\ \ \ this-\/>\mbox{\hyperlink{class_circuit_a697613fa9d9cbf7c4d77f8a5b4793732}{it}}\ =\ 0;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{comment}{//\ Initialize\ the\ units\ with\ unit\ ID\ and\ destinations}}
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ this-\/>\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ -\/\ 2;\ ++i)}
+\DoxyCodeLine{00073\ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ this-\/>\mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i]\ =\ \mbox{\hyperlink{class_c_unit}{CUnit}}(i,\ \mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}[2\ *\ i\ +\ 1],\ \mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}[2\ *\ i\ +\ 2]);}
+\DoxyCodeLine{00075\ \ \ \}}
+\DoxyCodeLine{00076\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_circuit_a1134e16f26a878377f4d502bff111b9e}\label{class_circuit_a1134e16f26a878377f4d502bff111b9e} 
+\index{Circuit@{Circuit}!````~Circuit@{\texorpdfstring{$\sim$}{\string~}Circuit}}
+\index{````~Circuit@{\texorpdfstring{$\sim$}{\string~}Circuit}!Circuit@{Circuit}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Circuit()}{\string~Circuit()}}
+{\footnotesize\ttfamily Circuit\+::\texorpdfstring{$\sim$}{\string~}\+Circuit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \doxylink{class_circuit}{Circuit} object. 
+
+Destructor
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00128\ \{}
+\DoxyCodeLine{00129\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_circuit_ad3a0bded22f5818ec068a742b0c7d69f}\label{class_circuit_ad3a0bded22f5818ec068a742b0c7d69f} 
+\index{Circuit@{Circuit}!Check\_Validity@{Check\_Validity}}
+\index{Check\_Validity@{Check\_Validity}!Circuit@{Circuit}}
+\doxysubsubsection{\texorpdfstring{Check\_Validity()}{Check\_Validity()}}
+{\footnotesize\ttfamily bool Circuit\+::\+Check\+\_\+\+Validity (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{circuit\+\_\+vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function to check the validity of the circuit vector. 
+
+Function to check the validity of the circuit vector
+
+
+\begin{DoxyParams}{Parameters}
+{\em circuit\+\_\+vector} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false TODO\+: Add more validity checks 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00140\ \{}
+\DoxyCodeLine{00141\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}.size()\ \%\ 2\ !=\ 1)}
+\DoxyCodeLine{00142\ \ \ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00144\ \ \ \}}
+\DoxyCodeLine{00145\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00146\ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_circuit_ae96aef59ca7a14aa0f0c01190000be58}{feeder}}\ =\ \mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}[0];}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ =\ (\mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}.size()\ -\/\ 1)\ /\ 2;}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{comment}{//\ 0.\ No\ units\ conc\ should\ go\ directly\ to\ tails\ and\ vice\ versa}}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{00152\ \ \ \ \ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}[2\ *\ i\ +\ 1]\ ==\ \mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ +\ 1\ ||\ \mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}[2\ *\ i\ +\ 2]\ ==\ \mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}})}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00157\ \ \ \ \ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{comment}{//\ 1.\ No\ self\ loops}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{00161\ \ \ \ \ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}[2\ *\ i\ +\ 1]\ ==\ i\ ||\ \mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}[2\ *\ i\ +\ 2]\ ==\ i)}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{comment}{//\ 2.\ Talilings\ and\ Concentrations\ don't\ have\ same\ destination}}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{00170\ \ \ \ \ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}[2\ *\ i\ +\ 1]\ ==\ \mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}[2\ *\ i\ +\ 2])}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00175\ \ \ \ \ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{comment}{//\ 3.\ Everynode\ has\ a\ feed\ -\/\ Each\ node\ must\ lie\ on\ atleast\ one\ of\ the\ graphs\ from\ the\ feeder}}
+\DoxyCodeLine{00178\ \ \ \ \ std::vector<int>\ hasfeed(\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ +\ 2,\ 0);}
+\DoxyCodeLine{00179\ \ \ \ \ hasfeed[\mbox{\hyperlink{class_circuit_ae96aef59ca7a14aa0f0c01190000be58}{feeder}}]\ +=\ 1;}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{00181\ \ \ \ \ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ hasfeed[\mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}[2\ *\ i\ +\ 1]]\ +=\ 1;}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ hasfeed[\mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}[2\ *\ i\ +\ 2]]\ +=\ 1;}
+\DoxyCodeLine{00184\ \ \ \ \ \}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ +\ 2;\ ++i)}
+\DoxyCodeLine{00187\ \ \ \ \ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hasfeed[i]\ ==\ 0)}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00192\ \ \ \ \ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{comment}{//\ 4.\ Every\ unit\ has\ a\ route\ forward\ to\ leaf\ nodes\ on\ BOTH\ graphs}}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++i)}
+\DoxyCodeLine{00196\ \ \ \ \ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ std::vector<Units>\ myunits(\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ +\ 2);}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}};\ ++j)}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ myunits[j].conc\_num\ =\ \mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}[2\ *\ j\ +\ 1];}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ myunits[j].tails\_num\ =\ \mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}[2\ *\ j\ +\ 2];}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ myunits[\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}].conc\_num\ =\ 1e5;}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ myunits[\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ +\ 1].tails\_num\ =\ 1e5;}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \mbox{\hyperlink{_c_circuit_8cpp_a022f2635bf466cb220c2322c4dc9b3e5}{markunits}}(myunits,\ i);}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (myunits[\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}].marked\ ==\ \textcolor{keyword}{false}\ ||\ myunits[\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ +\ 1].marked\ ==\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00210\ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00212\ \ \ \}}
+\DoxyCodeLine{00213\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_circuit_a108c8fbee9bd02bb7af2648b877d5f09}\label{class_circuit_a108c8fbee9bd02bb7af2648b877d5f09} 
+\index{Circuit@{Circuit}!toFile@{toFile}}
+\index{toFile@{toFile}!Circuit@{Circuit}}
+\doxysubsubsection{\texorpdfstring{toFile()}{toFile()}}
+{\footnotesize\ttfamily void Circuit\+::to\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+To write the circuit information to a file. 
+
+Function to write the circuit information to a file
+
+This function writes the circuit information to a file. It creates a \doxylink{class_directed_graph}{Directed\+Graph} object for the concentrate and tails and writes the graph to a file 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084\ \{}
+\DoxyCodeLine{00085\ \ \ \mbox{\hyperlink{class_directed_graph}{DirectedGraph}}\ Conc(\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}});}
+\DoxyCodeLine{00086\ \ \ \mbox{\hyperlink{class_directed_graph}{DirectedGraph}}\ Tail(\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}});}
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ -\/\ 2;\ ++i)}
+\DoxyCodeLine{00088\ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ Conc.addEdge(i,\ \mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}[2\ *\ i\ +\ 1]);}
+\DoxyCodeLine{00090\ \ \ \ \ Tail.addEdge(i,\ \mbox{\hyperlink{class_circuit_ad063e6bc962d5ab07d349093e2112815}{circuit\_vector}}[2\ *\ i\ +\ 2]);}
+\DoxyCodeLine{00091\ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ Conc.addEdge(\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ -\/\ 2,\ \mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ +\ 1);}
+\DoxyCodeLine{00094\ \ \ Conc.addEdge(\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ -\/\ 1,\ \mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ +\ 1);}
+\DoxyCodeLine{00095\ \ \ Tail.addEdge(\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ -\/\ 2,\ \mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ +\ 1);}
+\DoxyCodeLine{00096\ \ \ Tail.addEdge(\mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ -\/\ 1,\ \mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ +\ 1);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \mbox{\hyperlink{struct_circuit___parameters}{Circuit\_Parameters}}\ params;}
+\DoxyCodeLine{00099\ \ \ \mbox{\hyperlink{_c_circuit_8h_a3fcb9a103ca8d812d262c68f199e91c7}{Calculate\_Circuit}}(*\textcolor{keyword}{this},\ params);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ std::fstream\ ConcFile;}
+\DoxyCodeLine{00102\ \ \ std::fstream\ TailFile;}
+\DoxyCodeLine{00103\ \ \ std::fstream\ DataFile;}
+\DoxyCodeLine{00104\ \ \ ConcFile.open(\textcolor{stringliteral}{"{}C.txt"{}},\ std::ios::out);}
+\DoxyCodeLine{00105\ \ \ TailFile.open(\textcolor{stringliteral}{"{}T.txt"{}},\ std::ios::out);}
+\DoxyCodeLine{00106\ \ \ DataFile.open(\textcolor{stringliteral}{"{}D.txt"{}},\ std::ios::out);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ ConcFile\ <<\ Conc;}
+\DoxyCodeLine{00109\ \ \ ConcFile\ <<\ \mbox{\hyperlink{class_circuit_ae96aef59ca7a14aa0f0c01190000be58}{feeder}}\ <<\ std::endl;}
+\DoxyCodeLine{00110\ \ \ TailFile\ <<\ Tail;}
+\DoxyCodeLine{00111\ \ \ TailFile\ <<\ \mbox{\hyperlink{class_circuit_ae96aef59ca7a14aa0f0c01190000be58}{feeder}}\ <<\ std::endl;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{class_circuit_a41584704a874152b15727c769fb64bc0}{num\_units}}\ -\/\ 2;\ ++i)}
+\DoxyCodeLine{00114\ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ DataFile\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ \mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].conc.ger\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ \mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].conc.waste\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ \mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].tail.ger\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ \mbox{\hyperlink{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}{units}}[i].tail.waste\ <<\ std::endl;}
+\DoxyCodeLine{00116\ \ \ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ ConcFile.close();}
+\DoxyCodeLine{00119\ \ \ TailFile.close();}
+\DoxyCodeLine{00120\ \ \ DataFile.close();}
+\DoxyCodeLine{00121\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_circuit_ad063e6bc962d5ab07d349093e2112815}\label{class_circuit_ad063e6bc962d5ab07d349093e2112815} 
+\index{Circuit@{Circuit}!circuit\_vector@{circuit\_vector}}
+\index{circuit\_vector@{circuit\_vector}!Circuit@{Circuit}}
+\doxysubsubsection{\texorpdfstring{circuit\_vector}{circuit\_vector}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Circuit\+::circuit\+\_\+vector}
+
+\doxylink{class_circuit}{Circuit} vector \Hypertarget{class_circuit_ae96aef59ca7a14aa0f0c01190000be58}\label{class_circuit_ae96aef59ca7a14aa0f0c01190000be58} 
+\index{Circuit@{Circuit}!feeder@{feeder}}
+\index{feeder@{feeder}!Circuit@{Circuit}}
+\doxysubsubsection{\texorpdfstring{feeder}{feeder}}
+{\footnotesize\ttfamily int Circuit\+::feeder}
+
+Feeder unit \Hypertarget{class_circuit_a697613fa9d9cbf7c4d77f8a5b4793732}\label{class_circuit_a697613fa9d9cbf7c4d77f8a5b4793732} 
+\index{Circuit@{Circuit}!it@{it}}
+\index{it@{it}!Circuit@{Circuit}}
+\doxysubsubsection{\texorpdfstring{it}{it}}
+{\footnotesize\ttfamily int Circuit\+::it}
+
+Number of iterations \Hypertarget{class_circuit_a41584704a874152b15727c769fb64bc0}\label{class_circuit_a41584704a874152b15727c769fb64bc0} 
+\index{Circuit@{Circuit}!num\_units@{num\_units}}
+\index{num\_units@{num\_units}!Circuit@{Circuit}}
+\doxysubsubsection{\texorpdfstring{num\_units}{num\_units}}
+{\footnotesize\ttfamily int Circuit\+::num\+\_\+units}
+
+Number of units in the circuit \Hypertarget{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c}\label{class_circuit_aa9bd1c2071b0b5175ea0b0bcaf2d786c} 
+\index{Circuit@{Circuit}!units@{units}}
+\index{units@{units}!Circuit@{Circuit}}
+\doxysubsubsection{\texorpdfstring{units}{units}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_c_unit}{CUnit}}$>$ Circuit\+::units}
+
+Vector of Cunits 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_circuit_8h}{CCircuit.\+h}}\item 
+\mbox{\hyperlink{_c_circuit_8cpp}{CCircuit.\+cpp}}\end{DoxyCompactItemize}

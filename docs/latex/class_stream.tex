@@ -1,0 +1,136 @@
+\doxysection{Stream Class Reference}
+\hypertarget{class_stream}{}\label{class_stream}\index{Stream@{Stream}}
+
+
+A \doxylink{class_stream}{Stream} class to store the stream information.  
+
+
+
+
+{\ttfamily \#include $<$CUnit.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_stream_a8c3f05bd00361ec92627fa41f330a39b}{Stream}} ()
+\item 
+\mbox{\hyperlink{class_stream_a278fae3705b6cb421c53acf5ccc84913}{Stream}} (double GER, double WASTE)
+\item 
+\mbox{\hyperlink{class_stream}{Stream}} \mbox{\hyperlink{class_stream_a53634a1b6720a84fecffb5b1f1325dc0}{operator+}} (const \mbox{\hyperlink{class_stream}{Stream}} \&s)
+\item 
+void \mbox{\hyperlink{class_stream_a83bb7b05d5c688f7467b458f49da9c03}{operator+=}} (const \mbox{\hyperlink{class_stream}{Stream}} \&s)
+\item 
+\mbox{\hyperlink{class_stream_a6dc4517a9e6a87abb662fcd14c2ea969}{\texorpdfstring{$\sim$}{\string~}\+Stream}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}
+\item 
+double \mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A \doxylink{class_stream}{Stream} class to store the stream information. 
+
+\begin{DoxyAuthor}{Author}
+acse-\/sm222 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_stream_a8c3f05bd00361ec92627fa41f330a39b}\label{class_stream_a8c3f05bd00361ec92627fa41f330a39b} 
+\index{Stream@{Stream}!Stream@{Stream}}
+\index{Stream@{Stream}!Stream@{Stream}}
+\doxysubsubsection{\texorpdfstring{Stream()}{Stream()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Stream\+::\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ =\ 0;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}\ =\ 0;}
+\DoxyCodeLine{00027\ \ \ \ \ \};}
+
+\end{DoxyCode}
+\Hypertarget{class_stream_a278fae3705b6cb421c53acf5ccc84913}\label{class_stream_a278fae3705b6cb421c53acf5ccc84913} 
+\index{Stream@{Stream}!Stream@{Stream}}
+\index{Stream@{Stream}!Stream@{Stream}}
+\doxysubsubsection{\texorpdfstring{Stream()}{Stream()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Stream\+::\+Stream (\begin{DoxyParamCaption}\item[{double}]{GER,  }\item[{double}]{WASTE }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ :\ \mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}(GER),\ \mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}(WASTE)\{\};\ }
+
+\end{DoxyCode}
+\Hypertarget{class_stream_a6dc4517a9e6a87abb662fcd14c2ea969}\label{class_stream_a6dc4517a9e6a87abb662fcd14c2ea969} 
+\index{Stream@{Stream}!````~Stream@{\texorpdfstring{$\sim$}{\string~}Stream}}
+\index{````~Stream@{\texorpdfstring{$\sim$}{\string~}Stream}!Stream@{Stream}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Stream()}{\string~Stream()}}
+{\footnotesize\ttfamily Stream\+::\texorpdfstring{$\sim$}{\string~}\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_stream_a53634a1b6720a84fecffb5b1f1325dc0}\label{class_stream_a53634a1b6720a84fecffb5b1f1325dc0} 
+\index{Stream@{Stream}!operator+@{operator+}}
+\index{operator+@{operator+}!Stream@{Stream}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stream}{Stream}} Stream\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stream}{Stream}} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Overload the + operator \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_stream}{Stream}}\ stream;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ stream.\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ =\ this-\/>\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ +\ s.\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ stream.\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}\ =\ this-\/>\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}\ +\ s.\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ stream;}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_stream_a83bb7b05d5c688f7467b458f49da9c03}\label{class_stream_a83bb7b05d5c688f7467b458f49da9c03} 
+\index{Stream@{Stream}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Stream@{Stream}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily void Stream\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stream}{Stream}} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Overload the += operator \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ +=\ s.\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}};}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}\ +=\ s.\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}};}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}\label{class_stream_aefdecfed543e0b50f26c5e6bd409ff50} 
+\index{Stream@{Stream}!ger@{ger}}
+\index{ger@{ger}!Stream@{Stream}}
+\doxysubsubsection{\texorpdfstring{ger}{ger}}
+{\footnotesize\ttfamily double Stream\+::ger}
+
+Constructor taking the GER and WASTE Germanium flow rate \Hypertarget{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}\label{class_stream_a784ddbe122a62575fc563f1da4bdc2b6} 
+\index{Stream@{Stream}!waste@{waste}}
+\index{waste@{waste}!Stream@{Stream}}
+\doxysubsubsection{\texorpdfstring{waste}{waste}}
+{\footnotesize\ttfamily double Stream\+::waste}
+
+Waste flow rate 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_unit_8h}{CUnit.\+h}}\end{DoxyCompactItemize}

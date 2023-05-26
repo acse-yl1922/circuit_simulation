@@ -1,0 +1,58 @@
+\doxysection{test\+\_\+all.\+cpp File Reference}
+\hypertarget{test__all_8cpp}{}\label{test__all_8cpp}\index{test\_all.cpp@{test\_all.cpp}}
+{\ttfamily \#include \"{}Unittests.\+h\"{}}\newline
+{\ttfamily \#include \"{}test\+\_\+\+Genetic\+Algorithm.\+cpp\"{}}\newline
+{\ttfamily \#include \"{}test\+\_\+\+Crossover.\+cpp\"{}}\newline
+{\ttfamily \#include \"{}test\+\_\+\+Circuit.\+cpp\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{test__all_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{test__all_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{test__all_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{test\_all.cpp@{test\_all.cpp}!main@{main}}
+\index{main@{main}!test\_all.cpp@{test\_all.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{comment}{//\ set\ a\ random\ seed\ for\ consistent\ results}}
+\DoxyCodeLine{00009\ \ \ \ \ srand(42);\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ POPULATION\_SIZE\ =\ 100;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{int}\ CHROMOSOME\_SIZE\ =\ 10;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ CHROMOMIN\ =\ 0;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ CHROMOMAX\ =\ 10;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ MAX\_GENERATION\ =\ 1500;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ CONV\_GEN\ =\ 1500;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{double}\ CROSSOVER\_RATE\ =\ 0.8;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{double}\ MUTATION\_RATE\ =\ 0.5;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a}{UnitTestGA}}\ test\_ga(POPULATION\_SIZE,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ CHROMOSOME\_SIZE,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ CHROMOMIN,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ CHROMOMAX,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ MAX\_GENERATION,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ CROSSOVER\_RATE,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ MUTATION\_RATE}
+\DoxyCodeLine{00027\ \ \ \ \ );}
+\DoxyCodeLine{00028\ \ \ \ \ test\_ga.run();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_unit_test_crossover}{UnitTestCrossover}}\ x;}
+\DoxyCodeLine{00031\ \ \ \ \ x.\mbox{\hyperlink{class_unit_test_crossover_ad1a4065f65fb66699f70e734a219beda}{test\_one\_pt\_crossover}}();}
+\DoxyCodeLine{00032\ \ \ \ \ x.\mbox{\hyperlink{class_unit_test_crossover_ad2951829f894e25920ad4c76e773bb3a}{test\_two\_pts\_crossover}}();}
+\DoxyCodeLine{00033\ \ \ \ \ x.\mbox{\hyperlink{class_unit_test_crossover_a5cfac96fcac1281c8df0f996a2d73aa2}{test\_mult\_pts\_crossover}}();}
+\DoxyCodeLine{00034\ \ \ \ \ x.\mbox{\hyperlink{class_unit_test_crossover_a41199d760c1ba8f6618272287483dda5}{test\_uniform\_crossover}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_unit_test_circuit}{UnitTestCircuit}}\ circuit;}
+\DoxyCodeLine{00037\ \ \ \ \ circuit.\mbox{\hyperlink{class_unit_test_circuit_a0b57f7580ec1f60f4b65d8eeb9f60db3}{run}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ }
+\DoxyCodeLine{00040\ \}}
+
+\end{DoxyCode}

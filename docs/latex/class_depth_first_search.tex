@@ -1,0 +1,156 @@
+\doxysection{Depth\+First\+Search Class Reference}
+\hypertarget{class_depth_first_search}{}\label{class_depth_first_search}\index{DepthFirstSearch@{DepthFirstSearch}}
+
+
+Depth first search class for directed graph.  
+
+
+
+
+{\ttfamily \#include $<$Directed\+Graph.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_depth_first_search_a43f48434305b8832b54efdd61207ae97}{Depth\+First\+Search}} ()
+\item 
+\mbox{\hyperlink{class_depth_first_search_a07315c3b1a72cd292b1272cc46852532}{Depth\+First\+Search}} (const \mbox{\hyperlink{class_directed_graph}{Directed\+Graph}} \&G, int s)
+\begin{DoxyCompactList}\small\item\em Construct a new Depth First Search\+:\+: Depth First Search object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_depth_first_search_a2a85176a28dcea94c06e33b34a1c3401}{dfs}} (const \mbox{\hyperlink{class_directed_graph}{Directed\+Graph}} \&G, int u)
+\begin{DoxyCompactList}\small\item\em Perform depth first search. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_depth_first_search_aae58a0cbc5f0dc04784433bb0ad9274e}{visited}} (int v) const
+\begin{DoxyCompactList}\small\item\em Check if a vertex is visited. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ bool $>$ \mbox{\hyperlink{class_depth_first_search_ac927093c5698b208d4c0d0a634a06c82}{marked}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Depth first search class for directed graph. 
+
+\begin{DoxyAuthor}{Author}
+acse-\/sm222 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_depth_first_search_a43f48434305b8832b54efdd61207ae97}\label{class_depth_first_search_a43f48434305b8832b54efdd61207ae97} 
+\index{DepthFirstSearch@{DepthFirstSearch}!DepthFirstSearch@{DepthFirstSearch}}
+\index{DepthFirstSearch@{DepthFirstSearch}!DepthFirstSearch@{DepthFirstSearch}}
+\doxysubsubsection{\texorpdfstring{DepthFirstSearch()}{DepthFirstSearch()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Depth\+First\+Search\+::\+Depth\+First\+Search (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+
+\end{DoxyCode}
+\Hypertarget{class_depth_first_search_a07315c3b1a72cd292b1272cc46852532}\label{class_depth_first_search_a07315c3b1a72cd292b1272cc46852532} 
+\index{DepthFirstSearch@{DepthFirstSearch}!DepthFirstSearch@{DepthFirstSearch}}
+\index{DepthFirstSearch@{DepthFirstSearch}!DepthFirstSearch@{DepthFirstSearch}}
+\doxysubsubsection{\texorpdfstring{DepthFirstSearch()}{DepthFirstSearch()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Depth\+First\+Search\+::\+Depth\+First\+Search (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_directed_graph}{Directed\+Graph}} \&}]{G,  }\item[{int}]{s }\end{DoxyParamCaption})}
+
+
+
+Construct a new Depth First Search\+:\+: Depth First Search object. 
+
+Default constructor Constructor taking the graph and the source vertex
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & Directed graph \\
+\hline
+{\em s} & Source vertex \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00108\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{class_depth_first_search_ac927093c5698b208d4c0d0a634a06c82}{marked}}.resize(G.\mbox{\hyperlink{class_directed_graph_ac6e7ad39d45724858ab4c8b0b9aec2f3}{getNumVertices}}());}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{class_depth_first_search_a2a85176a28dcea94c06e33b34a1c3401}{dfs}}(G,\ s);}
+\DoxyCodeLine{00111\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_depth_first_search_a2a85176a28dcea94c06e33b34a1c3401}\label{class_depth_first_search_a2a85176a28dcea94c06e33b34a1c3401} 
+\index{DepthFirstSearch@{DepthFirstSearch}!dfs@{dfs}}
+\index{dfs@{dfs}!DepthFirstSearch@{DepthFirstSearch}}
+\doxysubsubsection{\texorpdfstring{dfs()}{dfs()}}
+{\footnotesize\ttfamily void Depth\+First\+Search\+::dfs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_directed_graph}{Directed\+Graph}} \&}]{G,  }\item[{int}]{u }\end{DoxyParamCaption})}
+
+
+
+Perform depth first search. 
+
+Function to perform depth first search
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & Directed graph \\
+\hline
+{\em u} & Vertex \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00120\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{class_depth_first_search_ac927093c5698b208d4c0d0a634a06c82}{marked}}[u]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ v\ :\ G.getNeighbors(u))}
+\DoxyCodeLine{00123\ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_depth_first_search_ac927093c5698b208d4c0d0a634a06c82}{marked}}[v])}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_depth_first_search_a2a85176a28dcea94c06e33b34a1c3401}{dfs}}(G,\ v);}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_depth_first_search_aae58a0cbc5f0dc04784433bb0ad9274e}\label{class_depth_first_search_aae58a0cbc5f0dc04784433bb0ad9274e} 
+\index{DepthFirstSearch@{DepthFirstSearch}!visited@{visited}}
+\index{visited@{visited}!DepthFirstSearch@{DepthFirstSearch}}
+\doxysubsubsection{\texorpdfstring{visited()}{visited()}}
+{\footnotesize\ttfamily bool Depth\+First\+Search\+::visited (\begin{DoxyParamCaption}\item[{int}]{v }\end{DoxyParamCaption}) const}
+
+
+
+Check if a vertex is visited. 
+
+Function to check if a vertex is visited
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the vertex is visited 
+
+false If the vertex is not visited 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00139\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_depth_first_search_ac927093c5698b208d4c0d0a634a06c82}{marked}}[v];}
+\DoxyCodeLine{00141\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_depth_first_search_ac927093c5698b208d4c0d0a634a06c82}\label{class_depth_first_search_ac927093c5698b208d4c0d0a634a06c82} 
+\index{DepthFirstSearch@{DepthFirstSearch}!marked@{marked}}
+\index{marked@{marked}!DepthFirstSearch@{DepthFirstSearch}}
+\doxysubsubsection{\texorpdfstring{marked}{marked}}
+{\footnotesize\ttfamily std\+::vector$<$bool$>$ Depth\+First\+Search\+::marked\hspace{0.3cm}{\ttfamily [private]}}
+
+Vector to store the visited vertices 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_directed_graph_8hpp}{Directed\+Graph.\+hpp}}\item 
+\mbox{\hyperlink{_directed_graph_8cpp}{Directed\+Graph.\+cpp}}\end{DoxyCompactItemize}

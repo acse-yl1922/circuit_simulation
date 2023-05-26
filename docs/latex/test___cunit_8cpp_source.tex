@@ -1,0 +1,38 @@
+\doxysection{test\+\_\+\+Cunit.\+cpp}
+\hypertarget{test___cunit_8cpp_source}{}\label{test___cunit_8cpp_source}\index{/Users/jr722/lecture/acs-\/gerardium-\/rush-\/pentlandite/tests/test\_Cunit.cpp@{/Users/jr722/lecture/acs-\/gerardium-\/rush-\/pentlandite/tests/test\_Cunit.cpp}}
+\mbox{\hyperlink{test___cunit_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_c_unit_8h}{CUnit.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00006}\mbox{\hyperlink{test___cunit_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{00006}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ *argv[])}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00009}00009\ \ \ \ \ \mbox{\hyperlink{class_c_unit}{CUnit}}\ test\_unit;}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00011}00011\ \ \ \ \ test\_unit.\mbox{\hyperlink{class_c_unit_ac2807661ea9bd019395a05854a098e61}{input}}.\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ =\ 20;}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00012}00012\ \ \ \ \ test\_unit.\mbox{\hyperlink{class_c_unit_ac2807661ea9bd019395a05854a098e61}{input}}.\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}\ =\ 80;}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00014}00014\ \ \ \ \ test\_unit.\mbox{\hyperlink{class_c_unit_a994169ee035311e22dfae1435ae36dc3}{calculateOutputFlowRates}}(test\_unit.\mbox{\hyperlink{class_c_unit_ac2807661ea9bd019395a05854a098e61}{input}});}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{double}\ eps\ =\ 1e-\/3;}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordtype}{bool}\ check1\ =\ fabs(test\_unit.\mbox{\hyperlink{class_c_unit_af58a1e87d56474b4b0d42c1edbf23d36}{conc}}.\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ -\/\ 2.6087)\ <\ eps;}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ check2\ =\ fabs(test\_unit.\mbox{\hyperlink{class_c_unit_af58a1e87d56474b4b0d42c1edbf23d36}{conc}}.\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}\ -\/\ 1.18227)\ <\ eps;}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ check3\ =\ fabs(test\_unit.\mbox{\hyperlink{class_c_unit_ad2045fb8b0fae9d3265e4ce57ba630c4}{tail}}.\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ -\/\ 17.3913)\ <\ eps;}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ check4\ =\ fabs(test\_unit.\mbox{\hyperlink{class_c_unit_ad2045fb8b0fae9d3265e4ce57ba630c4}{tail}}.\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}\ -\/\ 78.8177)\ <\ eps;}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{if}\ (check1\ \&\&\ check2\ \&\&\ check3\ \&\&\ check4)}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00023}00023\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00025}00025\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00027}00027\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00029}00029\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{test___cunit_8cpp_source_l00032}00032\ \}}
+
+\end{DoxyCode}

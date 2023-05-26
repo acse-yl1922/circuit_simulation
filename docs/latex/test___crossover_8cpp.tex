@@ -1,0 +1,48 @@
+\doxysection{test\+\_\+\+Crossover.\+cpp File Reference}
+\hypertarget{test___crossover_8cpp}{}\label{test___crossover_8cpp}\index{test\_Crossover.cpp@{test\_Crossover.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include \"{}Genetic\+Algorithm.\+hpp\"{}}\newline
+{\ttfamily \#include \"{}Unittests.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{test___crossover_8cpp_aa79805de515ecd55fee388bc6522c375}{print\+Chromosome}} (const std\+::vector$<$ T $>$ \&chromosome)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_crossover}{Crossover}}$<$ int $>$ \mbox{\hyperlink{test___crossover_8cpp_ae45aae5eb445035260c74370b79c719d}{crossover}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{test___crossover_8cpp_aa79805de515ecd55fee388bc6522c375}\label{test___crossover_8cpp_aa79805de515ecd55fee388bc6522c375} 
+\index{test\_Crossover.cpp@{test\_Crossover.cpp}!printChromosome@{printChromosome}}
+\index{printChromosome@{printChromosome}!test\_Crossover.cpp@{test\_Crossover.cpp}}
+\doxysubsubsection{\texorpdfstring{printChromosome()}{printChromosome()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void print\+Chromosome (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{chromosome }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\{\ "{}};}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&gene\ :\ chromosome)}
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ std::cout\ <<\ gene\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00015\ \ \ \ \ \}}
+\DoxyCodeLine{00016\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\}\(\backslash\)n"{}};}
+\DoxyCodeLine{00017\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{test___crossover_8cpp_ae45aae5eb445035260c74370b79c719d}\label{test___crossover_8cpp_ae45aae5eb445035260c74370b79c719d} 
+\index{test\_Crossover.cpp@{test\_Crossover.cpp}!crossover@{crossover}}
+\index{crossover@{crossover}!test\_Crossover.cpp@{test\_Crossover.cpp}}
+\doxysubsubsection{\texorpdfstring{crossover}{crossover}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_crossover}{Crossover}}$<$int$>$ crossover}
+

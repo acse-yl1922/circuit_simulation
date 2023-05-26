@@ -1,0 +1,132 @@
+\doxysection{Genetic\+Algorithm.\+hpp File Reference}
+\hypertarget{_genetic_algorithm_8hpp}{}\label{_genetic_algorithm_8hpp}\index{GeneticAlgorithm.hpp@{GeneticAlgorithm.hpp}}
+
+
+Header file for the Genetic\+Algorithm class.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$omp.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_individual}{Individual$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Template class representing an individual in the \doxylink{class_g_a}{GA} population. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_crossover}{Crossover$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Performs crossover operation between two parent individuals. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_a}{GA$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Template class representing a Genetic Algorithm (\doxylink{class_g_a}{GA}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_genetic_algorithm_8hpp_adb2d9505bae635c86de4a47561d7d930}{PARALLEL}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8af}{Crossover\+Type}} \{ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afac9fab5dc5978bcb2b00f04828856b445}{ONE\+\_\+\+PT}} = 0
+, \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afae6805a2553df341fd1c07aa3a9d3ecdc}{TWO\+\_\+\+PTS}} = 1
+, \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afa8f44784d154005a214e0fe94119d28ef}{UNIFORM}} = 2
+, \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afa79147267f0e0924c2a945e11712846ce}{MULT\+\_\+\+PTS}} = 3
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{_genetic_algorithm_8hpp_ab600d2f21b3141592c214a7fa46f5503}{Random\+Double}} (double min, double max)
+\item 
+int \mbox{\hyperlink{_genetic_algorithm_8hpp_ad505756a2fc0bc51583cc2420dd696f9}{Random\+Int}} (int min, int max)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the Genetic\+Algorithm class. 
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023
+\end{DoxyCopyright}
+Adaptive crossover and mutation rates are implemented according to the following paper\+: Ref\+: Lin, W.\+Y., Lee, W.\+Y. and Hong, T.\+P., 2003. Adapting crossover and mutation rates in genetic algorithms. J. Inf. Sci. Eng., 19(5), pp.\+889-\/903. This works efficiently for single threaded applications. For parallel applications, the crossover and mutation rates fixed. Can be made for parallel by reduction if time permits 
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_genetic_algorithm_8hpp_adb2d9505bae635c86de4a47561d7d930}\label{_genetic_algorithm_8hpp_adb2d9505bae635c86de4a47561d7d930} 
+\index{GeneticAlgorithm.hpp@{GeneticAlgorithm.hpp}!PARALLEL@{PARALLEL}}
+\index{PARALLEL@{PARALLEL}!GeneticAlgorithm.hpp@{GeneticAlgorithm.hpp}}
+\doxysubsubsection{\texorpdfstring{PARALLEL}{PARALLEL}}
+{\footnotesize\ttfamily \#define PARALLEL}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8af}\label{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8af} 
+\index{GeneticAlgorithm.hpp@{GeneticAlgorithm.hpp}!CrossoverType@{CrossoverType}}
+\index{CrossoverType@{CrossoverType}!GeneticAlgorithm.hpp@{GeneticAlgorithm.hpp}}
+\doxysubsubsection{\texorpdfstring{CrossoverType}{CrossoverType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8af}{Crossover\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ONE\_PT@{ONE\_PT}!GeneticAlgorithm.hpp@{GeneticAlgorithm.hpp}}\index{GeneticAlgorithm.hpp@{GeneticAlgorithm.hpp}!ONE\_PT@{ONE\_PT}}}\Hypertarget{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afac9fab5dc5978bcb2b00f04828856b445}\label{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afac9fab5dc5978bcb2b00f04828856b445} 
+ONE\+\_\+\+PT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TWO\_PTS@{TWO\_PTS}!GeneticAlgorithm.hpp@{GeneticAlgorithm.hpp}}\index{GeneticAlgorithm.hpp@{GeneticAlgorithm.hpp}!TWO\_PTS@{TWO\_PTS}}}\Hypertarget{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afae6805a2553df341fd1c07aa3a9d3ecdc}\label{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afae6805a2553df341fd1c07aa3a9d3ecdc} 
+TWO\+\_\+\+PTS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNIFORM@{UNIFORM}!GeneticAlgorithm.hpp@{GeneticAlgorithm.hpp}}\index{GeneticAlgorithm.hpp@{GeneticAlgorithm.hpp}!UNIFORM@{UNIFORM}}}\Hypertarget{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afa8f44784d154005a214e0fe94119d28ef}\label{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afa8f44784d154005a214e0fe94119d28ef} 
+UNIFORM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MULT\_PTS@{MULT\_PTS}!GeneticAlgorithm.hpp@{GeneticAlgorithm.hpp}}\index{GeneticAlgorithm.hpp@{GeneticAlgorithm.hpp}!MULT\_PTS@{MULT\_PTS}}}\Hypertarget{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afa79147267f0e0924c2a945e11712846ce}\label{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afa79147267f0e0924c2a945e11712846ce} 
+MULT\+\_\+\+PTS&\\
+\hline
+
+\end{DoxyEnumFields}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00131\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afac9fab5dc5978bcb2b00f04828856b445}{ONE\_PT}}\ =\ 0,}
+\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afae6805a2553df341fd1c07aa3a9d3ecdc}{TWO\_PTS}}\ =\ 1,}
+\DoxyCodeLine{00134\ \ \ \ \ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afa8f44784d154005a214e0fe94119d28ef}{UNIFORM}}\ =\ 2,}
+\DoxyCodeLine{00135\ \ \ \ \ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afa79147267f0e0924c2a945e11712846ce}{MULT\_PTS}}\ =\ 3}
+\DoxyCodeLine{00136\ \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_genetic_algorithm_8hpp_ab600d2f21b3141592c214a7fa46f5503}\label{_genetic_algorithm_8hpp_ab600d2f21b3141592c214a7fa46f5503} 
+\index{GeneticAlgorithm.hpp@{GeneticAlgorithm.hpp}!RandomDouble@{RandomDouble}}
+\index{RandomDouble@{RandomDouble}!GeneticAlgorithm.hpp@{GeneticAlgorithm.hpp}}
+\doxysubsubsection{\texorpdfstring{RandomDouble()}{RandomDouble()}}
+{\footnotesize\ttfamily double Random\+Double (\begin{DoxyParamCaption}\item[{double}]{min,  }\item[{double}]{max }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ std::uniform\_real\_distribution<double>\ dist(min,\ max);\ \textcolor{comment}{//\ Define\ the\ range\ of\ random\ numbers}}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordflow}{return}\ dist(gen);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Generate\ and\ return\ a\ random\ number}}
+\DoxyCodeLine{00010\ \}}
+
+\end{DoxyCode}
+\Hypertarget{_genetic_algorithm_8hpp_ad505756a2fc0bc51583cc2420dd696f9}\label{_genetic_algorithm_8hpp_ad505756a2fc0bc51583cc2420dd696f9} 
+\index{GeneticAlgorithm.hpp@{GeneticAlgorithm.hpp}!RandomInt@{RandomInt}}
+\index{RandomInt@{RandomInt}!GeneticAlgorithm.hpp@{GeneticAlgorithm.hpp}}
+\doxysubsubsection{\texorpdfstring{RandomInt()}{RandomInt()}}
+{\footnotesize\ttfamily int Random\+Int (\begin{DoxyParamCaption}\item[{int}]{min,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ std::uniform\_int\_distribution<int>\ dist(min,\ max);\ \textcolor{comment}{//\ Define\ the\ range\ of\ random\ numbers}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{return}\ dist(gen);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Generate\ and\ return\ a\ random\ number}}
+\DoxyCodeLine{00017\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,43 @@
+\doxysection{Genetic\+Algorithm.\+cpp File Reference}
+\hypertarget{_genetic_algorithm_8cpp}{}\label{_genetic_algorithm_8cpp}\index{GeneticAlgorithm.cpp@{GeneticAlgorithm.cpp}}
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include \"{}Genetic\+Algorithm.\+hpp\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{_genetic_algorithm_8cpp_ab600d2f21b3141592c214a7fa46f5503}{Random\+Double}} (double min, double max)
+\item 
+int \mbox{\hyperlink{_genetic_algorithm_8cpp_ad505756a2fc0bc51583cc2420dd696f9}{Random\+Int}} (int min, int max)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_genetic_algorithm_8cpp_ab600d2f21b3141592c214a7fa46f5503}\label{_genetic_algorithm_8cpp_ab600d2f21b3141592c214a7fa46f5503} 
+\index{GeneticAlgorithm.cpp@{GeneticAlgorithm.cpp}!RandomDouble@{RandomDouble}}
+\index{RandomDouble@{RandomDouble}!GeneticAlgorithm.cpp@{GeneticAlgorithm.cpp}}
+\doxysubsubsection{\texorpdfstring{RandomDouble()}{RandomDouble()}}
+{\footnotesize\ttfamily double Random\+Double (\begin{DoxyParamCaption}\item[{double}]{min,  }\item[{double}]{max }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ std::uniform\_real\_distribution<double>\ dist(min,\ max);\ \textcolor{comment}{//\ Define\ the\ range\ of\ random\ numbers}}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordflow}{return}\ dist(gen);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Generate\ and\ return\ a\ random\ number}}
+\DoxyCodeLine{00010\ \}}
+
+\end{DoxyCode}
+\Hypertarget{_genetic_algorithm_8cpp_ad505756a2fc0bc51583cc2420dd696f9}\label{_genetic_algorithm_8cpp_ad505756a2fc0bc51583cc2420dd696f9} 
+\index{GeneticAlgorithm.cpp@{GeneticAlgorithm.cpp}!RandomInt@{RandomInt}}
+\index{RandomInt@{RandomInt}!GeneticAlgorithm.cpp@{GeneticAlgorithm.cpp}}
+\doxysubsubsection{\texorpdfstring{RandomInt()}{RandomInt()}}
+{\footnotesize\ttfamily int Random\+Int (\begin{DoxyParamCaption}\item[{int}]{min,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ std::uniform\_int\_distribution<int>\ dist(min,\ max);\ \textcolor{comment}{//\ Define\ the\ range\ of\ random\ numbers}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{return}\ dist(gen);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Generate\ and\ return\ a\ random\ number}}
+\DoxyCodeLine{00017\ \}}
+
+\end{DoxyCode}

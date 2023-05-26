@@ -1,0 +1,114 @@
+\doxysection{CSimulator.\+h File Reference}
+\hypertarget{_c_simulator_8h}{}\label{_c_simulator_8h}\index{CSimulator.h@{CSimulator.h}}
+
+
+Simulator class.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$float.\+h$>$}\newline
+{\ttfamily \#include \"{}CCircuit.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{_c_simulator_8h_a7e4678796fe4df1ca29d64c987d90ed6}{Evaluate\+\_\+\+Circuit}} (std\+::vector$<$ int $>$ circuit\+\_\+vector, struct \mbox{\hyperlink{struct_circuit___parameters}{Circuit\+\_\+\+Parameters}} parameters)
+\begin{DoxyCompactList}\small\item\em Function to evaluate the objective function. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{_c_simulator_8h_afe735dfca5cdff161b477c1d6816322b}{Evaluate\+\_\+\+Circuit}} (std\+::vector$<$ int $>$ circuit\+\_\+vector)
+\begin{DoxyCompactList}\small\item\em Overloaded function to evaluate the objective function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Simulator class. 
+
+\begin{DoxyAuthor}{Author}
+acse-\/sm222 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_c_simulator_8h_afe735dfca5cdff161b477c1d6816322b}\label{_c_simulator_8h_afe735dfca5cdff161b477c1d6816322b} 
+\index{CSimulator.h@{CSimulator.h}!Evaluate\_Circuit@{Evaluate\_Circuit}}
+\index{Evaluate\_Circuit@{Evaluate\_Circuit}!CSimulator.h@{CSimulator.h}}
+\doxysubsubsection{\texorpdfstring{Evaluate\_Circuit()}{Evaluate\_Circuit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Evaluate\+\_\+\+Circuit (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{circuit\+\_\+vector }\end{DoxyParamCaption})}
+
+
+
+Overloaded function to evaluate the objective function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em circuit\+\_\+vector} & Vector representing the separator circuit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double Objective function value
+\end{DoxyReturn}
+Overloaded function to evaluate the objective function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em circuit\+\_\+vector} & \doxylink{class_circuit}{Circuit} vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double Objective function value 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00166\ \{}
+\DoxyCodeLine{00167\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_circuit___parameters}{Circuit\_Parameters}}\ default\_circuit\_parameters;}
+\DoxyCodeLine{00168\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_c_simulator_8cpp_a7e4678796fe4df1ca29d64c987d90ed6}{Evaluate\_Circuit}}(circuit\_vector,\ default\_circuit\_parameters);}
+\DoxyCodeLine{00169\ \};}
+
+\end{DoxyCode}
+\Hypertarget{_c_simulator_8h_a7e4678796fe4df1ca29d64c987d90ed6}\label{_c_simulator_8h_a7e4678796fe4df1ca29d64c987d90ed6} 
+\index{CSimulator.h@{CSimulator.h}!Evaluate\_Circuit@{Evaluate\_Circuit}}
+\index{Evaluate\_Circuit@{Evaluate\_Circuit}!CSimulator.h@{CSimulator.h}}
+\doxysubsubsection{\texorpdfstring{Evaluate\_Circuit()}{Evaluate\_Circuit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Evaluate\+\_\+\+Circuit (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{circuit\+\_\+vector,  }\item[{struct \mbox{\hyperlink{struct_circuit___parameters}{Circuit\+\_\+\+Parameters}}}]{parameters }\end{DoxyParamCaption})}
+
+
+
+Function to evaluate the objective function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em circuit\+\_\+vector} & Vector representing the separator circuit \\
+\hline
+{\em parameters} & Structure containing the parameters for the circuit simulator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double Objective function value
+\end{DoxyReturn}
+Function to evaluate the objective function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em circuit\+\_\+vector} & \doxylink{class_circuit}{Circuit} vector \\
+\hline
+{\em parameters} & \doxylink{class_circuit}{Circuit} parameters \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double Objective function value 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00136\ \{}
+\DoxyCodeLine{00137\ \ \ \textcolor{comment}{//\ 1.\ Create\ a\ circuit\ object}}
+\DoxyCodeLine{00138\ \ \ \mbox{\hyperlink{class_circuit}{Circuit}}\ circuit(circuit\_vector);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \textcolor{comment}{//\ 2.\ Calculate\ the\ circuit}}
+\DoxyCodeLine{00141\ \ \ \mbox{\hyperlink{_c_simulator_8cpp_a3fcb9a103ca8d812d262c68f199e91c7}{Calculate\_Circuit}}(circuit,\ parameters);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \textcolor{keywordtype}{double}\ objective\ =\ parameters.\mbox{\hyperlink{struct_circuit___parameters_af8b2c0f89171956dec9004b99187593c}{get\_money}}\ *\ circuit.units[circuit.num\_units\ -\/\ 2].input.ger\ -\/\ parameters.\mbox{\hyperlink{struct_circuit___parameters_a4ee4e733fa29743db2800af4418b4507}{lose\_money}}\ *\ circuit.units[circuit.num\_units\ -\/\ 2].input.waste;}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \textcolor{keywordflow}{return}\ objective;}
+\DoxyCodeLine{00146\ \}}
+
+\end{DoxyCode}

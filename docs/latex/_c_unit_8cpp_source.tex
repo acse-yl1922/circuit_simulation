@@ -1,0 +1,46 @@
+\doxysection{CUnit.\+cpp}
+\hypertarget{_c_unit_8cpp_source}{}\label{_c_unit_8cpp_source}\index{/Users/jr722/lecture/acs-\/gerardium-\/rush-\/pentlandite/src/CUnit.cpp@{/Users/jr722/lecture/acs-\/gerardium-\/rush-\/pentlandite/src/CUnit.cpp}}
+\mbox{\hyperlink{_c_unit_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_c_unit_8h}{CUnit.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00018}\mbox{\hyperlink{class_c_unit_af94af33f7e89ad04a27e77479f78eb4a}{00018}}\ \mbox{\hyperlink{class_c_unit_af94af33f7e89ad04a27e77479f78eb4a}{CUnit::CUnit}}()}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00019}00019\ \{}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00020}00020\ \ \ \ \ this-\/>\textcolor{keywordtype}{id}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00021}00021\ \ \ \ \ this-\/>\mbox{\hyperlink{class_c_unit_acdc8636ac295d38228496f681b1b87ce}{conc\_num}}\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00022}00022\ \ \ \ \ this-\/>\mbox{\hyperlink{class_c_unit_a18f9b08b44f3f38d4483406fdf73c356}{tails\_num}}\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00023}00023\ \}}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00032}\mbox{\hyperlink{class_c_unit_a7449408eff8a79d98a0b1a7fc4e4ab47}{00032}}\ \mbox{\hyperlink{class_c_unit_af94af33f7e89ad04a27e77479f78eb4a}{CUnit::CUnit}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{int}\ conc\_num,\ \textcolor{keywordtype}{int}\ tails\_num)}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00033}00033\ \{}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00034}00034\ \ \ \ \ this-\/>\textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{class_c_unit_a1e15056a054eef5905aa954b4038ed9c}{id}};}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00035}00035\ \ \ \ \ this-\/>conc\_num\ =\ \mbox{\hyperlink{class_c_unit_acdc8636ac295d38228496f681b1b87ce}{conc\_num}};}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00036}00036\ \ \ \ \ this-\/>tails\_num\ =\ \mbox{\hyperlink{class_c_unit_a18f9b08b44f3f38d4483406fdf73c356}{tails\_num}};}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00037}00037\ \}}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00045}\mbox{\hyperlink{class_c_unit_a994169ee035311e22dfae1435ae36dc3}{00045}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_unit_a994169ee035311e22dfae1435ae36dc3}{CUnit::calculateOutputFlowRates}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_stream}{Stream}}\ \&INP)}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00046}00046\ \{}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{comment}{//\ Calculate\ Tau}}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{double}\ sumFlowRate\ =\ INP.\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ +\ INP.\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}};}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{if}\ (std::abs(sumFlowRate)\ <\ 1e-\/10)}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00051}00051\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ sumFlowRate\ =\ 1e-\/10;\ \textcolor{comment}{//\ Set\ sumFlowRate\ to\ the\ minimum\ flow\ rate}}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00053}00053\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{double}\ Tau\ =\ \mbox{\hyperlink{class_c_unit_ada5cfd7f38a7cf5919b3877cbc36f856}{phi}}\ *\ \mbox{\hyperlink{class_c_unit_a51b68662385e5d30745f289134445505}{V}}\ *\ \mbox{\hyperlink{class_c_unit_af9e0b8d52f4ebdff4d9e524fdd54dc8f}{rho}}\ /\ sumFlowRate;}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{comment}{//\ Calculate\ R}}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00057}00057\ \ \ \ \ \textcolor{keywordtype}{double}\ R\_ger\ =\ (\mbox{\hyperlink{class_c_unit_a1275a005cf4b5a5d5f733754b63ee491}{k\_ger}}\ *\ Tau)\ /\ (1\ +\ (\mbox{\hyperlink{class_c_unit_a1275a005cf4b5a5d5f733754b63ee491}{k\_ger}}\ *\ Tau));}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{double}\ R\_waste\ =\ (\mbox{\hyperlink{class_c_unit_a6451cf5c15b47dc7eb754efc2128ea1e}{k\_waste}}\ *\ Tau)\ /\ (1\ +\ (\mbox{\hyperlink{class_c_unit_a6451cf5c15b47dc7eb754efc2128ea1e}{k\_waste}}\ *\ Tau));}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{comment}{//\ Calculate\ C}}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00061}00061\ \ \ \ \ this-\/>\mbox{\hyperlink{class_c_unit_af58a1e87d56474b4b0d42c1edbf23d36}{conc}}.\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ =\ INP.\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ *\ R\_ger;}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00062}00062\ \ \ \ \ this-\/>\mbox{\hyperlink{class_c_unit_af58a1e87d56474b4b0d42c1edbf23d36}{conc}}.\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}\ =\ INP.\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}\ *\ R\_waste;}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{comment}{//\ Calculate\ T}}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00065}00065\ \ \ \ \ this-\/>\mbox{\hyperlink{class_c_unit_ad2045fb8b0fae9d3265e4ce57ba630c4}{tail}}.\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ =\ INP.\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ *\ (1\ -\/\ R\_ger);}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00066}00066\ \ \ \ \ this-\/>\mbox{\hyperlink{class_c_unit_ad2045fb8b0fae9d3265e4ce57ba630c4}{tail}}.\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}\ =\ INP.\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}\ *\ (1\ -\/\ R\_waste);}
+\DoxyCodeLine{\Hypertarget{_c_unit_8cpp_source_l00067}00067\ \}}
+
+\end{DoxyCode}

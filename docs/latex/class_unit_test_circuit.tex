@@ -1,0 +1,168 @@
+\doxysection{Unit\+Test\+Circuit Class Reference}
+\hypertarget{class_unit_test_circuit}{}\label{class_unit_test_circuit}\index{UnitTestCircuit@{UnitTestCircuit}}
+
+
+{\ttfamily \#include $<$Unittests.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_unit_test_circuit_a83e9f717b162e43455a16f086089067d}{Unit\+Test\+Circuit}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_unit_test_circuit_a4a789f3a3d6045606109dd986612b215}{\texorpdfstring{$\sim$}{\string~}\+Unit\+Test\+Circuit}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_unit_test_circuit_adaec360456db7fe579a0e3d34137d775}{test\+\_\+circuit\+\_\+evaluation}} ()
+\item 
+void \mbox{\hyperlink{class_unit_test_circuit_a4ffbb030f008181270bd2177f0448aba}{test\+\_\+circuit\+\_\+validity}} ()
+\item 
+void \mbox{\hyperlink{class_unit_test_circuit_aa143fbf20dcf1ed1e756f7c553cdc428}{test\+\_\+circuit\+\_\+unit}} ()
+\item 
+void \mbox{\hyperlink{class_unit_test_circuit_a0b57f7580ec1f60f4b65d8eeb9f60db3}{run}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_unit_test_circuit_a83e9f717b162e43455a16f086089067d}\label{class_unit_test_circuit_a83e9f717b162e43455a16f086089067d} 
+\index{UnitTestCircuit@{UnitTestCircuit}!UnitTestCircuit@{UnitTestCircuit}}
+\index{UnitTestCircuit@{UnitTestCircuit}!UnitTestCircuit@{UnitTestCircuit}}
+\doxysubsubsection{\texorpdfstring{UnitTestCircuit()}{UnitTestCircuit()}}
+{\footnotesize\ttfamily Unit\+Test\+Circuit\+::\+Unit\+Test\+Circuit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{class_unit_test_circuit_a4a789f3a3d6045606109dd986612b215}\label{class_unit_test_circuit_a4a789f3a3d6045606109dd986612b215} 
+\index{UnitTestCircuit@{UnitTestCircuit}!````~UnitTestCircuit@{\texorpdfstring{$\sim$}{\string~}UnitTestCircuit}}
+\index{````~UnitTestCircuit@{\texorpdfstring{$\sim$}{\string~}UnitTestCircuit}!UnitTestCircuit@{UnitTestCircuit}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}UnitTestCircuit()}{\string~UnitTestCircuit()}}
+{\footnotesize\ttfamily Unit\+Test\+Circuit\+::\texorpdfstring{$\sim$}{\string~}\+Unit\+Test\+Circuit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_unit_test_circuit_a0b57f7580ec1f60f4b65d8eeb9f60db3}\label{class_unit_test_circuit_a0b57f7580ec1f60f4b65d8eeb9f60db3} 
+\index{UnitTestCircuit@{UnitTestCircuit}!run@{run}}
+\index{run@{run}!UnitTestCircuit@{UnitTestCircuit}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Unit\+Test\+Circuit\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{class_unit_test_circuit_adaec360456db7fe579a0e3d34137d775}{test\_circuit\_evaluation}}();}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{class_unit_test_circuit_a4ffbb030f008181270bd2177f0448aba}{test\_circuit\_validity}}();}
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{class_unit_test_circuit_aa143fbf20dcf1ed1e756f7c553cdc428}{test\_circuit\_unit}}();}
+\DoxyCodeLine{00076\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_unit_test_circuit_adaec360456db7fe579a0e3d34137d775}\label{class_unit_test_circuit_adaec360456db7fe579a0e3d34137d775} 
+\index{UnitTestCircuit@{UnitTestCircuit}!test\_circuit\_evaluation@{test\_circuit\_evaluation}}
+\index{test\_circuit\_evaluation@{test\_circuit\_evaluation}!UnitTestCircuit@{UnitTestCircuit}}
+\doxysubsubsection{\texorpdfstring{test\_circuit\_evaluation()}{test\_circuit\_evaluation()}}
+{\footnotesize\ttfamily void Unit\+Test\+Circuit\+::test\+\_\+circuit\+\_\+evaluation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00010\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}============================Test\ Circuit\ Evaluation============================\(\backslash\)n"{}};}
+\DoxyCodeLine{00011\ \ \ \ \ }
+\DoxyCodeLine{00012\ \ \ \ \ std::vector<int>\ circuit\_vector\ =\ \{4,\ 5,\ 1,\ 2,\ 4,\ 0,\ 1,\ 1,\ 6,\ 1,\ 3\};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{main_8cpp_a00e1c393a651c9c6ffc71bc0a6c16910}{validity}}\ =\ \mbox{\hyperlink{class_circuit_ad3a0bded22f5818ec068a742b0c7d69f}{Circuit::Check\_Validity}}(circuit\_vector);}
+\DoxyCodeLine{00014\ \ \ \ \ assert(\mbox{\hyperlink{main_8cpp_a00e1c393a651c9c6ffc71bc0a6c16910}{validity}}==\textcolor{keyword}{true});}
+\DoxyCodeLine{00015\ \ \ \ \ }
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{struct_circuit___parameters}{Circuit\_Parameters}}\ parameters;}
+\DoxyCodeLine{00017\ \ \ \ \ parameters.\mbox{\hyperlink{struct_circuit___parameters_acc1e5ddd0d611bfd3af8f89c0ff2777c}{tolerance}}\ =\ 1e-\/6;}
+\DoxyCodeLine{00018\ \ \ \ \ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{double}\ value\ =\ \mbox{\hyperlink{_c_simulator_8cpp_a7e4678796fe4df1ca29d64c987d90ed6}{Evaluate\_Circuit}}(circuit\_vector,\ parameters);}
+\DoxyCodeLine{00020\ \ \ \ \ std::cout\ <<\ value\ <<\ std::endl;}
+\DoxyCodeLine{00021\ \ \ \ \ assert(std::fabs(value\ -\/\ 107.204)\ <=\ 1e-\/3);}
+\DoxyCodeLine{00022\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}completed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00023\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_unit_test_circuit_aa143fbf20dcf1ed1e756f7c553cdc428}\label{class_unit_test_circuit_aa143fbf20dcf1ed1e756f7c553cdc428} 
+\index{UnitTestCircuit@{UnitTestCircuit}!test\_circuit\_unit@{test\_circuit\_unit}}
+\index{test\_circuit\_unit@{test\_circuit\_unit}!UnitTestCircuit@{UnitTestCircuit}}
+\doxysubsubsection{\texorpdfstring{test\_circuit\_unit()}{test\_circuit\_unit()}}
+{\footnotesize\ttfamily void Unit\+Test\+Circuit\+::test\+\_\+circuit\+\_\+unit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}============================Test\ Circuit\ Unit============================\(\backslash\)n"{}};}
+\DoxyCodeLine{00050\ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_c_unit}{CUnit}}\ test\_unit;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ test\_unit.\mbox{\hyperlink{class_c_unit_ac2807661ea9bd019395a05854a098e61}{input}}.\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ =\ 20;}
+\DoxyCodeLine{00054\ \ \ \ \ test\_unit.\mbox{\hyperlink{class_c_unit_ac2807661ea9bd019395a05854a098e61}{input}}.\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}\ =\ 80;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ test\_unit.\mbox{\hyperlink{class_c_unit_a994169ee035311e22dfae1435ae36dc3}{calculateOutputFlowRates}}(test\_unit.\mbox{\hyperlink{class_c_unit_ac2807661ea9bd019395a05854a098e61}{input}});}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{double}\ eps\ =\ 1e-\/3;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{bool}\ check1\ =\ fabs(test\_unit.\mbox{\hyperlink{class_c_unit_af58a1e87d56474b4b0d42c1edbf23d36}{conc}}.\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ -\/\ 2.6087)\ <\ eps;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{bool}\ check2\ =\ fabs(test\_unit.\mbox{\hyperlink{class_c_unit_af58a1e87d56474b4b0d42c1edbf23d36}{conc}}.\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}\ -\/\ 1.18227)\ <\ eps;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{bool}\ check3\ =\ fabs(test\_unit.\mbox{\hyperlink{class_c_unit_ad2045fb8b0fae9d3265e4ce57ba630c4}{tail}}.\mbox{\hyperlink{class_stream_aefdecfed543e0b50f26c5e6bd409ff50}{ger}}\ -\/\ 17.3913)\ <\ eps;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{bool}\ check4\ =\ fabs(test\_unit.\mbox{\hyperlink{class_c_unit_ad2045fb8b0fae9d3265e4ce57ba630c4}{tail}}.\mbox{\hyperlink{class_stream_a784ddbe122a62575fc563f1da4bdc2b6}{waste}}\ -\/\ 78.8177)\ <\ eps;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ assert(check1==\textcolor{keyword}{true});}
+\DoxyCodeLine{00066\ \ \ \ \ assert(check2==\textcolor{keyword}{true});}
+\DoxyCodeLine{00067\ \ \ \ \ assert(check3==\textcolor{keyword}{true});}
+\DoxyCodeLine{00068\ \ \ \ \ assert(check4==\textcolor{keyword}{true});}
+\DoxyCodeLine{00069\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}completed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00070\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_unit_test_circuit_a4ffbb030f008181270bd2177f0448aba}\label{class_unit_test_circuit_a4ffbb030f008181270bd2177f0448aba} 
+\index{UnitTestCircuit@{UnitTestCircuit}!test\_circuit\_validity@{test\_circuit\_validity}}
+\index{test\_circuit\_validity@{test\_circuit\_validity}!UnitTestCircuit@{UnitTestCircuit}}
+\doxysubsubsection{\texorpdfstring{test\_circuit\_validity()}{test\_circuit\_validity()}}
+{\footnotesize\ttfamily void Unit\+Test\+Circuit\+::test\+\_\+circuit\+\_\+validity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}============================Test\ Circuit\ Validity============================\(\backslash\)n"{}};}
+\DoxyCodeLine{00027\ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ Cases\ when\ there\ are\ 3\ units}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ Case\ 1:\ self-\/recycle}}
+\DoxyCodeLine{00030\ \ \ \ \ std::vector<int>\ circuit\_vector1\ =\ \{0,\ 1,\ 2,\ 0,\ 2,\ 1,\ 0\};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{//\ Case\ 2:\ points\ to\ itself}}
+\DoxyCodeLine{00032\ \ \ \ \ std::vector<int>\ circuit\_vector2\ =\ \{0,\ 1,\ 2,\ 1,\ 2,\ 3,\ 4\};}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ Case\ 3:\ there\ are\ units\ not\ ending\ up\ in\ 2\ destinations}}
+\DoxyCodeLine{00034\ \ \ \ \ std::vector<int>\ circuit\_vector3\ =\ \{0,\ 1,\ 1,\ 3,\ 2,\ 1,\ 4\};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ Case\ 4:\ there\ is\ a\ unit\ not\ accessible\ from\ the\ feed}}
+\DoxyCodeLine{00036\ \ \ \ \ std::vector<int>\ circuit\_vector4\ =\ \{0,\ 1,\ 4,\ 3,\ 4,\ 3,\ 0\};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{bool}\ check1\ =\ \mbox{\hyperlink{class_circuit_ad3a0bded22f5818ec068a742b0c7d69f}{Circuit::Check\_Validity}}(circuit\_vector1);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ check2\ =\ \mbox{\hyperlink{class_circuit_ad3a0bded22f5818ec068a742b0c7d69f}{Circuit::Check\_Validity}}(circuit\_vector2);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{bool}\ check3\ =\ \mbox{\hyperlink{class_circuit_ad3a0bded22f5818ec068a742b0c7d69f}{Circuit::Check\_Validity}}(circuit\_vector3);}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ check4\ =\ \mbox{\hyperlink{class_circuit_ad3a0bded22f5818ec068a742b0c7d69f}{Circuit::Check\_Validity}}(circuit\_vector4);}
+\DoxyCodeLine{00041\ \ \ \ \ assert(check1==\textcolor{keyword}{false});}
+\DoxyCodeLine{00042\ \ \ \ \ assert(check2==\textcolor{keyword}{false});}
+\DoxyCodeLine{00043\ \ \ \ \ assert(check3==\textcolor{keyword}{false});}
+\DoxyCodeLine{00044\ \ \ \ \ assert(check4==\textcolor{keyword}{false});}
+\DoxyCodeLine{00045\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}completed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00046\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_unittests_8h}{Unittests.\+h}}\item 
+\mbox{\hyperlink{test___circuit_8cpp}{test\+\_\+\+Circuit.\+cpp}}\end{DoxyCompactItemize}

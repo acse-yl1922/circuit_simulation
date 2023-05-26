@@ -1,0 +1,101 @@
+\doxysection{Unittests.\+h}
+\hypertarget{_unittests_8h_source}{}\label{_unittests_8h_source}\index{Unittests.h@{Unittests.h}}
+\mbox{\hyperlink{_unittests_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_c_simulator_8h}{CSimulator.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_c_circuit_8h}{CCircuit.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_c_unit_8h}{CUnit.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_genetic_algorithm_8hpp}{GeneticAlgorithm.hpp}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_unit_test_g_a}{UnitTestGA}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//\ SetUp}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_unit_test_g_a_ae3a9eb4d12eae6df58b9032361f776a5}{POPULATION\_SIZE}}\ =\ 100;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_unit_test_g_a_a8aef16dacfe777f33e3e85dfa77c2e45}{CHROMOSOME\_SIZE}}\ =\ 10;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_unit_test_g_a_a660581fa1f8a3919dd2537da0c7c7d7d}{CHROMOMIN}}\ =\ 0;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_unit_test_g_a_a7ab25f1862c3338c831e505404ec3487}{CHROMOMAX}}\ =\ 10;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_unit_test_g_a_a73f2a677f798632c21ab1aef3b522b09}{MAX\_GENERATION}}\ =\ 2000;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_unit_test_g_a_ac4269a3a1eef3d38c75023cf49df12d0}{CONV\_GEN}}\ =\ 2000;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_unit_test_g_a_adb9e31fa9010e35ed21b272997134787}{CROSSOVER\_RATE}}\ =\ 0.8;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_unit_test_g_a_a0f2b5fd5e79c77554bca0b6b7ef4426e}{MUTATION\_RATE}}\ =\ 0.15;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_g_a}{GA<int>}}\ *\mbox{\hyperlink{class_unit_test_g_a_adfe7433611392fd361ed71d3d2ec6b86}{ga}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_g_a}{GA<int>}}(\mbox{\hyperlink{class_unit_test_g_a_ae3a9eb4d12eae6df58b9032361f776a5}{POPULATION\_SIZE}},}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_a8aef16dacfe777f33e3e85dfa77c2e45}{CHROMOSOME\_SIZE}},}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_a660581fa1f8a3919dd2537da0c7c7d7d}{CHROMOMIN}},}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_a7ab25f1862c3338c831e505404ec3487}{CHROMOMAX}},}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_a73f2a677f798632c21ab1aef3b522b09}{MAX\_GENERATION}},}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_adb9e31fa9010e35ed21b272997134787}{CROSSOVER\_RATE}},}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_a0f2b5fd5e79c77554bca0b6b7ef4426e}{MUTATION\_RATE}}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_aee68e45a3b84ad53cdc90066b379a21d}{UnitTestGA}}(\textcolor{keywordtype}{int}\ populationSize,\ \textcolor{keywordtype}{int}\ chromosomeSize,\ \textcolor{keywordtype}{int}\ chromomin,\ \textcolor{keywordtype}{int}\ chromomax,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ maxGeneration,\ \textcolor{keywordtype}{double}\ crossoverRate,\ \textcolor{keywordtype}{double}\ mutationRate)}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_unit_test_g_a_ae3a9eb4d12eae6df58b9032361f776a5}{POPULATION\_SIZE}}(populationSize),\ \mbox{\hyperlink{class_unit_test_g_a_a8aef16dacfe777f33e3e85dfa77c2e45}{CHROMOSOME\_SIZE}}(chromosomeSize),\ \mbox{\hyperlink{class_unit_test_g_a_a660581fa1f8a3919dd2537da0c7c7d7d}{CHROMOMIN}}(chromomin),}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_a7ab25f1862c3338c831e505404ec3487}{CHROMOMAX}}(chromomax),\ \mbox{\hyperlink{class_unit_test_g_a_a73f2a677f798632c21ab1aef3b522b09}{MAX\_GENERATION}}(maxGeneration),\ \mbox{\hyperlink{class_unit_test_g_a_adb9e31fa9010e35ed21b272997134787}{CROSSOVER\_RATE}}(crossoverRate),\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_a0f2b5fd5e79c77554bca0b6b7ef4426e}{MUTATION\_RATE}}(mutationRate)\ \{\};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_a19ef24d06b7a50c4b47109c1ad6b8a01}{\string~UnitTestGA}}();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_g_a_abdc7b629fad5d80ef883f442843dbe66}{test\_mutation}}();}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_g_a_a46a21c20af471281394bb067ff7b979d}{test\_select\_parent}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_g_a_a2bb58cb79ea282fc3e6b82429cd98e25}{test\_global\_optimum}}();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_g_a_ab1a8ba67c06571dc2f95430a72708328}{run}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_unit_test_individual}{UnitTestIndividual}}}
+\DoxyCodeLine{00061\ \{}
+\DoxyCodeLine{00062\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{class_unit_test_individual_a61450e81f2dec9ee28414d89fb405ead}{UnitTestIndividual}}();}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{class_unit_test_individual_a6948e8b3ebc5d723806f79922227da3b}{\string~UnitTestIndividual}}();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_individual_adc58939c877e724c35bbf23545fd866e}{test\_constructor}}();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ void\ test\_calculateFitness();}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_individual_ac6e9580367d4dfa9e73481650af57d52}{test\_Get\_Set\_fitness}}();}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_individual_a32eb03fd1c25d52511b1718ef6f00dc7}{test\_Get\_numUnits}}();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_individual_a209a500ea34e9f15a0ae580ff3f889fe}{test\_Get\_vectorLength}}();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{class_individual}{Individual<int>}}\ \mbox{\hyperlink{class_unit_test_individual_a52d6bd0ee11a385c0e619b2c2a3cbe87}{individual}};}
+\DoxyCodeLine{00099\ \};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_unit_test_crossover}{UnitTestCrossover}}}
+\DoxyCodeLine{00102\ \{}
+\DoxyCodeLine{00103\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00107\ \ \ \ \ \mbox{\hyperlink{class_unit_test_crossover_a9425b1d9e4979e2fcd3ecc91a901c19a}{UnitTestCrossover}}();}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{class_unit_test_crossover_a3f7f7a48cf308045884e6a0f7f9ae3b7}{\string~UnitTestCrossover}}();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_crossover_ad1a4065f65fb66699f70e734a219beda}{test\_one\_pt\_crossover}}();}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_crossover_ad2951829f894e25920ad4c76e773bb3a}{test\_two\_pts\_crossover}}();}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_crossover_a5cfac96fcac1281c8df0f996a2d73aa2}{test\_mult\_pts\_crossover}}();}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_crossover_a41199d760c1ba8f6618272287483dda5}{test\_uniform\_crossover}}();}
+\DoxyCodeLine{00132\ \};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_unit_test_circuit}{UnitTestCircuit}}}
+\DoxyCodeLine{00135\ \{}
+\DoxyCodeLine{00136\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00140\ \ \ \ \ \mbox{\hyperlink{class_unit_test_circuit_a83e9f717b162e43455a16f086089067d}{UnitTestCircuit}}();}
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{class_unit_test_circuit_a4a789f3a3d6045606109dd986612b215}{\string~UnitTestCircuit}}();}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_circuit_adaec360456db7fe579a0e3d34137d775}{test\_circuit\_evaluation}}();}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_circuit_a4ffbb030f008181270bd2177f0448aba}{test\_circuit\_validity}}();}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_circuit_aa143fbf20dcf1ed1e756f7c553cdc428}{test\_circuit\_unit}}();}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_circuit_a0b57f7580ec1f60f4b65d8eeb9f60db3}{run}}();}
+\DoxyCodeLine{00150\ \};}
+
+\end{DoxyCode}

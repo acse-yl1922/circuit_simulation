@@ -1,0 +1,68 @@
+\doxysection{test\+\_\+\+Directed\+Graph.\+cpp}
+\hypertarget{test___directed_graph_8cpp_source}{}\label{test___directed_graph_8cpp_source}\index{/Users/jr722/lecture/acs-\/gerardium-\/rush-\/pentlandite/tests/test\_DirectedGraph.cpp@{/Users/jr722/lecture/acs-\/gerardium-\/rush-\/pentlandite/tests/test\_DirectedGraph.cpp}}
+\mbox{\hyperlink{test___directed_graph_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_directed_graph_8hpp}{DirectedGraph.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00003}\mbox{\hyperlink{test___directed_graph_8cpp_a26be58e1cdc86371cff95c232a0fc9ce}{00003}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{test___directed_graph_8cpp_a26be58e1cdc86371cff95c232a0fc9ce}{testDigraph}}()}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00004}00004\ \{}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00006}00006\ \ \ \ \ \mbox{\hyperlink{class_directed_graph}{DirectedGraph}}\ G(5);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00007}00007\ \ \ \ \ G.\mbox{\hyperlink{class_directed_graph_ae8e202f3bfb395c52bc27b136fe46e53}{addEdge}}(0,\ 1);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00008}00008\ \ \ \ \ G.\mbox{\hyperlink{class_directed_graph_ae8e202f3bfb395c52bc27b136fe46e53}{addEdge}}(0,\ 2);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00009}00009\ \ \ \ \ G.\mbox{\hyperlink{class_directed_graph_ae8e202f3bfb395c52bc27b136fe46e53}{addEdge}}(1,\ 2);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00010}00010\ \ \ \ \ G.\mbox{\hyperlink{class_directed_graph_ae8e202f3bfb395c52bc27b136fe46e53}{addEdge}}(2,\ 0);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00011}00011\ \ \ \ \ G.\mbox{\hyperlink{class_directed_graph_ae8e202f3bfb395c52bc27b136fe46e53}{addEdge}}(2,\ 3);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00012}00012\ \ \ \ \ G.\mbox{\hyperlink{class_directed_graph_ae8e202f3bfb395c52bc27b136fe46e53}{addEdge}}(3,\ 3);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00014}00014\ \ \ \ \ \textcolor{keywordtype}{int}\ v\ =\ G.\mbox{\hyperlink{class_directed_graph_ac6e7ad39d45724858ab4c8b0b9aec2f3}{getNumVertices}}();}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{int}\ e\ =\ G.\mbox{\hyperlink{class_directed_graph_aa88e89157ed509bb83f71511bbf816a4}{getNumEdges}}();}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00016}00016\ \ \ \ \ std::vector<int>\ neighbors\ =\ G.\mbox{\hyperlink{class_directed_graph_ad83e99e169e7c3173e474d288f668be5}{getNeighbors}}(2);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{if}\ (v\ !=\ 5)}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (e\ !=\ 6)}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{if}\ (neighbors.size()\ !=\ 2)}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{if}\ (neighbors[0]\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{if}\ (neighbors[1]\ !=\ 3)}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00030}00030\ \}}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00032}\mbox{\hyperlink{test___directed_graph_8cpp_a546958b06c4bf3ab8c166964a9f5d348}{00032}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{test___directed_graph_8cpp_a546958b06c4bf3ab8c166964a9f5d348}{testDFS}}()}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00033}00033\ \{}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{class_directed_graph}{DirectedGraph}}\ G(5);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00035}00035\ \ \ \ \ G.\mbox{\hyperlink{class_directed_graph_ae8e202f3bfb395c52bc27b136fe46e53}{addEdge}}(0,\ 1);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00036}00036\ \ \ \ \ G.\mbox{\hyperlink{class_directed_graph_ae8e202f3bfb395c52bc27b136fe46e53}{addEdge}}(0,\ 2);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00037}00037\ \ \ \ \ G.\mbox{\hyperlink{class_directed_graph_ae8e202f3bfb395c52bc27b136fe46e53}{addEdge}}(1,\ 2);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00038}00038\ \ \ \ \ G.\mbox{\hyperlink{class_directed_graph_ae8e202f3bfb395c52bc27b136fe46e53}{addEdge}}(2,\ 0);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00039}00039\ \ \ \ \ G.\mbox{\hyperlink{class_directed_graph_ae8e202f3bfb395c52bc27b136fe46e53}{addEdge}}(2,\ 3);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00040}00040\ \ \ \ \ G.\mbox{\hyperlink{class_directed_graph_ae8e202f3bfb395c52bc27b136fe46e53}{addEdge}}(3,\ 3);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{class_depth_first_search}{DepthFirstSearch}}\ dfs(G,\ 2);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00043}00043\ \ \ \ \ dfs.\mbox{\hyperlink{class_depth_first_search_a2a85176a28dcea94c06e33b34a1c3401}{dfs}}(G,\ 2);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordtype}{bool}\ visited\ =\ dfs.\mbox{\hyperlink{class_depth_first_search_aae58a0cbc5f0dc04784433bb0ad9274e}{visited}}(3);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (!visited)}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00047}00047\ \ \ \ \ visited\ =\ dfs.\mbox{\hyperlink{class_depth_first_search_aae58a0cbc5f0dc04784433bb0ad9274e}{visited}}(4);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{if}\ (visited)}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00050}00050\ \ \ \ \ visited\ =\ dfs.\mbox{\hyperlink{class_depth_first_search_aae58a0cbc5f0dc04784433bb0ad9274e}{visited}}(2);}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{if}\ (!visited)}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00054}00054\ \}}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00056}\mbox{\hyperlink{test___directed_graph_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00056}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{test___directed_graph_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00057}00057\ \{}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{int}\ STATUS\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00059}00059\ \ \ \ \ STATUS\ +=\ \mbox{\hyperlink{test___directed_graph_8cpp_a26be58e1cdc86371cff95c232a0fc9ce}{testDigraph}}();}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00060}00060\ \ \ \ \ STATUS\ +=\ \mbox{\hyperlink{test___directed_graph_8cpp_a546958b06c4bf3ab8c166964a9f5d348}{testDFS}}();}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{return}\ STATUS;}
+\DoxyCodeLine{\Hypertarget{test___directed_graph_8cpp_source_l00062}00062\ \}}
+
+\end{DoxyCode}

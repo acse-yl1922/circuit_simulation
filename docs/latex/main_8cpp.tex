@@ -1,0 +1,144 @@
+\doxysection{main.\+cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{main.cpp@{main.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$omp.\+h$>$}\newline
+{\ttfamily \#include \"{}CUnit.\+h\"{}}\newline
+{\ttfamily \#include \"{}CCircuit.\+h\"{}}\newline
+{\ttfamily \#include \"{}CSimulator.\+h\"{}}\newline
+{\ttfamily \#include \"{}Genetic\+Algorithm.\+hpp\"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_circuit_optimizer}{Circuit\+Optimizer}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{main_8cpp_ac17c5ad57f975775fc2eeb5b1586abeb}{fitness}} (const std\+::vector$<$ int $>$ \&x)
+\item 
+bool \mbox{\hyperlink{main_8cpp_a00e1c393a651c9c6ffc71bc0a6c16910}{validity}} (const std\+::vector$<$ int $>$ \&x)
+\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_circuit_optimizer}{Circuit\+Optimizer}} \mbox{\hyperlink{main_8cpp_ab1218c68c9636270199a8bbd1d568463}{my\+Circuit}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_ac17c5ad57f975775fc2eeb5b1586abeb}\label{main_8cpp_ac17c5ad57f975775fc2eeb5b1586abeb} 
+\index{main.cpp@{main.cpp}!fitness@{fitness}}
+\index{fitness@{fitness}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{fitness()}{fitness()}}
+{\footnotesize\ttfamily double fitness (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ std::vector<int>\ circuit\_vector(x.size()\ +\ 1);}
+\DoxyCodeLine{00022\ \ \ \ \ circuit\_vector[0]\ =\ \mbox{\hyperlink{main_8cpp_ab1218c68c9636270199a8bbd1d568463}{myCircuit}}.\mbox{\hyperlink{struct_circuit_optimizer_a194a90a13026087660f23ea3c7584065}{feeder}};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ x.size();\ ++i)}
+\DoxyCodeLine{00024\ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ circuit\_vector[i\ +\ 1]\ =\ x[i];}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_c_simulator_8cpp_a7e4678796fe4df1ca29d64c987d90ed6}{Evaluate\_Circuit}}(circuit\_vector,\ parameter);}
+\DoxyCodeLine{00028\ \}}
+
+\end{DoxyCode}
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\texorpdfstring{$<$}{<} Input flow rate of the mineral
+
+\texorpdfstring{$<$}{<} Input flow rate of the waste
+
+\texorpdfstring{$<$}{<} Money earned per unit of mineral
+
+\texorpdfstring{$<$}{<} Money lost per unit of waste
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \{}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ \ \ \ /****************************\ \ Analysis\ Settings\ ******************************/}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ Setup\ the\ circuit\ parameters}}
+\DoxyCodeLine{00046\ \ \ \ \ parameter.\mbox{\hyperlink{struct_circuit___parameters_a50889dd79f1c47fd714519733007b6dd}{input\_Fger}}\ =\ 10.0;\ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ parameter.\mbox{\hyperlink{struct_circuit___parameters_ab951816f15da9a6dade1226c4be09930}{input\_Fwaste}}\ =\ 100.0;\ }
+\DoxyCodeLine{00048\ \ \ \ \ parameter.\mbox{\hyperlink{struct_circuit___parameters_af8b2c0f89171956dec9004b99187593c}{get\_money}}\ =\ 100.0;\ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ parameter.\mbox{\hyperlink{struct_circuit___parameters_a4ee4e733fa29743db2800af4418b4507}{lose\_money}}\ =\ 500.0;\ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ parameter.\mbox{\hyperlink{struct_circuit___parameters_acc1e5ddd0d611bfd3af8f89c0ff2777c}{tolerance}}\ =\ 1e-\/6;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ Setup\ the\ GA}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{int}\ POP\_SIZE\ =\ 200;}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ MAX\_GENERATION\ =\ 2000;}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{double}\ CROSSOVER\_RATE\ =\ 0.9;}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{double}\ MUTATION\_RATE\ =\ 0.01;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ CONV\_GEN\ =\ MAX\_GENERATION;}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ ELITE\ =\ POP\_SIZE\ *\ 0.1;}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8af}{CrossoverType}}\ type\ =\ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afa8f44784d154005a214e0fe94119d28ef}{CrossoverType::UNIFORM}};}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ \ \ \ /*********************************************************************************/}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ Setup\ the\ cicuit\ optimiser}}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{struct_circuit_optimizer}{CircuitOptimizer}}\ \mbox{\hyperlink{main_8cpp_ab1218c68c9636270199a8bbd1d568463}{myCircuit}};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ Don't\ change\ these}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ CHROMOSOME\_SIZE\ =\ 2\ *\ \mbox{\hyperlink{main_8cpp_ab1218c68c9636270199a8bbd1d568463}{myCircuit}}.\mbox{\hyperlink{struct_circuit_optimizer_ad09674132bb2b507bd0220e26a9a4f21}{num\_units}};}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{int}\ CHROMOMIN\ =\ 0;}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{int}\ CHROMOMAX\ =\ \mbox{\hyperlink{main_8cpp_ab1218c68c9636270199a8bbd1d568463}{myCircuit}}.\mbox{\hyperlink{struct_circuit_optimizer_ad09674132bb2b507bd0220e26a9a4f21}{num\_units}}\ +\ 2;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{class_g_a}{GA<int>}}\ ga(POP\_SIZE,\ CHROMOSOME\_SIZE,\ CHROMOMIN,\ CHROMOMAX,\ MAX\_GENERATION,\ CROSSOVER\_RATE,\ MUTATION\_RATE);}
+\DoxyCodeLine{00071\ \ \ \ \ ga.CONV\_GEN\ =\ CONV\_GEN;}
+\DoxyCodeLine{00072\ \ \ \ \ ga.ELITISM\ =\ ELITE;}
+\DoxyCodeLine{00073\ \ \ \ \ ga.setFitness(\mbox{\hyperlink{main_8cpp_ac17c5ad57f975775fc2eeb5b1586abeb}{fitness}});}
+\DoxyCodeLine{00074\ \ \ \ \ ga.setValidity(\mbox{\hyperlink{main_8cpp_a00e1c393a651c9c6ffc71bc0a6c16910}{validity}});}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{double}\ wtime\ =\ omp\_get\_wtime();}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{auto}\ bestIndividual\ =\ ga.optimize(type);}
+\DoxyCodeLine{00078\ \ \ \ \ wtime\ =\ omp\_get\_wtime()\ -\/\ wtime;}
+\DoxyCodeLine{00079\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Time\ taken:\ "{}}\ <<\ wtime\ <<\ \textcolor{stringliteral}{"{}s\(\backslash\)n"{}};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ ga.toFile(\textcolor{stringliteral}{"{}../out/"{}});}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ std::vector<int>\ bestCircuitVector\ =\ bestIndividual.chromosome;}
+\DoxyCodeLine{00084\ \ \ \ \ bestCircuitVector.insert(bestCircuitVector.begin(),\ \mbox{\hyperlink{main_8cpp_ab1218c68c9636270199a8bbd1d568463}{myCircuit}}.\mbox{\hyperlink{struct_circuit_optimizer_a194a90a13026087660f23ea3c7584065}{feeder}});}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{class_circuit}{Circuit}}\ bestCircuit(bestCircuitVector);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ bestCircuit.toFile();}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00091\ \}}
+
+\end{DoxyCode}
+\Hypertarget{main_8cpp_a00e1c393a651c9c6ffc71bc0a6c16910}\label{main_8cpp_a00e1c393a651c9c6ffc71bc0a6c16910} 
+\index{main.cpp@{main.cpp}!validity@{validity}}
+\index{validity@{validity}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{validity()}{validity()}}
+{\footnotesize\ttfamily bool validity (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ std::vector<int>\ circuit\_vector(x.size()\ +\ 1);}
+\DoxyCodeLine{00033\ \ \ \ \ circuit\_vector[0]\ =\ \mbox{\hyperlink{main_8cpp_ab1218c68c9636270199a8bbd1d568463}{myCircuit}}.\mbox{\hyperlink{struct_circuit_optimizer_a194a90a13026087660f23ea3c7584065}{feeder}};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ x.size();\ ++i)}
+\DoxyCodeLine{00035\ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ circuit\_vector[i\ +\ 1]\ =\ x[i];}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_circuit_ad3a0bded22f5818ec068a742b0c7d69f}{Circuit::Check\_Validity}}(circuit\_vector);}
+\DoxyCodeLine{00040\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8cpp_ab1218c68c9636270199a8bbd1d568463}\label{main_8cpp_ab1218c68c9636270199a8bbd1d568463} 
+\index{main.cpp@{main.cpp}!myCircuit@{myCircuit}}
+\index{myCircuit@{myCircuit}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{myCircuit}{myCircuit}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_circuit_optimizer}{Circuit\+Optimizer}} my\+Circuit}
+

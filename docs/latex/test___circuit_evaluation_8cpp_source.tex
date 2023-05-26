@@ -1,0 +1,30 @@
+\doxysection{test\+\_\+\+Circuit\+Evaluation.\+cpp}
+\hypertarget{test___circuit_evaluation_8cpp_source}{}\label{test___circuit_evaluation_8cpp_source}\index{/Users/jr722/lecture/acs-\/gerardium-\/rush-\/pentlandite/tests/test\_CircuitEvaluation.cpp@{/Users/jr722/lecture/acs-\/gerardium-\/rush-\/pentlandite/tests/test\_CircuitEvaluation.cpp}}
+\mbox{\hyperlink{test___circuit_evaluation_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_c_simulator_8h}{CSimulator.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_c_circuit_8h}{CCircuit.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00007}\mbox{\hyperlink{test___circuit_evaluation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00007}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{test___circuit_evaluation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00009}00009\ \ \ \ \ std::vector<int>\ circuit\_vector\ =\ \{4,\ 5,\ 1,\ 2,\ 4,\ 0,\ 1,\ 1,\ 6,\ 1,\ 3\};}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00010}00010\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{main_8cpp_a00e1c393a651c9c6ffc71bc0a6c16910}{validity}}\ =\ \mbox{\hyperlink{class_circuit_ad3a0bded22f5818ec068a742b0c7d69f}{Circuit::Check\_Validity}}(circuit\_vector);}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00011}00011\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{main_8cpp_a00e1c393a651c9c6ffc71bc0a6c16910}{validity}})}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00012}00012\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00014}00014\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{struct_circuit___parameters}{Circuit\_Parameters}}\ parameters;}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00016}00016\ \ \ \ \ parameters.\mbox{\hyperlink{struct_circuit___parameters_acc1e5ddd0d611bfd3af8f89c0ff2777c}{tolerance}}\ =\ 1e-\/6;}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{double}\ value\ =\ \mbox{\hyperlink{_c_simulator_8cpp_a7e4678796fe4df1ca29d64c987d90ed6}{Evaluate\_Circuit}}(circuit\_vector,\ parameters);}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{if}\ (std::fabs(value\ -\/\ 107.204)\ >\ 1e-\/3)}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00019}00019\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00021}00021\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{test___circuit_evaluation_8cpp_source_l00024}00024\ \}}
+
+\end{DoxyCode}

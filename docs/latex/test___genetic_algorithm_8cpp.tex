@@ -1,0 +1,49 @@
+\doxysection{test\+\_\+\+Genetic\+Algorithm.\+cpp File Reference}
+\hypertarget{test___genetic_algorithm_8cpp}{}\label{test___genetic_algorithm_8cpp}\index{test\_GeneticAlgorithm.cpp@{test\_GeneticAlgorithm.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include \"{}Unittests.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{test___genetic_algorithm_8cpp_a11760cea6151c2d1222c5c56be27e690}{validity}} (const std\+::vector$<$ int $>$ \&chromosome)
+\item 
+double \mbox{\hyperlink{test___genetic_algorithm_8cpp_a0fc4a6871b1585fc50de74298afcfa29}{Rosenbrock}} (const std\+::vector$<$ int $>$ \&x)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{test___genetic_algorithm_8cpp_a0fc4a6871b1585fc50de74298afcfa29}\label{test___genetic_algorithm_8cpp_a0fc4a6871b1585fc50de74298afcfa29} 
+\index{test\_GeneticAlgorithm.cpp@{test\_GeneticAlgorithm.cpp}!Rosenbrock@{Rosenbrock}}
+\index{Rosenbrock@{Rosenbrock}!test\_GeneticAlgorithm.cpp@{test\_GeneticAlgorithm.cpp}}
+\doxysubsubsection{\texorpdfstring{Rosenbrock()}{Rosenbrock()}}
+{\footnotesize\ttfamily double Rosenbrock (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{double}\ fx\ =\ 0.0;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ x.size()\ -\/\ 1;\ ++i)}
+\DoxyCodeLine{00015\ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ term1\ =\ std::pow(x[i\ +\ 1]\ -\/\ std::pow(x[i],\ 2),\ 2);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ term2\ =\ std::pow(1\ -\/\ x[i],\ 2);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ fx\ +=\ 100.0\ *\ term1\ +\ term2;}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ /\ (1.0\ +\ fx);\ \textcolor{comment}{//\ turn\ a\ minimization\ problem\ into\ a\ maximization\ problem}}
+\DoxyCodeLine{00021\ \}}
+
+\end{DoxyCode}
+\Hypertarget{test___genetic_algorithm_8cpp_a11760cea6151c2d1222c5c56be27e690}\label{test___genetic_algorithm_8cpp_a11760cea6151c2d1222c5c56be27e690} 
+\index{test\_GeneticAlgorithm.cpp@{test\_GeneticAlgorithm.cpp}!validity@{validity}}
+\index{validity@{validity}!test\_GeneticAlgorithm.cpp@{test\_GeneticAlgorithm.cpp}}
+\doxysubsubsection{\texorpdfstring{validity()}{validity()}}
+{\footnotesize\ttfamily bool validity (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{chromosome }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00009\ \}}
+
+\end{DoxyCode}

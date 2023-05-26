@@ -1,0 +1,84 @@
+\doxysection{test\+\_\+\+Genetic\+Algorithm.\+cpp}
+\hypertarget{test___genetic_algorithm_8cpp_source}{}\label{test___genetic_algorithm_8cpp_source}\index{test\_GeneticAlgorithm.cpp@{test\_GeneticAlgorithm.cpp}}
+\mbox{\hyperlink{test___genetic_algorithm_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_unittests_8h}{Unittests.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{test___genetic_algorithm_8cpp_a11760cea6151c2d1222c5c56be27e690}{validity}}(\textcolor{keyword}{const}\ std::vector<int>\ \&chromosome)}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00009\ \}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{test___genetic_algorithm_8cpp_a0fc4a6871b1585fc50de74298afcfa29}{Rosenbrock}}(\textcolor{keyword}{const}\ std::vector<int>\ \&x)}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{double}\ fx\ =\ 0.0;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ x.size()\ -\/\ 1;\ ++i)}
+\DoxyCodeLine{00015\ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ term1\ =\ std::pow(x[i\ +\ 1]\ -\/\ std::pow(x[i],\ 2),\ 2);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ term2\ =\ std::pow(1\ -\/\ x[i],\ 2);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ fx\ +=\ 100.0\ *\ term1\ +\ term2;}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ /\ (1.0\ +\ fx);\ \textcolor{comment}{//\ turn\ a\ minimization\ problem\ into\ a\ maximization\ problem}}
+\DoxyCodeLine{00021\ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \mbox{\hyperlink{class_unit_test_g_a_a19ef24d06b7a50c4b47109c1ad6b8a01}{UnitTestGA::\string~UnitTestGA}}()\{\};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_g_a_abdc7b629fad5d80ef883f442843dbe66}{UnitTestGA::test\_mutation}}()\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}============================Test\ Mutation============================\(\backslash\)n"{}};}
+\DoxyCodeLine{00027\ \ \ \ \ std::vector<int>\ init\_chromosome\ =\ \{0,\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9\};}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_individual}{Individual<int>}}\ init\_individual(init\_chromosome);}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_individual}{Individual<int>}}\ result\_individual(init\_chromosome);}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_adfe7433611392fd361ed71d3d2ec6b86}{ga}}-\/>\mbox{\hyperlink{class_g_a_acfd18b90ec282edf1f8dd1ae99cd3d2c}{MUTATION\_RATE}}\ =\ 0.5;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_adfe7433611392fd361ed71d3d2ec6b86}{ga}}-\/>\mbox{\hyperlink{class_g_a_a983b953be1edfa07bd02e4a11700d230}{mutate}}(result\_individual);}
+\DoxyCodeLine{00033\ \ \ \ \ assert(init\_individual.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}}\ !=\ result\_individual.\mbox{\hyperlink{class_individual_af66835a71205bde35e314cf30703d590}{chromosome}});}
+\DoxyCodeLine{00034\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}completed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00035\ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_g_a_a46a21c20af471281394bb067ff7b979d}{UnitTestGA::test\_select\_parent}}()\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}============================Test\ Select\ Parent============================\(\backslash\)n"{}};}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ result;}
+\DoxyCodeLine{00040\ \ \ \ \ std::vector<double>\ comulative\_fitness\ =\ \{-\/1.0,\ 1.0,\ 1.0\};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ result\ =\ \mbox{\hyperlink{class_unit_test_g_a_adfe7433611392fd361ed71d3d2ec6b86}{ga}}-\/>\mbox{\hyperlink{class_g_a_ac30c3731ec444e157602f4a0d41c09b4}{selectParent}}(comulative\_fitness);}
+\DoxyCodeLine{00043\ \ \ \ \ assert(result\ ==\ 1);}
+\DoxyCodeLine{00044\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}completed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00045\ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_g_a_a2bb58cb79ea282fc3e6b82429cd98e25}{UnitTestGA::test\_global\_optimum}}()\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}============================Test\ Global\ Optimum============================\(\backslash\)n"{}};}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ configure\ GA}}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_adfe7433611392fd361ed71d3d2ec6b86}{ga}}-\/>\mbox{\hyperlink{class_g_a_a05091b3dba2263bfc564ab5caef95751}{setValidity}}(\mbox{\hyperlink{main_8cpp_a00e1c393a651c9c6ffc71bc0a6c16910}{validity}});}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_adfe7433611392fd361ed71d3d2ec6b86}{ga}}-\/>\mbox{\hyperlink{class_g_a_a4361eec0fa9ac7456e85c8ee0975ebdd}{setFitness}}(\mbox{\hyperlink{test___genetic_algorithm_8cpp_a0fc4a6871b1585fc50de74298afcfa29}{Rosenbrock}});}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_adfe7433611392fd361ed71d3d2ec6b86}{ga}}-\/>\mbox{\hyperlink{class_g_a_a82835cfb612e749d75a298efd6659f57}{verbose}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8af}{CrossoverType}}\ type\ =\ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afa8f44784d154005a214e0fe94119d28ef}{CrossoverType::UNIFORM}};}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ Known\ global\ optimum\ for\ Rosenbrock\ function}}
+\DoxyCodeLine{00055\ \ \ \ \ std::vector<int>\ expected\_chromosome\ =\ \{1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1\};}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ success\_count\ =\ 0;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_runs\ =\ 10;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ Run\ for\ 10\ times\ to\ see\ if\ the\ algorithm\ can\ find\ the\ global\ optimum}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ if\ 50\%\ of\ the\ time\ can\ find\ the\ global\ optimum,\ then\ the\ test\ is\ passed}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_runs;\ i++)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ best\ =\ \mbox{\hyperlink{class_unit_test_g_a_adfe7433611392fd361ed71d3d2ec6b86}{ga}}-\/>\mbox{\hyperlink{class_g_a_a26734e009defb92717076a3fe7815a02}{optimize}}(type);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (best.chromosome\ ==\ expected\_chromosome)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ success\_count++;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ assert(success\_count\ >=\ num\_runs\ /\ 2);}
+\DoxyCodeLine{00068\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}successfully\ found\ global\ optimum\ for\ Rosenbrock:\ "{}}\ <<\ success\_count;}
+\DoxyCodeLine{00069\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ num\_runs\ <<\ \textcolor{stringliteral}{"{}\ times!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00070\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}completed"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00071\ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_unit_test_g_a_ab1a8ba67c06571dc2f95430a72708328}{UnitTestGA::run}}()\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_abdc7b629fad5d80ef883f442843dbe66}{test\_mutation}}();}
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_a46a21c20af471281394bb067ff7b979d}{test\_select\_parent}}();}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{class_unit_test_g_a_a2bb58cb79ea282fc3e6b82429cd98e25}{test\_global\_optimum}}();}
+\DoxyCodeLine{00077\ \}}
+\DoxyCodeLine{00078\ }
+
+\end{DoxyCode}

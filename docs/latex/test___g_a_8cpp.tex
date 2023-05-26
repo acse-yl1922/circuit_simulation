@@ -1,0 +1,120 @@
+\doxysection{test\+\_\+\+GA.\+cpp File Reference}
+\hypertarget{test___g_a_8cpp}{}\label{test___g_a_8cpp}\index{test\_GA.cpp@{test\_GA.cpp}}
+{\ttfamily \#include \"{}Genetic\+Algorithm.\+hpp\"{}}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{test___g_a_8cpp_a11760cea6151c2d1222c5c56be27e690}{validity}} (const std\+::vector$<$ int $>$ \&chromosome)
+\item 
+double \mbox{\hyperlink{test___g_a_8cpp_a0fc4a6871b1585fc50de74298afcfa29}{Rosenbrock}} (const std\+::vector$<$ int $>$ \&x)
+\item 
+double \mbox{\hyperlink{test___g_a_8cpp_a5519ef4d8d2e19f448294ff6dc347284}{fitness}} (const std\+::vector$<$ int $>$ \&chromosome)
+\item 
+int \mbox{\hyperlink{test___g_a_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{test___g_a_8cpp_abcd84e24519ee4486f51f35b862d6174}{test}} = \{1, 2, 3, 4, 5\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{test___g_a_8cpp_a5519ef4d8d2e19f448294ff6dc347284}\label{test___g_a_8cpp_a5519ef4d8d2e19f448294ff6dc347284} 
+\index{test\_GA.cpp@{test\_GA.cpp}!fitness@{fitness}}
+\index{fitness@{fitness}!test\_GA.cpp@{test\_GA.cpp}}
+\doxysubsubsection{\texorpdfstring{fitness()}{fitness()}}
+{\footnotesize\ttfamily double fitness (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{chromosome }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{double}\ sum\ =\ 0.0;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ chromosome.size();\ i++)}
+\DoxyCodeLine{00027\ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ sum\ -\/=\ (double)((\mbox{\hyperlink{test___g_a_8cpp_abcd84e24519ee4486f51f35b862d6174}{test}}[i]\ -\/\ chromosome[i])\ *\ (\mbox{\hyperlink{test___g_a_8cpp_abcd84e24519ee4486f51f35b862d6174}{test}}[i]\ -\/\ chromosome[i]));}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{return}\ sum;}
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}
+\Hypertarget{test___g_a_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{test___g_a_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{test\_GA.cpp@{test\_GA.cpp}!main@{main}}
+\index{main@{main}!test\_GA.cpp@{test\_GA.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ POP\_SIZE\ =\ 200;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ CHROMOSOME\_SIZE\ =\ 10;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ CHROMOMIN\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ CHROMOMAX\ =\ 10;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ MAX\_GENERATION\ =\ 1500;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{double}\ CROSSOVER\_RATE\ =\ 0.98;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{double}\ MUTATION\_RATE\ =\ 0.01;}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8af}{CrossoverType}}\ type\ =\ \mbox{\hyperlink{_genetic_algorithm_8hpp_ac52d546ccaf78f582c8099dbd7f2c8afac9fab5dc5978bcb2b00f04828856b445}{CrossoverType::ONE\_PT}};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_g_a}{GA<int>}}\ ga(POP\_SIZE,\ CHROMOSOME\_SIZE,\ CHROMOMIN,\ CHROMOMAX,\ MAX\_GENERATION,\ CROSSOVER\_RATE,\ MUTATION\_RATE);}
+\DoxyCodeLine{00046\ \ \ \ \ ga.setValidity(\mbox{\hyperlink{test___g_a_8cpp_a11760cea6151c2d1222c5c56be27e690}{validity}});}
+\DoxyCodeLine{00047\ \ \ \ \ ga.setFitness(\mbox{\hyperlink{test___g_a_8cpp_a0fc4a6871b1585fc50de74298afcfa29}{Rosenbrock}});}
+\DoxyCodeLine{00048\ \ \ \ \ ga.CONV\_GEN\ =\ 1500;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{auto}\ start\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{auto}\ best\ =\ ga.optimize(type);}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{auto}\ end\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ std::chrono::duration<double>\ elapsed\ =\ end\ -\/\ start;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Time\ taken:\ "{}}\ <<\ elapsed.count()\ <<\ \textcolor{stringliteral}{"{}s\(\backslash\)n"{}};}
+\DoxyCodeLine{00057\ \ \ \ \ ga.toFile(\textcolor{stringliteral}{"{}../out/"{}});}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00060\ \}}
+
+\end{DoxyCode}
+\Hypertarget{test___g_a_8cpp_a0fc4a6871b1585fc50de74298afcfa29}\label{test___g_a_8cpp_a0fc4a6871b1585fc50de74298afcfa29} 
+\index{test\_GA.cpp@{test\_GA.cpp}!Rosenbrock@{Rosenbrock}}
+\index{Rosenbrock@{Rosenbrock}!test\_GA.cpp@{test\_GA.cpp}}
+\doxysubsubsection{\texorpdfstring{Rosenbrock()}{Rosenbrock()}}
+{\footnotesize\ttfamily double Rosenbrock (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{double}\ fx\ =\ 0.0;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ x.size()\ -\/\ 1;\ ++i)}
+\DoxyCodeLine{00015\ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ term1\ =\ std::pow(x[i\ +\ 1]\ -\/\ std::pow(x[i],\ 2),\ 2);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ term2\ =\ std::pow(1\ -\/\ x[i],\ 2);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ fx\ +=\ 100.0\ *\ term1\ +\ term2;}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ /\ (1.0\ +\ fx);\ \textcolor{comment}{//\ turn\ a\ minimization\ problem\ into\ a\ maximization\ problem}}
+\DoxyCodeLine{00021\ \}}
+
+\end{DoxyCode}
+\Hypertarget{test___g_a_8cpp_a11760cea6151c2d1222c5c56be27e690}\label{test___g_a_8cpp_a11760cea6151c2d1222c5c56be27e690} 
+\index{test\_GA.cpp@{test\_GA.cpp}!validity@{validity}}
+\index{validity@{validity}!test\_GA.cpp@{test\_GA.cpp}}
+\doxysubsubsection{\texorpdfstring{validity()}{validity()}}
+{\footnotesize\ttfamily bool validity (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{chromosome }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00009\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{test___g_a_8cpp_abcd84e24519ee4486f51f35b862d6174}\label{test___g_a_8cpp_abcd84e24519ee4486f51f35b862d6174} 
+\index{test\_GA.cpp@{test\_GA.cpp}!test@{test}}
+\index{test@{test}!test\_GA.cpp@{test\_GA.cpp}}
+\doxysubsubsection{\texorpdfstring{test}{test}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ test = \{1, 2, 3, 4, 5\}}
+

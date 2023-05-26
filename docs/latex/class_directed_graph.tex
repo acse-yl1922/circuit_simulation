@@ -1,0 +1,270 @@
+\doxysection{Directed\+Graph Class Reference}
+\hypertarget{class_directed_graph}{}\label{class_directed_graph}\index{DirectedGraph@{DirectedGraph}}
+
+
+A directed graph.  
+
+
+
+
+{\ttfamily \#include $<$Directed\+Graph.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_directed_graph_a7d37e393a3106ec8bc0a553bd3b3781d}{Directed\+Graph}} ()
+\item 
+\mbox{\hyperlink{class_directed_graph_a8ca854deca17cb42c77fae7ce38ac02f}{Directed\+Graph}} (int n)
+\begin{DoxyCompactList}\small\item\em Construct a new Directed Graph\+:\+: Directed Graph object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_directed_graph_ae8e202f3bfb395c52bc27b136fe46e53}{add\+Edge}} (int u, int v)
+\begin{DoxyCompactList}\small\item\em Add an edge to the graph. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_directed_graph_ac6e7ad39d45724858ab4c8b0b9aec2f3}{get\+Num\+Vertices}} () const
+\begin{DoxyCompactList}\small\item\em Get the number of vertices in the graph. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_directed_graph_aa88e89157ed509bb83f71511bbf816a4}{get\+Num\+Edges}} () const
+\begin{DoxyCompactList}\small\item\em Get the number of edges in the graph. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_directed_graph_ad83e99e169e7c3173e474d288f668be5}{get\+Neighbors}} (int u) const
+\begin{DoxyCompactList}\small\item\em Get the neighbors of a vertex. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_directed_graph_a2ad2377db4c99ed23f02b3a4a75d9fb8}{write\+To\+File}} (std\+::string filename) const
+\begin{DoxyCompactList}\small\item\em Write the graph information to a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_directed_graph_a56a71dc5009cd2ca86bf132eeca1b833}{adj\+List}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_directed_graph_a4cf4a0e211934acb68e1d5a033b74db0}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_directed_graph}{Directed\+Graph}} \&G)
+\begin{DoxyCompactList}\small\item\em Overload the \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A directed graph. 
+
+\begin{DoxyAuthor}{Author}
+acse-\/sm222 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_directed_graph_a7d37e393a3106ec8bc0a553bd3b3781d}\label{class_directed_graph_a7d37e393a3106ec8bc0a553bd3b3781d} 
+\index{DirectedGraph@{DirectedGraph}!DirectedGraph@{DirectedGraph}}
+\index{DirectedGraph@{DirectedGraph}!DirectedGraph@{DirectedGraph}}
+\doxysubsubsection{\texorpdfstring{DirectedGraph()}{DirectedGraph()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Directed\+Graph\+::\+Directed\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+
+\end{DoxyCode}
+\Hypertarget{class_directed_graph_a8ca854deca17cb42c77fae7ce38ac02f}\label{class_directed_graph_a8ca854deca17cb42c77fae7ce38ac02f} 
+\index{DirectedGraph@{DirectedGraph}!DirectedGraph@{DirectedGraph}}
+\index{DirectedGraph@{DirectedGraph}!DirectedGraph@{DirectedGraph}}
+\doxysubsubsection{\texorpdfstring{DirectedGraph()}{DirectedGraph()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Directed\+Graph\+::\+Directed\+Graph (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Construct a new Directed Graph\+:\+: Directed Graph object. 
+
+Default constructor Constructor taking the number of vertices
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Number of vertices \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_directed_graph_a56a71dc5009cd2ca86bf132eeca1b833}{adjList}}.resize(n);}
+\DoxyCodeLine{00020\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_directed_graph_ae8e202f3bfb395c52bc27b136fe46e53}\label{class_directed_graph_ae8e202f3bfb395c52bc27b136fe46e53} 
+\index{DirectedGraph@{DirectedGraph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!DirectedGraph@{DirectedGraph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily void Directed\+Graph\+::add\+Edge (\begin{DoxyParamCaption}\item[{int}]{u,  }\item[{int}]{v }\end{DoxyParamCaption})}
+
+
+
+Add an edge to the graph. 
+
+Function to add an edge
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & Source vertex \\
+\hline
+{\em v} & Destination vertex \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_directed_graph_a56a71dc5009cd2ca86bf132eeca1b833}{adjList}}[u].push\_back(v);}
+\DoxyCodeLine{00031\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_directed_graph_ad83e99e169e7c3173e474d288f668be5}\label{class_directed_graph_ad83e99e169e7c3173e474d288f668be5} 
+\index{DirectedGraph@{DirectedGraph}!getNeighbors@{getNeighbors}}
+\index{getNeighbors@{getNeighbors}!DirectedGraph@{DirectedGraph}}
+\doxysubsubsection{\texorpdfstring{getNeighbors()}{getNeighbors()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Directed\+Graph\+::get\+Neighbors (\begin{DoxyParamCaption}\item[{int}]{u }\end{DoxyParamCaption}) const}
+
+
+
+Get the neighbors of a vertex. 
+
+Function to get the neighbors of a vertex
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & Vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$int$>$ Neighbors of a vertex 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_directed_graph_a56a71dc5009cd2ca86bf132eeca1b833}{adjList}}[u];}
+\DoxyCodeLine{00067\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_directed_graph_aa88e89157ed509bb83f71511bbf816a4}\label{class_directed_graph_aa88e89157ed509bb83f71511bbf816a4} 
+\index{DirectedGraph@{DirectedGraph}!getNumEdges@{getNumEdges}}
+\index{getNumEdges@{getNumEdges}!DirectedGraph@{DirectedGraph}}
+\doxysubsubsection{\texorpdfstring{getNumEdges()}{getNumEdges()}}
+{\footnotesize\ttfamily int Directed\+Graph\+::get\+Num\+Edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the number of edges in the graph. 
+
+Function to get the number of edges
+
+\begin{DoxyReturn}{Returns}
+int Number of edges 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ numEdges\ =\ 0;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ u\ =\ 0;\ u\ <\ \mbox{\hyperlink{class_directed_graph_a56a71dc5009cd2ca86bf132eeca1b833}{adjList}}.size();\ u++)}
+\DoxyCodeLine{00052\ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ numEdges\ +=\ \mbox{\hyperlink{class_directed_graph_a56a71dc5009cd2ca86bf132eeca1b833}{adjList}}[u].size();}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ numEdges;}
+\DoxyCodeLine{00056\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_directed_graph_ac6e7ad39d45724858ab4c8b0b9aec2f3}\label{class_directed_graph_ac6e7ad39d45724858ab4c8b0b9aec2f3} 
+\index{DirectedGraph@{DirectedGraph}!getNumVertices@{getNumVertices}}
+\index{getNumVertices@{getNumVertices}!DirectedGraph@{DirectedGraph}}
+\doxysubsubsection{\texorpdfstring{getNumVertices()}{getNumVertices()}}
+{\footnotesize\ttfamily int Directed\+Graph\+::get\+Num\+Vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the number of vertices in the graph. 
+
+Function to get the number of vertices
+
+\begin{DoxyReturn}{Returns}
+int Number of vertices 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_directed_graph_a56a71dc5009cd2ca86bf132eeca1b833}{adjList}}.size();}
+\DoxyCodeLine{00041\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_directed_graph_a2ad2377db4c99ed23f02b3a4a75d9fb8}\label{class_directed_graph_a2ad2377db4c99ed23f02b3a4a75d9fb8} 
+\index{DirectedGraph@{DirectedGraph}!writeToFile@{writeToFile}}
+\index{writeToFile@{writeToFile}!DirectedGraph@{DirectedGraph}}
+\doxysubsubsection{\texorpdfstring{writeToFile()}{writeToFile()}}
+{\footnotesize\ttfamily void Directed\+Graph\+::write\+To\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption}) const}
+
+
+
+Write the graph information to a file. 
+
+Function to write the graph information to a file
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Filename \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00094\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ std::ofstream\ file;}
+\DoxyCodeLine{00096\ \ \ \ \ file.open(filename);}
+\DoxyCodeLine{00097\ \ \ \ \ file\ <<\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00098\ \ \ \ \ file.close();}
+\DoxyCodeLine{00099\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_directed_graph_a4cf4a0e211934acb68e1d5a033b74db0}\label{class_directed_graph_a4cf4a0e211934acb68e1d5a033b74db0} 
+\index{DirectedGraph@{DirectedGraph}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!DirectedGraph@{DirectedGraph}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_directed_graph}{Directed\+Graph}} \&}]{G }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Overload the \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} operator. 
+
+Overload the \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Output stream \\
+\hline
+{\em G} & Directed graph \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::ostream\& Output stream 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ u\ =\ 0;\ u\ <\ G.\mbox{\hyperlink{class_directed_graph_ac6e7ad39d45724858ab4c8b0b9aec2f3}{getNumVertices}}();\ u++)}
+\DoxyCodeLine{00079\ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ v\ :\ G.\mbox{\hyperlink{class_directed_graph_ad83e99e169e7c3173e474d288f668be5}{getNeighbors}}(u))}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ u\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ v\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00086\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_directed_graph_a56a71dc5009cd2ca86bf132eeca1b833}\label{class_directed_graph_a56a71dc5009cd2ca86bf132eeca1b833} 
+\index{DirectedGraph@{DirectedGraph}!adjList@{adjList}}
+\index{adjList@{adjList}!DirectedGraph@{DirectedGraph}}
+\doxysubsubsection{\texorpdfstring{adjList}{adjList}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$int$>$ $>$ Directed\+Graph\+::adj\+List\hspace{0.3cm}{\ttfamily [private]}}
+
+Adjacency list 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_directed_graph_8hpp}{Directed\+Graph.\+hpp}}\item 
+\mbox{\hyperlink{_directed_graph_8cpp}{Directed\+Graph.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,565 @@
+\begin{theindex}
+
+  \item {\texorpdfstring{$\sim$}{\string~}CUnit}
+    \subitem {CUnit}, \hyperpage{16}
+  \item {\texorpdfstring{$\sim$}{\string~}Circuit}
+    \subitem {Circuit}, \hyperpage{6}
+  \item {\texorpdfstring{$\sim$}{\string~}GA}
+    \subitem {GA$<$ T $>$}, \hyperpage{26}
+  \item {\texorpdfstring{$\sim$}{\string~}Stream}
+    \subitem {Stream}, \hyperpage{41}
+  \item {\texorpdfstring{$\sim$}{\string~}UnitTestCircuit}
+    \subitem {UnitTestCircuit}, \hyperpage{43}
+  \item {\texorpdfstring{$\sim$}{\string~}UnitTestCrossover}
+    \subitem {UnitTestCrossover}, \hyperpage{45}
+  \item {\texorpdfstring{$\sim$}{\string~}UnitTestGA}
+    \subitem {UnitTestGA}, \hyperpage{48}
+  \item {\texorpdfstring{$\sim$}{\string~}UnitTestIndividual}
+    \subitem {UnitTestIndividual}, \hyperpage{51}
+
+  \indexspace
+
+  \item {addEdge}
+    \subitem {DirectedGraph}, \hyperpage{22}
+  \item {adjList}
+    \subitem {DirectedGraph}, \hyperpage{24}
+
+  \indexspace
+
+  \item {bestFitnessHistory}
+    \subitem {GA$<$ T $>$}, \hyperpage{34}
+
+  \indexspace
+
+  \item {Calculate\_Circuit}
+    \subitem {CCircuit.h}, \hyperpage{56, 57}
+    \subitem {CSimulator.cpp}, \hyperpage{70}
+  \item {calculateOutputFlowRates}
+    \subitem {CUnit}, \hyperpage{16}
+  \item {CCircuit.cpp}, \hyperpage{68}
+    \subitem {markunits}, \hyperpage{69}
+  \item {CCircuit.h}, \hyperpage{55}, \hyperpage{58}
+    \subitem {Calculate\_Circuit}, \hyperpage{56, 57}
+  \item {Check\_Validity}
+    \subitem {Circuit}, \hyperpage{6}
+  \item {CHROMOMAX}
+    \subitem {GA$<$ T $>$}, \hyperpage{34}
+    \subitem {UnitTestGA}, \hyperpage{50}
+  \item {CHROMOMIN}
+    \subitem {GA$<$ T $>$}, \hyperpage{34}
+    \subitem {UnitTestGA}, \hyperpage{50}
+  \item {chromosome}
+    \subitem {Individual$<$ T $>$}, \hyperpage{40}
+  \item {CHROMOSOME\_SIZE}
+    \subitem {GA$<$ T $>$}, \hyperpage{34}
+    \subitem {UnitTestGA}, \hyperpage{50}
+  \item {Circuit}, \hyperpage{5}
+    \subitem {\texorpdfstring{$\sim$}{\string~}Circuit}, \hyperpage{6}
+    \subitem {Check\_Validity}, \hyperpage{6}
+    \subitem {Circuit}, \hyperpage{6}
+    \subitem {circuit\_vector}, \hyperpage{8}
+    \subitem {feeder}, \hyperpage{8}
+    \subitem {it}, \hyperpage{8}
+    \subitem {num\_units}, \hyperpage{8}
+    \subitem {toFile}, \hyperpage{7}
+    \subitem {units}, \hyperpage{9}
+  \item {Circuit\_Parameters}, \hyperpage{9}
+    \subitem {get\_money}, \hyperpage{9}
+    \subitem {input\_Fger}, \hyperpage{9}
+    \subitem {input\_Fwaste}, \hyperpage{10}
+    \subitem {lose\_money}, \hyperpage{10}
+    \subitem {max\_iterations}, \hyperpage{10}
+    \subitem {tolerance}, \hyperpage{10}
+  \item {circuit\_vector}
+    \subitem {Circuit}, \hyperpage{8}
+  \item {CircuitOptimizer}, \hyperpage{10}
+    \subitem {feeder}, \hyperpage{10}
+    \subitem {num\_units}, \hyperpage{10}
+  \item {conc}
+    \subitem {CUnit}, \hyperpage{16}
+  \item {conc\_num}
+    \subitem {CUnit}, \hyperpage{16}
+    \subitem {Units}, \hyperpage{43}
+  \item {CONV\_GEN}
+    \subitem {GA$<$ T $>$}, \hyperpage{34}
+    \subitem {UnitTestGA}, \hyperpage{50}
+  \item {cross\_cnt}
+    \subitem {GA$<$ T $>$}, \hyperpage{34}
+  \item {cross\_contrib}
+    \subitem {GA$<$ T $>$}, \hyperpage{34}
+  \item {crossover}
+    \subitem {Crossover$<$ T $>$}, \hyperpage{12}
+    \subitem {test\_Crossover.cpp}, \hyperpage{81}
+  \item {Crossover$<$ T $>$}, \hyperpage{11}
+    \subitem {crossover}, \hyperpage{12}
+    \subitem {mult\_pts\_crossover}, \hyperpage{12}
+    \subitem {one\_pt\_crossover}, \hyperpage{13}
+    \subitem {two\_pts\_crossover}, \hyperpage{13}
+    \subitem {uniform\_crossover}, \hyperpage{13}
+  \item {CROSSOVER\_RATE}
+    \subitem {GA$<$ T $>$}, \hyperpage{34}
+    \subitem {UnitTestGA}, \hyperpage{50}
+  \item {CrossoverType}
+    \subitem {GeneticAlgorithm.hpp}, \hyperpage{65}
+  \item {CSimulator.cpp}, \hyperpage{69}
+    \subitem {Calculate\_Circuit}, \hyperpage{70}
+    \subitem {Evaluate\_Circuit}, \hyperpage{72}
+  \item {CSimulator.h}, \hyperpage{59}, \hyperpage{62}
+    \subitem {Evaluate\_Circuit}, \hyperpage{60, 61}
+  \item {cumulativeFitness}
+    \subitem {GA$<$ T $>$}, \hyperpage{34}
+  \item {CUnit}, \hyperpage{14}
+    \subitem {\texorpdfstring{$\sim$}{\string~}CUnit}, \hyperpage{16}
+    \subitem {calculateOutputFlowRates}, \hyperpage{16}
+    \subitem {conc}, \hyperpage{16}
+    \subitem {conc\_num}, \hyperpage{16}
+    \subitem {CUnit}, \hyperpage{15}
+    \subitem {F}, \hyperpage{16}
+    \subitem {F\_old}, \hyperpage{17}
+    \subitem {id}, \hyperpage{17}
+    \subitem {input}, \hyperpage{17}
+    \subitem {k\_ger}, \hyperpage{17}
+    \subitem {k\_waste}, \hyperpage{17}
+    \subitem {phi}, \hyperpage{17}
+    \subitem {rho}, \hyperpage{17}
+    \subitem {tail}, \hyperpage{17}
+    \subitem {tails\_num}, \hyperpage{18}
+    \subitem {V}, \hyperpage{18}
+  \item {CUnit.cpp}, \hyperpage{73}
+  \item {CUnit.h}, \hyperpage{62, 63}
+
+  \indexspace
+
+  \item {DepthFirstSearch}, \hyperpage{18}
+    \subitem {DepthFirstSearch}, \hyperpage{19}
+    \subitem {dfs}, \hyperpage{19}
+    \subitem {marked}, \hyperpage{20}
+    \subitem {visited}, \hyperpage{20}
+  \item {dfs}
+    \subitem {DepthFirstSearch}, \hyperpage{19}
+  \item {DirectedGraph}, \hyperpage{20}
+    \subitem {addEdge}, \hyperpage{22}
+    \subitem {adjList}, \hyperpage{24}
+    \subitem {DirectedGraph}, \hyperpage{21}
+    \subitem {getNeighbors}, \hyperpage{22}
+    \subitem {getNumEdges}, \hyperpage{22}
+    \subitem {getNumVertices}, \hyperpage{23}
+    \subitem {operator$<$$<$}, \hyperpage{23}
+    \subitem {writeToFile}, \hyperpage{23}
+  \item {DirectedGraph.cpp}, \hyperpage{73}
+    \subitem {operator$<$$<$}, \hyperpage{73}
+  \item {DirectedGraph.hpp}, \hyperpage{63, 64}
+
+  \indexspace
+
+  \item {ELITISM}
+    \subitem {GA$<$ T $>$}, \hyperpage{35}
+  \item {Evaluate\_Circuit}
+    \subitem {CSimulator.cpp}, \hyperpage{72}
+    \subitem {CSimulator.h}, \hyperpage{60, 61}
+
+  \indexspace
+
+  \item {F}
+    \subitem {CUnit}, \hyperpage{16}
+  \item {F\_old}
+    \subitem {CUnit}, \hyperpage{17}
+  \item {feeder}
+    \subitem {Circuit}, \hyperpage{8}
+    \subitem {CircuitOptimizer}, \hyperpage{10}
+  \item {fitness}
+    \subitem {GA$<$ T $>$}, \hyperpage{35}
+    \subitem {Individual$<$ T $>$}, \hyperpage{40}
+    \subitem {main.cpp}, \hyperpage{75}
+  \item {fitness\_}
+    \subitem {GA$<$ T $>$}, \hyperpage{35}
+
+  \indexspace
+
+  \item {GA}
+    \subitem {GA$<$ T $>$}, \hyperpage{26}
+  \item {ga}
+    \subitem {UnitTestGA}, \hyperpage{50}
+  \item {GA$<$ T $>$}, \hyperpage{24}
+    \subitem {\texorpdfstring{$\sim$}{\string~}GA}, \hyperpage{26}
+    \subitem {bestFitnessHistory}, \hyperpage{34}
+    \subitem {CHROMOMAX}, \hyperpage{34}
+    \subitem {CHROMOMIN}, \hyperpage{34}
+    \subitem {CHROMOSOME\_SIZE}, \hyperpage{34}
+    \subitem {CONV\_GEN}, \hyperpage{34}
+    \subitem {cross\_cnt}, \hyperpage{34}
+    \subitem {cross\_contrib}, \hyperpage{34}
+    \subitem {CROSSOVER\_RATE}, \hyperpage{34}
+    \subitem {cumulativeFitness}, \hyperpage{34}
+    \subitem {ELITISM}, \hyperpage{35}
+    \subitem {fitness}, \hyperpage{35}
+    \subitem {fitness\_}, \hyperpage{35}
+    \subitem {GA}, \hyperpage{26}
+    \subitem {initPopulation}, \hyperpage{27}
+    \subitem {MAX\_GENERATION}, \hyperpage{35}
+    \subitem {mut\_cnt}, \hyperpage{35}
+    \subitem {mut\_contrib}, \hyperpage{35}
+    \subitem {mutate}, \hyperpage{27}
+    \subitem {MUTATION\_RATE}, \hyperpage{36}
+    \subitem {offspring}, \hyperpage{36}
+    \subitem {optimize}, \hyperpage{28}
+    \subitem {POP\_SIZE}, \hyperpage{36}
+    \subitem {population}, \hyperpage{36}
+    \subitem {scaledFitness}, \hyperpage{36}
+    \subitem {selectParent}, \hyperpage{29}
+    \subitem {setFitness}, \hyperpage{29}
+    \subitem {setValidity}, \hyperpage{29}
+    \subitem {toFile}, \hyperpage{30}
+    \subitem {tournamentSelection}, \hyperpage{30}
+    \subitem {updatePopulation}, \hyperpage{31}
+    \subitem {validity\_}, \hyperpage{36}
+    \subitem {verbose}, \hyperpage{37}
+  \item {generateRandomVector}
+    \subitem {test\_RandomCircuit.cpp}, \hyperpage{88}
+  \item {GeneticAlgorithm.cpp}, \hyperpage{74}
+    \subitem {RandomDouble}, \hyperpage{74}
+    \subitem {RandomInt}, \hyperpage{74}
+  \item {GeneticAlgorithm.hpp}, \hyperpage{64}, \hyperpage{66}
+    \subitem {CrossoverType}, \hyperpage{65}
+    \subitem {MULT\_PTS}, \hyperpage{66}
+    \subitem {ONE\_PT}, \hyperpage{66}
+    \subitem {PARALLEL}, \hyperpage{65}
+    \subitem {RandomDouble}, \hyperpage{66}
+    \subitem {RandomInt}, \hyperpage{66}
+    \subitem {TWO\_PTS}, \hyperpage{66}
+    \subitem {UNIFORM}, \hyperpage{66}
+  \item {ger}
+    \subitem {Stream}, \hyperpage{42}
+  \item {get\_money}
+    \subitem {Circuit\_Parameters}, \hyperpage{9}
+  \item {getNeighbors}
+    \subitem {DirectedGraph}, \hyperpage{22}
+  \item {getNumEdges}
+    \subitem {DirectedGraph}, \hyperpage{22}
+  \item {getNumVertices}
+    \subitem {DirectedGraph}, \hyperpage{23}
+
+  \indexspace
+
+  \item {id}
+    \subitem {CUnit}, \hyperpage{17}
+  \item {Individual}
+    \subitem {Individual$<$ T $>$}, \hyperpage{38}
+  \item {individual}
+    \subitem {UnitTestIndividual}, \hyperpage{53}
+  \item {Individual$<$ T $>$}, \hyperpage{37}
+    \subitem {chromosome}, \hyperpage{40}
+    \subitem {fitness}, \hyperpage{40}
+    \subitem {Individual}, \hyperpage{38}
+    \subitem {operator$<$}, \hyperpage{38}
+    \subitem {operator$>$}, \hyperpage{39}
+    \subitem {operator=}, \hyperpage{38}
+    \subitem {operator==}, \hyperpage{39}
+  \item {initPopulation}
+    \subitem {GA$<$ T $>$}, \hyperpage{27}
+  \item {input}
+    \subitem {CUnit}, \hyperpage{17}
+  \item {input\_Fger}
+    \subitem {Circuit\_Parameters}, \hyperpage{9}
+  \item {input\_Fwaste}
+    \subitem {Circuit\_Parameters}, \hyperpage{10}
+  \item {it}
+    \subitem {Circuit}, \hyperpage{8}
+
+  \indexspace
+
+  \item {k\_ger}
+    \subitem {CUnit}, \hyperpage{17}
+  \item {k\_waste}
+    \subitem {CUnit}, \hyperpage{17}
+
+  \indexspace
+
+  \item {lose\_money}
+    \subitem {Circuit\_Parameters}, \hyperpage{10}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.cpp}, \hyperpage{75}
+    \subitem {test\_all.cpp}, \hyperpage{77}
+    \subitem {test\_CircuitEvaluation.cpp}, \hyperpage{79}
+    \subitem {test\_CircuitValidity.cpp}, \hyperpage{80}
+    \subitem {test\_Cunit.cpp}, \hyperpage{83}
+    \subitem {test\_DirectedGraph.cpp}, \hyperpage{84}
+    \subitem {test\_Individual.cpp}, \hyperpage{87}
+    \subitem {test\_RandomCircuit.cpp}, \hyperpage{88}
+  \item {main.cpp}, \hyperpage{75}
+    \subitem {fitness}, \hyperpage{75}
+    \subitem {main}, \hyperpage{75}
+    \subitem {myCircuit}, \hyperpage{76}
+    \subitem {validity}, \hyperpage{76}
+  \item {marked}
+    \subitem {DepthFirstSearch}, \hyperpage{20}
+    \subitem {Units}, \hyperpage{43}
+  \item {markunits}
+    \subitem {CCircuit.cpp}, \hyperpage{69}
+  \item {MAX\_GENERATION}
+    \subitem {GA$<$ T $>$}, \hyperpage{35}
+    \subitem {UnitTestGA}, \hyperpage{50}
+  \item {max\_iterations}
+    \subitem {Circuit\_Parameters}, \hyperpage{10}
+  \item {MULT\_PTS}
+    \subitem {GeneticAlgorithm.hpp}, \hyperpage{66}
+  \item {mult\_pts\_crossover}
+    \subitem {Crossover$<$ T $>$}, \hyperpage{12}
+  \item {mut\_cnt}
+    \subitem {GA$<$ T $>$}, \hyperpage{35}
+  \item {mut\_contrib}
+    \subitem {GA$<$ T $>$}, \hyperpage{35}
+  \item {mutate}
+    \subitem {GA$<$ T $>$}, \hyperpage{27}
+  \item {MUTATION\_RATE}
+    \subitem {GA$<$ T $>$}, \hyperpage{36}
+    \subitem {UnitTestGA}, \hyperpage{51}
+  \item {myCircuit}
+    \subitem {main.cpp}, \hyperpage{76}
+
+  \indexspace
+
+  \item {num\_units}
+    \subitem {Circuit}, \hyperpage{8}
+    \subitem {CircuitOptimizer}, \hyperpage{10}
+
+  \indexspace
+
+  \item {offspring}
+    \subitem {GA$<$ T $>$}, \hyperpage{36}
+  \item {ONE\_PT}
+    \subitem {GeneticAlgorithm.hpp}, \hyperpage{66}
+  \item {one\_pt\_crossover}
+    \subitem {Crossover$<$ T $>$}, \hyperpage{13}
+  \item {operator$<$}
+    \subitem {Individual$<$ T $>$}, \hyperpage{38}
+  \item {operator$<$$<$}
+    \subitem {DirectedGraph}, \hyperpage{23}
+    \subitem {DirectedGraph.cpp}, \hyperpage{73}
+  \item {operator$>$}
+    \subitem {Individual$<$ T $>$}, \hyperpage{39}
+  \item {operator+}
+    \subitem {Stream}, \hyperpage{41}
+  \item {operator+=}
+    \subitem {Stream}, \hyperpage{41}
+  \item {operator=}
+    \subitem {Individual$<$ T $>$}, \hyperpage{38}
+  \item {operator==}
+    \subitem {Individual$<$ T $>$}, \hyperpage{39}
+  \item {optimize}
+    \subitem {GA$<$ T $>$}, \hyperpage{28}
+
+  \indexspace
+
+  \item {PARALLEL}
+    \subitem {GeneticAlgorithm.hpp}, \hyperpage{65}
+  \item {phi}
+    \subitem {CUnit}, \hyperpage{17}
+  \item {POP\_SIZE}
+    \subitem {GA$<$ T $>$}, \hyperpage{36}
+  \item {population}
+    \subitem {GA$<$ T $>$}, \hyperpage{36}
+  \item {POPULATION\_SIZE}
+    \subitem {UnitTestGA}, \hyperpage{51}
+  \item {printChromosome}
+    \subitem {test\_Crossover.cpp}, \hyperpage{81}
+
+  \indexspace
+
+  \item {RandomDouble}
+    \subitem {GeneticAlgorithm.cpp}, \hyperpage{74}
+    \subitem {GeneticAlgorithm.hpp}, \hyperpage{66}
+  \item {RandomInt}
+    \subitem {GeneticAlgorithm.cpp}, \hyperpage{74}
+    \subitem {GeneticAlgorithm.hpp}, \hyperpage{66}
+  \item {rho}
+    \subitem {CUnit}, \hyperpage{17}
+  \item {Rosenbrock}
+    \subitem {test\_GeneticAlgorithm.cpp}, \hyperpage{85}
+  \item {run}
+    \subitem {UnitTestCircuit}, \hyperpage{44}
+    \subitem {UnitTestGA}, \hyperpage{49}
+
+  \indexspace
+
+  \item {scaledFitness}
+    \subitem {GA$<$ T $>$}, \hyperpage{36}
+  \item {selectParent}
+    \subitem {GA$<$ T $>$}, \hyperpage{29}
+  \item {setFitness}
+    \subitem {GA$<$ T $>$}, \hyperpage{29}
+  \item {setValidity}
+    \subitem {GA$<$ T $>$}, \hyperpage{29}
+  \item {Stream}, \hyperpage{40}
+    \subitem {\texorpdfstring{$\sim$}{\string~}Stream}, \hyperpage{41}
+    \subitem {ger}, \hyperpage{42}
+    \subitem {operator+}, \hyperpage{41}
+    \subitem {operator+=}, \hyperpage{41}
+    \subitem {Stream}, \hyperpage{41}
+    \subitem {waste}, \hyperpage{42}
+
+  \indexspace
+
+  \item {tail}
+    \subitem {CUnit}, \hyperpage{17}
+  \item {tails\_num}
+    \subitem {CUnit}, \hyperpage{18}
+    \subitem {Units}, \hyperpage{43}
+  \item {test}
+    \subitem {test\_CircuitEvaluation.cpp}, \hyperpage{79}
+  \item {test\_all.cpp}, \hyperpage{77}
+    \subitem {main}, \hyperpage{77}
+  \item {test\_Circuit.cpp}, \hyperpage{77, 78}
+  \item {test\_circuit\_evaluation}
+    \subitem {UnitTestCircuit}, \hyperpage{44}
+  \item {test\_circuit\_unit}
+    \subitem {UnitTestCircuit}, \hyperpage{44}
+  \item {test\_circuit\_validity}
+    \subitem {UnitTestCircuit}, \hyperpage{44}
+  \item {test\_CircuitEvaluation.cpp}, \hyperpage{79}
+    \subitem {main}, \hyperpage{79}
+    \subitem {test}, \hyperpage{79}
+  \item {test\_CircuitValidity.cpp}, \hyperpage{79}
+    \subitem {main}, \hyperpage{80}
+    \subitem {testValidity}, \hyperpage{80}
+  \item {test\_constructor}
+    \subitem {UnitTestIndividual}, \hyperpage{52}
+  \item {test\_Crossover.cpp}, \hyperpage{80, 81}
+    \subitem {crossover}, \hyperpage{81}
+    \subitem {printChromosome}, \hyperpage{81}
+  \item {test\_Cunit.cpp}, \hyperpage{83}
+    \subitem {main}, \hyperpage{83}
+  \item {test\_DirectedGraph.cpp}, \hyperpage{84}
+    \subitem {main}, \hyperpage{84}
+    \subitem {testDFS}, \hyperpage{84}
+    \subitem {testDigraph}, \hyperpage{85}
+  \item {test\_GeneticAlgorithm.cpp}, \hyperpage{85, 86}
+    \subitem {Rosenbrock}, \hyperpage{85}
+    \subitem {validity}, \hyperpage{86}
+  \item {test\_Get\_numUnits}
+    \subitem {UnitTestIndividual}, \hyperpage{52}
+  \item {test\_Get\_Set\_fitness}
+    \subitem {UnitTestIndividual}, \hyperpage{52}
+  \item {test\_Get\_vectorLength}
+    \subitem {UnitTestIndividual}, \hyperpage{52}
+  \item {test\_global\_optimum}
+    \subitem {UnitTestGA}, \hyperpage{49}
+  \item {test\_Individual.cpp}, \hyperpage{87}
+    \subitem {main}, \hyperpage{87}
+  \item {test\_mult\_pts\_crossover}
+    \subitem {UnitTestCrossover}, \hyperpage{46}
+  \item {test\_mutation}
+    \subitem {UnitTestGA}, \hyperpage{49}
+  \item {test\_one\_pt\_crossover}
+    \subitem {UnitTestCrossover}, \hyperpage{46}
+  \item {test\_RandomCircuit.cpp}, \hyperpage{87}
+    \subitem {generateRandomVector}, \hyperpage{88}
+    \subitem {main}, \hyperpage{88}
+  \item {test\_select\_parent}
+    \subitem {UnitTestGA}, \hyperpage{49}
+  \item {test\_two\_pts\_crossover}
+    \subitem {UnitTestCrossover}, \hyperpage{47}
+  \item {test\_uniform\_crossover}
+    \subitem {UnitTestCrossover}, \hyperpage{47}
+  \item {testDFS}
+    \subitem {test\_DirectedGraph.cpp}, \hyperpage{84}
+  \item {testDigraph}
+    \subitem {test\_DirectedGraph.cpp}, \hyperpage{85}
+  \item {testValidity}
+    \subitem {test\_CircuitValidity.cpp}, \hyperpage{80}
+  \item {toFile}
+    \subitem {Circuit}, \hyperpage{7}
+    \subitem {GA$<$ T $>$}, \hyperpage{30}
+  \item {tolerance}
+    \subitem {Circuit\_Parameters}, \hyperpage{10}
+  \item {tournamentSelection}
+    \subitem {GA$<$ T $>$}, \hyperpage{30}
+  \item {TWO\_PTS}
+    \subitem {GeneticAlgorithm.hpp}, \hyperpage{66}
+  \item {two\_pts\_crossover}
+    \subitem {Crossover$<$ T $>$}, \hyperpage{13}
+
+  \indexspace
+
+  \item {UNIFORM}
+    \subitem {GeneticAlgorithm.hpp}, \hyperpage{66}
+  \item {uniform\_crossover}
+    \subitem {Crossover$<$ T $>$}, \hyperpage{13}
+  \item {Units}, \hyperpage{42}
+    \subitem {conc\_num}, \hyperpage{43}
+    \subitem {marked}, \hyperpage{43}
+    \subitem {tails\_num}, \hyperpage{43}
+    \subitem {Units}, \hyperpage{42}
+  \item {units}
+    \subitem {Circuit}, \hyperpage{9}
+  \item {UnitTestCircuit}, \hyperpage{43}
+    \subitem {\texorpdfstring{$\sim$}{\string~}UnitTestCircuit}, 
+		\hyperpage{43}
+    \subitem {run}, \hyperpage{44}
+    \subitem {test\_circuit\_evaluation}, \hyperpage{44}
+    \subitem {test\_circuit\_unit}, \hyperpage{44}
+    \subitem {test\_circuit\_validity}, \hyperpage{44}
+    \subitem {UnitTestCircuit}, \hyperpage{43}
+  \item {UnitTestCrossover}, \hyperpage{45}
+    \subitem {\texorpdfstring{$\sim$}{\string~}UnitTestCrossover}, 
+		\hyperpage{45}
+    \subitem {test\_mult\_pts\_crossover}, \hyperpage{46}
+    \subitem {test\_one\_pt\_crossover}, \hyperpage{46}
+    \subitem {test\_two\_pts\_crossover}, \hyperpage{47}
+    \subitem {test\_uniform\_crossover}, \hyperpage{47}
+    \subitem {UnitTestCrossover}, \hyperpage{45}
+  \item {UnitTestGA}, \hyperpage{48}
+    \subitem {\texorpdfstring{$\sim$}{\string~}UnitTestGA}, 
+		\hyperpage{48}
+    \subitem {CHROMOMAX}, \hyperpage{50}
+    \subitem {CHROMOMIN}, \hyperpage{50}
+    \subitem {CHROMOSOME\_SIZE}, \hyperpage{50}
+    \subitem {CONV\_GEN}, \hyperpage{50}
+    \subitem {CROSSOVER\_RATE}, \hyperpage{50}
+    \subitem {ga}, \hyperpage{50}
+    \subitem {MAX\_GENERATION}, \hyperpage{50}
+    \subitem {MUTATION\_RATE}, \hyperpage{51}
+    \subitem {POPULATION\_SIZE}, \hyperpage{51}
+    \subitem {run}, \hyperpage{49}
+    \subitem {test\_global\_optimum}, \hyperpage{49}
+    \subitem {test\_mutation}, \hyperpage{49}
+    \subitem {test\_select\_parent}, \hyperpage{49}
+    \subitem {UnitTestGA}, \hyperpage{48}
+  \item {UnitTestIndividual}, \hyperpage{51}
+    \subitem {\texorpdfstring{$\sim$}{\string~}UnitTestIndividual}, 
+		\hyperpage{51}
+    \subitem {individual}, \hyperpage{53}
+    \subitem {test\_constructor}, \hyperpage{52}
+    \subitem {test\_Get\_numUnits}, \hyperpage{52}
+    \subitem {test\_Get\_Set\_fitness}, \hyperpage{52}
+    \subitem {test\_Get\_vectorLength}, \hyperpage{52}
+    \subitem {UnitTestIndividual}, \hyperpage{51}
+  \item {Unittests.h}, \hyperpage{88, 89}
+  \item {updatePopulation}
+    \subitem {GA$<$ T $>$}, \hyperpage{31}
+
+  \indexspace
+
+  \item {V}
+    \subitem {CUnit}, \hyperpage{18}
+  \item {validity}
+    \subitem {main.cpp}, \hyperpage{76}
+    \subitem {test\_GeneticAlgorithm.cpp}, \hyperpage{86}
+  \item {validity\_}
+    \subitem {GA$<$ T $>$}, \hyperpage{36}
+  \item {verbose}
+    \subitem {GA$<$ T $>$}, \hyperpage{37}
+  \item {visited}
+    \subitem {DepthFirstSearch}, \hyperpage{20}
+
+  \indexspace
+
+  \item {waste}
+    \subitem {Stream}, \hyperpage{42}
+  \item {writeToFile}
+    \subitem {DirectedGraph}, \hyperpage{23}
+
+\end{theindex}

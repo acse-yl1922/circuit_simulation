@@ -1,0 +1,55 @@
+\doxysection{test\+\_\+\+Random\+Circuit.\+cpp}
+\hypertarget{test___random_circuit_8cpp_source}{}\label{test___random_circuit_8cpp_source}\index{/Users/jr722/lecture/acs-\/gerardium-\/rush-\/pentlandite/tests/test\_RandomCircuit.cpp@{/Users/jr722/lecture/acs-\/gerardium-\/rush-\/pentlandite/tests/test\_RandomCircuit.cpp}}
+\mbox{\hyperlink{test___random_circuit_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_c_simulator_8h}{CSimulator.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_c_circuit_8h}{CCircuit.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00007}\mbox{\hyperlink{test___random_circuit_8cpp_ac2914bf0aef68cb2d67d31b573884b4d}{00007}}\ std::vector<int>\ \mbox{\hyperlink{test___random_circuit_8cpp_ac2914bf0aef68cb2d67d31b573884b4d}{generateRandomVector}}(\textcolor{keywordtype}{int}\ size,\ \textcolor{keywordtype}{int}\ minRange,\ \textcolor{keywordtype}{int}\ maxRange)}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00009}00009\ \ \ \ \ std::random\_device\ rd;}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00010}00010\ \ \ \ \ std::mt19937\ rng(rd());}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00011}00011\ \ \ \ \ std::uniform\_int\_distribution<int>\ dist(minRange,\ maxRange);}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00013}00013\ \ \ \ \ std::vector<int>\ randomVector(size);}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00016}00016\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ randomVector[i]\ =\ dist(rng);}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00018}00018\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{return}\ randomVector;}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00021}00021\ \}}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00023}\mbox{\hyperlink{test___random_circuit_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00023}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{test___random_circuit_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00024}00024\ \{}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_circuit___parameters}{Circuit\_Parameters}}\ default\_circuit\_parameters;}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{main_8cpp_a00e1c393a651c9c6ffc71bc0a6c16910}{validity}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{int}\ feeder\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_units\ =\ 5;}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00029}00029\ \ \ \ \ std::vector<int>\ circuit\_vector;}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00030}00030\ \ \ \ \ circuit\_vector.push\_back(feeder);}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{while}\ (!\mbox{\hyperlink{main_8cpp_a00e1c393a651c9c6ffc71bc0a6c16910}{validity}})}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00032}00032\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ std::vector<int>\ cvec\ =\ \mbox{\hyperlink{test___random_circuit_8cpp_ac2914bf0aef68cb2d67d31b573884b4d}{generateRandomVector}}(2\ *\ num\_units,\ 0,\ num\_units\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&i\ :\ cvec)}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ circuit\_vector.push\_back(i);}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a00e1c393a651c9c6ffc71bc0a6c16910}{validity}}\ =\ \mbox{\hyperlink{class_circuit_ad3a0bded22f5818ec068a742b0c7d69f}{Circuit::Check\_Validity}}(circuit\_vector);}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{main_8cpp_a00e1c393a651c9c6ffc71bc0a6c16910}{validity}})}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ circuit\_vector.clear();}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ circuit\_vector.push\_back(feeder);}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00044}00044\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{keywordtype}{double}\ value\ =\ \mbox{\hyperlink{_c_simulator_8cpp_a7e4678796fe4df1ca29d64c987d90ed6}{Evaluate\_Circuit}}(circuit\_vector,\ default\_circuit\_parameters);}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{class_circuit}{Circuit}}\ circuit(circuit\_vector);}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00047}00047\ \ \ \ \ circuit.\mbox{\hyperlink{class_circuit_a108c8fbee9bd02bb7af2648b877d5f09}{toFile}}();}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00048}00048\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Given\ test\ value:"{}}\ <<\ value\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{test___random_circuit_8cpp_source_l00049}00049\ \}}
+
+\end{DoxyCode}

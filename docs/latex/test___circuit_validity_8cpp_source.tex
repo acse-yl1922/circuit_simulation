@@ -1,0 +1,32 @@
+\doxysection{test\+\_\+\+Circuit\+Validity.\+cpp}
+\hypertarget{test___circuit_validity_8cpp_source}{}\label{test___circuit_validity_8cpp_source}\index{/Users/jr722/lecture/acs-\/gerardium-\/rush-\/pentlandite/tests/test\_CircuitValidity.cpp@{/Users/jr722/lecture/acs-\/gerardium-\/rush-\/pentlandite/tests/test\_CircuitValidity.cpp}}
+\mbox{\hyperlink{test___circuit_validity_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_c_circuit_8h}{CCircuit.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00003}\mbox{\hyperlink{test___circuit_validity_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00003}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{test___circuit_validity_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00004}00004\ \{}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00005}00005\ \ \ \ \ \textcolor{comment}{//\ Case\ 1}}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00006}00006\ \ \ \ \ std::vector<int>\ circuit\_vector1\ =\ \{0,\ 1,\ 2,\ 0,\ 2,\ 1,\ 0\};}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00007}00007\ \ \ \ \ \textcolor{comment}{//\ Case\ 2}}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00008}00008\ \ \ \ \ std::vector<int>\ circuit\_vector2\ =\ \{0,\ 1,\ 2,\ 1,\ 2,\ 3,\ 4\};}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{comment}{//\ Case\ 3}}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00010}00010\ \ \ \ \ std::vector<int>\ circuit\_vector3\ =\ \{0,\ 1,\ 1,\ 3,\ 2,\ 1,\ 4\};}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00011}00011\ \ \ \ \ \textcolor{comment}{//\ Case\ 4}}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00012}00012\ \ \ \ \ std::vector<int>\ circuit\_vector4\ =\ \{0,\ 1,\ 4,\ 3,\ 4,\ 3,\ 0\};}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00013}00013\ \ \ \ \ \textcolor{keywordtype}{bool}\ check1\ =\ \mbox{\hyperlink{class_circuit_ad3a0bded22f5818ec068a742b0c7d69f}{Circuit::Check\_Validity}}(circuit\_vector1);}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00014}00014\ \ \ \ \ \textcolor{keywordtype}{bool}\ check2\ =\ \mbox{\hyperlink{class_circuit_ad3a0bded22f5818ec068a742b0c7d69f}{Circuit::Check\_Validity}}(circuit\_vector2);}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{bool}\ check3\ =\ \mbox{\hyperlink{class_circuit_ad3a0bded22f5818ec068a742b0c7d69f}{Circuit::Check\_Validity}}(circuit\_vector3);}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{bool}\ check4\ =\ \mbox{\hyperlink{class_circuit_ad3a0bded22f5818ec068a742b0c7d69f}{Circuit::Check\_Validity}}(circuit\_vector4);}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (!check1\ \&\&\ !check2\ \&\&\ !check3\ \&\&\ !check4)}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00018}00018\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00020}00020\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00022}00022\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00024}00024\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{test___circuit_validity_8cpp_source_l00026}00026\ \}}
+
+\end{DoxyCode}
