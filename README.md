@@ -1,10 +1,3 @@
-# Gormanium rush
-
-## Deadlines
-
-- Code due 12 noon Friday 26th May
-- Video Presentation 4pm Friday 26th May
-
 ## Introducion
 In this project, the focus is on designing an optimal circuit to separate valuable material called gerardium. The circuit consists of multiple units arranged in different configurations. The goal is to maximize gerardium recovery while balancing the purity of the final product.
 
